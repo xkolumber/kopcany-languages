@@ -1,0 +1,15 @@
+{
+  "navbar":{
+    "about_project": "O projekte",
+    "monuments":"Pamiatky Veľkej Moravy",
+    "experience":"Zaži barokovú krajinu",
+    "masaryk": "Po stopách T.G. Masaryka",
+    "contact": "Kontakt"
+  },
+  "home_page":{
+    "title":"Lávkou cez Moravu"
+  },
+  "Index": {
+    "title": "Ahoj svet!"
+  }
+}

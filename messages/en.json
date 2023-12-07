@@ -1,0 +1,16 @@
+{
+  "navbar":{
+    "about_project": "About project",
+    "monuments":"Monuments of Great Moravia",
+    "experience":"Experience the Baroque landscape",
+    "masaryk": "Tracing the footsteps of T.G. Masaryk",
+    "contact": "Contact"
+  },
+  "home_page":{
+    "title":"The footbridge over the Morava River"
+  },
+  "Index": {
+    "title": "Hello world!"
+  }
+  }
+  
