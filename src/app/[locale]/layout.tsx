@@ -1,6 +1,11 @@
+import { Montserrat } from "next/font/google";
 import { notFound } from "next/navigation";
 import { ReactNode } from "react";
 
+const montserrat = Montserrat({
+  weight: ["400", "600", "700"],
+  subsets: ["latin"],
+});
 // Define the accepted locales
 const locales = ["sk", "cz", "en"];
 
@@ -16,7 +21,7 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
 
   return (
     <html lang={locale}>
-      <body>{children}</body>
+      <body className={montserrat.className}>{children}</body>
     </html>
   );
 }
