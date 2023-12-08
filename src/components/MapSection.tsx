@@ -7,9 +7,9 @@ const MapSection = () => {
       <Image
         src="/kopcany_video.jpg"
         alt="Video z Kopcian"
-        layout="responsive"
-        width={500}
-        height={500}
+        width={1000}
+        height={1000}
+        style={{ objectFit: "contain" }}
       />
 
       <h2 className="text-black">Mapa</h2>
@@ -20,9 +20,9 @@ const MapSection = () => {
       <Image
         src="/mapa.png"
         alt="Mapa okolia Záhoria"
-        layout="responsive"
-        width={500}
-        height={500}
+        width={1000}
+        height={1000}
+        style={{ objectFit: "contain" }}
       />
     </>
   );

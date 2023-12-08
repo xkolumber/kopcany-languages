@@ -4,12 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Theme } from "@/lib/interface_theme";
 import { urlFor } from "@/lib/sanityImageUrl";
+import { useLocale } from "next-intl";
 
 interface Props {
   theme: Theme;
 }
 
 const ThemesArticle = ({ theme }: Props) => {
+  const locale = useLocale();
   return (
     <div>
       <Image
@@ -20,7 +22,7 @@ const ThemesArticle = ({ theme }: Props) => {
         quality={75}
         className="theme_img"
       />
-      <Link href={`/theme/${theme.slug.current}`}>
+      <Link href={`/${locale}/theme/${theme.slug.current}`}>
         <div className="themes_padding">
           <h4 className="text_limit_h4">{theme.nazov_temy}</h4>
 
