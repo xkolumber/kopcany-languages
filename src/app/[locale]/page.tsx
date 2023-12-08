@@ -6,6 +6,9 @@ import Themes from "@/components/Themes";
 import ThreeThemesArticle from "@/components/ThreeThemesArticle";
 import { Theme } from "@/lib/interface_theme";
 import { client } from "@/lib/sanity";
+import AboutProject from "../../components/AboutProject";
+import Partners from "@/components/Partners";
+import Footer from "@/components/Footer";
 
 const page = async () => {
   const query = `*[_type=='themes']`;
@@ -23,7 +26,12 @@ const page = async () => {
           <SliderNews />
         </div>
         <Events />
+        <div className="padding_content">
+          <AboutProject />
+          <Partners />
+        </div>
       </main>
+      <Footer />
     </>
   );
 };

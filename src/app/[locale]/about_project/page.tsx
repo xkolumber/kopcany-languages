@@ -6,6 +6,7 @@ import { client } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImageUrl";
 import { useLocale } from "next-intl";
 import { About_project } from "../../../lib/interface_about_project";
+import Footer from "@/components/Footer";
 
 async function getData() {
   const query = `*[_type == "about_project"][0]`;
@@ -77,6 +78,7 @@ const Page = async () => {
         />
         <Partners />
       </div>
+      <Footer />
     </>
   );
 };

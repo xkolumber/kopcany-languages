@@ -6,6 +6,7 @@ import { urlFor } from "@/lib/sanityImageUrl";
 import { My_event } from "@/lib/interface_event";
 import Navbar from "@/components/Navbar";
 import Events from "@/components/Events";
+import Footer from "@/components/Footer";
 
 async function getData(slug: string) {
   const query = `*[_type == "events" && slug.current =="${slug}"][0]`;
@@ -50,6 +51,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         </div>
       </div>
       <Events />
+      <Footer />
     </>
   );
 };

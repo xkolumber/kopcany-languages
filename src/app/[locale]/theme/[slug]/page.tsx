@@ -5,6 +5,7 @@ import { Theme } from "@/lib/interface_theme";
 import { urlFor } from "@/lib/sanityImageUrl";
 import Partners from "@/components/Partners";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 async function getData(slug: string) {
   const query = `*[_type == "themes" && slug.current =="${slug}"][0]`;
@@ -67,6 +68,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
         />
         <Partners />
       </div>
+      <Footer />
     </>
   );
 };
