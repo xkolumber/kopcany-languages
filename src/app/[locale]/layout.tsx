@@ -1,21 +1,14 @@
 import { notFound } from "next/navigation";
 import { ReactNode } from "react";
 
-// Can be imported from a shared config
-export const locales = ["sk", "cz", "en"];
+const locales = ["sk", "cz", "en"];
 
 interface LocaleLayoutProps {
   children: ReactNode;
-  params: {
-    locale: string;
-  };
+  locale: string;
 }
 
-export default function LocaleLayout({
-  children,
-  params: { locale },
-}: LocaleLayoutProps) {
-  // Validate that the incoming `locale` parameter is valid
+const LocaleLayout = ({ children, locale }: LocaleLayoutProps) => {
   if (!locales.includes(locale)) notFound();
 
   return (
@@ -23,4 +16,6 @@ export default function LocaleLayout({
       <body>{children}</body>
     </html>
   );
-}
+};
+
+export default LocaleLayout;
