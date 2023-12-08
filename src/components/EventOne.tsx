@@ -4,14 +4,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { My_event } from "@/lib/interface_event";
 import { urlFor } from "@/lib/sanityImageUrl";
+import { useLocale } from "next-intl";
 
 interface Props {
   event: My_event;
 }
 const EventOne = ({ event }: Props) => {
+  const locale = useLocale();
   return (
     <div className={`event`}>
-      <Link href={`/event/${event.slug.current}`}>
+      <Link href={`/${locale}/event/${event.slug.current}`}>
         <Image
           src={urlFor(event.titulna_foto).url()}
           alt="Titulna foto"
