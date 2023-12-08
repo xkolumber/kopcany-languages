@@ -13,13 +13,13 @@ interface Props {
 const ThemesArticle = ({ theme }: Props) => {
   const locale = useLocale();
   return (
-    <div>
+    <div className="theme">
       <Image
         src={urlFor(theme.titulna_foto).url()}
         alt="Mapa okolia Záhoria"
         width={300}
         height={300}
-        quality={75}
+        quality={100}
         className="theme_img"
       />
       <Link href={`/${locale}/theme/${theme.slug.current}`}>

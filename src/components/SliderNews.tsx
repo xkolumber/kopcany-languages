@@ -6,7 +6,12 @@ import ArrowRight from "./ArrowRight";
 const SliderNews = () => {
   return (
     <>
-      <div className="slider_news_all ">
+      <div className="slider_news_all relative">
+        <div className="dots">
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+        </div>
         <h3 className="max-80vw">Premietanie filmu Veľká Morava a Slovania</h3>
         <p className="max-600px">
           but also the leap into electronic typesetting, but also the leap into
@@ -15,10 +20,11 @@ const SliderNews = () => {
           remaining essentially unchanged.
         </p>
         <button className="btn btn--primary">Prečítať viac</button>
-        <div className="flex flex-row gap-5 py-5">
+        <div className="arrows">
           <ArrowLeft />
           <ArrowRight />
         </div>
+        <img src="/event_draw.png" alt="Event picture" className="event_img" />
       </div>
     </>
   );
