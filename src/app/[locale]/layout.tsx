@@ -1,14 +1,17 @@
 import { notFound } from "next/navigation";
 import { ReactNode } from "react";
 
+// Define the accepted locales
 const locales = ["sk", "cz", "en"];
 
-interface LocaleLayoutProps {
+interface Props {
   children: ReactNode;
-  locale: string;
+  params: {
+    locale: string;
+  };
 }
 
-const LocaleLayout = ({ children, locale }: LocaleLayoutProps) => {
+export default function LocaleLayout({ children, params: { locale } }: Props) {
   if (!locales.includes(locale)) notFound();
 
   return (
@@ -16,6 +19,4 @@ const LocaleLayout = ({ children, locale }: LocaleLayoutProps) => {
       <body>{children}</body>
     </html>
   );
-};
-
-export default LocaleLayout;
+}
