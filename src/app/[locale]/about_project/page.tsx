@@ -85,6 +85,7 @@ const Page = async () => {
         <div className="skupina_obrazkov">
           {data2[0].skupina_obrazkov.map((obrazok: ImageAsset) => (
             <Image
+              key={obrazok.asset._id}
               src={urlFor(obrazok.asset.url).url()}
               alt="Mapa okolia Záhoria"
               width={300}
