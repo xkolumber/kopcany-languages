@@ -7,6 +7,13 @@ const Navbar = () => {
   const t = useTranslations("navbar");
 
   const locale = useLocale();
+
+  const about_project = t("about_project");
+  const monuments = t("monuments");
+  const experience = t("experience");
+  const masaryk = t("masaryk");
+  const contact = t("contact");
+
   return (
     <>
       <div className="navbar">
@@ -28,7 +35,13 @@ const Navbar = () => {
 
         <Switcher />
       </div>
-      <NavbarMobile />
+      <NavbarMobile
+        about_project={about_project}
+        monuments={monuments}
+        experience={experience}
+        masaryk={masaryk}
+        contact={contact}
+      />
     </>
   );
 };

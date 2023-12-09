@@ -4,12 +4,28 @@ import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import Image from "next/image";
+import { useLocale } from "next-intl";
+import Switcher from "./Switcher";
 
-const NavbarMobile = () => {
+interface Props {
+  about_project: string;
+  monuments: string;
+  experience: string;
+  masaryk: string;
+  contact: string;
+}
+
+const NavbarMobile = ({
+  about_project,
+  monuments,
+  experience,
+  masaryk,
+  contact,
+}: Props) => {
+  const locale = useLocale();
   const [clickedHamburger, setClickedHamburger] = useState(false);
   const toggleClickHamburger = () => {
     setClickedHamburger(!clickedHamburger);
-    console.log("clicked");
   };
   return (
     <div className="navbar-mobile">
@@ -21,40 +37,35 @@ const NavbarMobile = () => {
               onClick={toggleClickHamburger}
               className="hamburger_close"
             />
-            <Link href="/">
-              <p>O projekte</p>
+            <Link
+              href={`/${locale}/about_project`}
+              onClick={toggleClickHamburger}
+            >
+              <p> {about_project}</p>
             </Link>
-            <Link href="/theme/pamiatky-velkej-moravy">
-              <p>Pamiatky Veľkej Moravy</p>
+            <Link
+              href={`/${locale}/theme/pamiatky-velkej-moravy`}
+              onClick={toggleClickHamburger}
+            >
+              <p> {monuments}</p>
             </Link>
-            <Link href="/theme/zazi-barokovu-krajinu">
-              <p>Zaži barokovú krajinu</p>
+            <Link
+              href={`/${locale}/theme/zazi-barokovu-krajinu`}
+              onClick={toggleClickHamburger}
+            >
+              <p> {experience}</p>
             </Link>
-            <Link href="/theme/po-stopach-t-g-masaryka">
-              <p>Po stopách T.G. Masaryka</p>
+            <Link
+              href={`/${locale}/theme/po-stopach-t-g-masaryka`}
+              onClick={toggleClickHamburger}
+            >
+              <p> {masaryk}</p>
             </Link>
-            <Link href="/contact">
-              <p>Kontakt</p>
+            <Link href={`/${locale}/contact`} onClick={toggleClickHamburger}>
+              <p> {contact}</p>
             </Link>
             <div className="grid gap-3">
-              <Image
-                src="/lang_sk.svg"
-                alt="Slovensky jazyk"
-                width={20}
-                height={20}
-              />
-              <Image
-                src="/lang_cz.svg"
-                alt="Slovensky jazyk"
-                width={20}
-                height={20}
-              />
-              <Image
-                src="/lang_en.svg"
-                alt="Slovensky jazyk"
-                width={20}
-                height={20}
-              />
+              <Switcher />
             </div>
           </div>
         </>

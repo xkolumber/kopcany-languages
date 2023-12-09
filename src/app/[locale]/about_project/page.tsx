@@ -38,35 +38,47 @@ const Page = async () => {
   return (
     <>
       <div className="titulna_foto intro_padding padding_content">
+        <div className="bg_image_wrapper">
+          <Image
+            src={urlFor(data.titulna_foto).url()}
+            alt="Mapa okolia Záhoria"
+            fill={true}
+            style={{
+              objectFit: "cover",
+            }}
+          />
+        </div>
+
+        <div className="bg_image_dark_wrapper">
+          <Image
+            src="/dark.png"
+            alt="Dark section"
+            fill={true}
+            style={{ objectFit: "cover" }}
+            className="bg_image_dark"
+          />
+        </div>
         <Navbar />
-        <Image
-          src={urlFor(data.titulna_foto).url()}
-          alt="Mapa okolia Záhoria"
-          fill={true}
-          style={{
-            objectFit: "cover",
-          }}
-        />
       </div>
       <div className="padding_content bg-white">
         <h1 className="text-black">
           {data.nazov_temy[locale as keyof typeof data.nazov_temy]}
         </h1>
-        <div className="flex flex-col lg:flex-row lg:items-center">
-          <p className="text-black lg:w-3/6">
+        <div className="text_picture">
+          <p className="text-black ">
             {data.uvodny_text[locale as keyof typeof data.nazov_temy]}
           </p>
-          <div className="lg:ml-4 lg:w-6/12">
-            <Image
-              src={urlFor(data.kresleny_obrazok).url()}
-              alt="Mapa okolia Záhoria"
-              width={300}
-              height={200}
-              style={{
-                objectFit: "contain",
-              }}
-            />
-          </div>
+
+          <Image
+            src={urlFor(data.kresleny_obrazok).url()}
+            alt="Mapa okolia Záhoria"
+            width={300}
+            height={200}
+            className="theme_product_img"
+            style={{
+              objectFit: "contain",
+            }}
+          />
         </div>
         <Image
           src={urlFor(data.foto_stred_clanku).url()}
