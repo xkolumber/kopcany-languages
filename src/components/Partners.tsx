@@ -4,7 +4,7 @@ import Image from "next/image";
 const Partners = () => {
   return (
     <>
-      <h2 className="text-black">Partneri</h2>
+      <h2 className="text-black partners_title">Partneri</h2>
       <p className="text-black">Toto sú naši partneri</p>
       <div className="partners">
         <Image

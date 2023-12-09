@@ -22,7 +22,7 @@ export interface About_project{
         cz:string;
         en:string;
     };
-    mapa_oblast:string;
+    mapa:string;
     skupina_obrazkov: Array<{
         _type: 'image'; 
         asset: {

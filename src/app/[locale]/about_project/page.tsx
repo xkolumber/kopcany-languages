@@ -94,12 +94,20 @@ const Page = async () => {
           {data.pokracovanie_text[locale as keyof typeof data.nazov_temy]}
         </p>
 
+        <Image
+          src={urlFor(data.mapa).url()}
+          alt="Mapa okolia Záhoria"
+          width={1000}
+          height={1000}
+          className="full_width_image_mapa"
+        />
+
         <div className="skupina_obrazkov">
           {data2[0].skupina_obrazkov.map((obrazok: ImageAsset) => (
             <Image
               key={obrazok.asset._id}
               src={urlFor(obrazok.asset.url).url()}
-              alt="Mapa okolia Záhoria"
+              alt="Additional photo"
               width={300}
               height={300}
               quality={100}
