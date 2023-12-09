@@ -7,6 +7,7 @@ import { urlFor } from "@/lib/sanityImageUrl";
 import { useLocale } from "next-intl";
 import { About_project } from "../../../lib/interface_about_project";
 import Footer from "@/components/Footer";
+import { ImageAsset } from "@/lib/interface_photos";
 
 async function getData() {
   const query = `*[_type == "about_project"][0]`;
@@ -14,8 +15,23 @@ async function getData() {
   return data;
 }
 
+async function getPhotos() {
+  const query = `*[_type == "about_project"]{
+  skupina_obrazkov[]{
+         asset->{
+      _id,
+      url
+    }
+     }
+}`;
+  const data = await client.fetch(query);
+  return data;
+}
+
 const Page = async () => {
   const data = (await getData()) as About_project;
+
+  const data2 = await getPhotos();
 
   const locale = useLocale();
 
@@ -57,7 +73,7 @@ const Page = async () => {
           alt="Mapa okolia Záhoria"
           width={1000}
           height={1000}
-          className="w-full"
+          className="full_width_image"
           style={{
             objectFit: "cover",
           }}
@@ -66,16 +82,19 @@ const Page = async () => {
           {data.pokracovanie_text[locale as keyof typeof data.nazov_temy]}
         </p>
 
-        <Image
-          src={urlFor(data.zaverecna_foto).url()}
-          alt="Mapa okolia Záhoria"
-          width={1000}
-          height={1000}
-          className="w-full"
-          style={{
-            objectFit: "cover",
-          }}
-        />
+        <div className="skupina_obrazkov">
+          {data2[0].skupina_obrazkov.map((obrazok: ImageAsset) => (
+            <Image
+              src={urlFor(obrazok.asset.url).url()}
+              alt="Mapa okolia Záhoria"
+              width={300}
+              height={300}
+              quality={100}
+              className="theme_img"
+            />
+          ))}
+        </div>
+
         <Partners />
       </div>
       <Footer />

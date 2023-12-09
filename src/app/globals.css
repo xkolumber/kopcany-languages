@@ -490,3 +490,26 @@ p {
 
   }
 }
+
+/*Skupina obrazkov*/
+
+.skupina_obrazkov{
+  display:grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.6rem;
+}
+@media (min-width:768px){
+  .skupina_obrazkov{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.full_width_image{
+  width: 100%;
+  height: 250px;
+}
+@media (min-width:768px){
+  .full_width_image{
+    min-height: 500px;
+  }
+}

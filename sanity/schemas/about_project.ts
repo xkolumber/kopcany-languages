@@ -114,11 +114,12 @@ export default{
               hotspot: true, 
             },
           },
-        {
-            name:'skupina_obrazkov',
-            type:'string',
-            title:'Skupina obrázkov'
-        },
+          {
+            name: 'skupina_obrazkov',
+            title: 'Skupina obrázkov',
+            type: 'array',
+            of: [{ type: 'image' }]
+           },
         {
             name: 'zaverecna_foto',
             type: 'image',

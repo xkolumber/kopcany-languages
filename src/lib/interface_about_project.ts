@@ -1,3 +1,4 @@
+
 export interface About_project{
     nazov_temy:{
         sk:string;
@@ -21,7 +22,15 @@ export interface About_project{
         cz:string;
         en:string;
     };
-    skupina_obrazkov:string;
+    mapa_oblast:string;
+    skupina_obrazkov: Array<{
+        _type: 'image'; 
+        asset: {
+          _ref: string; 
+         
+        };
+       
+      }>;
     zaverecna_foto:string;
 
 }
