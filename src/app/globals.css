@@ -457,6 +457,13 @@ p {
   flex-direction: row;
   align-items: center;
   cursor: pointer;
+  gap:1.6rem;
+}
+.languages img{
+  opacity: 0.2;
+}
+.active{
+  opacity: 1 !important;
 }
 @media (min-width: 768px) {
   .navbar {

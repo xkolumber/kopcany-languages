@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocale } from "next-intl";
 import Image from "next/image";
 import { useParams, usePathname, useRouter } from "next/navigation";
 
@@ -8,12 +9,8 @@ const Switcher = () => {
   const pathname = usePathname();
 
   const switchLang = (lang: string) => {
-    router.replace(`/${lang}/${pathname.substring(4)}`); // Optionally, navigate to the corresponding route
+    router.replace(`/${lang}/${pathname.substring(4)}`);
   };
-
-  console.log(pathname);
-
-  console.log(pathname.substring(4));
 
   return (
     <>
@@ -24,10 +21,17 @@ const Switcher = () => {
             alt="Slovensky jazyk"
             width={20}
             height={20}
+            className={`${useLocale() === "sk" ? "active" : ""} languages_img`}
           />
         </span>
         <span onClick={() => switchLang("cz")}>
-          <Image src="/lang_cz.svg" alt="Cesky jazyk" width={20} height={20} />
+          <Image
+            src="/lang_cz.svg"
+            alt="Cesky jazyk"
+            width={20}
+            height={20}
+            className={`${useLocale() === "cz" ? "active" : ""} languages_img`}
+          />
         </span>
         <span onClick={() => switchLang("en")}>
           <Image
@@ -35,6 +39,7 @@ const Switcher = () => {
             alt="Anglicky jazyk"
             width={20}
             height={20}
+            className={`${useLocale() === "en" ? "active" : ""} languages_img`}
           />
         </span>
       </div>
