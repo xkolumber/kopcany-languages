@@ -56,16 +56,19 @@ const page = async ({ params }: { params: { slug: string } }) => {
         />
         <p className="text-black">{data.pokracovanie_text}</p>
 
-        <Image
-          src={urlFor(data.dalsia_foto3).url()}
-          alt="Mapa okolia Záhoria"
-          width={1000}
-          height={1000}
-          className="w-full"
-          style={{
-            objectFit: "cover",
-          }}
-        />
+        {data.dalsia_foto3 && (
+          <Image
+            src={urlFor(data.dalsia_foto3).url()}
+            alt="Mapa okolia Záhoria"
+            width={1000}
+            height={1000}
+            className="w-full"
+            style={{
+              objectFit: "cover",
+            }}
+          />
+        )}
+
         <Partners />
       </div>
       <Footer />
