@@ -54,18 +54,19 @@ export default{
             title:'Pokračovanie článku'
         },
         {
-          name: 'mapa_oblast',
+          name: 'mapa_oblastt',
           type: 'image',
-          title: 'Súvisiaca mapa',
+          title: 'Mapa',
           options: {
             hotspot: true, 
           },
       },
-        {
-            name:'skupina_obrazkov',
-            type:'string',
-            title:'Skupina obrázkov'
-        },
+      {
+        name: 'skupina_obrazkov',
+        title: 'Skupina obrázkov',
+        type: 'array',
+        of: [{ type: 'image' }]
+       },
         {
           name:'komentar_skupina_obrazkov',
           type:'string',
@@ -85,10 +86,11 @@ export default{
             title:'Komentár ku fotke'
         },
         {
-          name:'skupina_obrazkov2',
-          type:'string',
-          title:'Skupina obrázkov 2'
-      },
+          name: 'skupina_obrazkov2',
+          title: 'Skupina obrázkov 2',
+          type: 'array',
+          of: [{ type: 'image' }]
+         },
       {
         name:'komentar_skupina_obrazkov2',
         type:'string',
@@ -108,10 +110,11 @@ export default{
       title:'Komentár ku fotke'
   },
   {
-    name:'skupina_obrazkov3',
-    type:'string',
-    title:'Skupina obrázkov 3'
-},
+    name: 'skupina_obrazkov_3',
+    title: 'Skupina obrázkov 3',
+    type: 'array',
+    of: [{ type: 'image' }]
+   },
 {
   name:'komentar_skupina_obrazkov3',
   type:'string',

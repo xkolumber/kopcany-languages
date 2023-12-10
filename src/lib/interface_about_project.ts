@@ -23,14 +23,6 @@ export interface About_project{
         en:string;
     };
     mapa:string;
-    skupina_obrazkov: Array<{
-        _type: 'image'; 
-        asset: {
-          _ref: string; 
-         
-        };
-       
-      }>;
     zaverecna_foto:string;
 
 }

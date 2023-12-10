@@ -8,7 +8,7 @@ export interface Theme{
     kresleny_obrazok: string;
     uvodny_text: string;
     foto_stred_clanku: string;
-    mapa_oblast: string;
+    mapa_oblastt: string;
     pokracovanie_text:string;
     skupina_obrazkov:string;
     komentar_skupina_obrazkov:string;
@@ -18,11 +18,8 @@ export interface Theme{
     komentar_skupina_obrazkov2:string;
     dalsia_foto2:string;
     komentar_fotka2:string;
-    skupina_obrazkov3:string;
+    skupina_obrazkov_3:string;
     komentar_skupina_obrazkov3:string;
     dalsia_foto3:string;
     komentar_fotka3:string;
-
-
-
 }
