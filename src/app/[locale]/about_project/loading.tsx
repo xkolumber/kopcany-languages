@@ -1,16 +1,9 @@
 import Image from "next/image";
 
-import { client } from "@/lib/sanity";
-import { Theme } from "@/lib/interface_theme";
-import { urlFor } from "@/lib/sanityImageUrl";
-import Partners from "@/components/Partners";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { ImageAsset } from "@/lib/interface_photos";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-const loading = async () => {
+const loading = () => {
   return (
     <>
       <div className="titulna_foto intro_padding padding_content">
@@ -24,12 +17,24 @@ const loading = async () => {
           />
         </div>
         <div className="skeleton_navbar">
-          <Skeleton count={1} width={130} />
-          <Skeleton count={1} width={130} />
-          <Skeleton count={1} width={130} />
-          <Skeleton count={1} width={130} />
-          <Skeleton count={1} width={130} />
-          <Skeleton count={1} width={130} />
+          <div className="skeleton_navbar_item">
+            <Skeleton count={1} />
+          </div>
+          <div className="skeleton_navbar_item">
+            <Skeleton count={1} />
+          </div>
+          <div className="skeleton_navbar_item">
+            <Skeleton count={1} />
+          </div>
+          <div className="skeleton_navbar_item">
+            <Skeleton count={1} />
+          </div>
+          <div className="skeleton_navbar_item">
+            <Skeleton count={1} />
+          </div>
+          <div className="skeleton_navbar_item">
+            <Skeleton count={1} />
+          </div>
         </div>
       </div>
       <div className="padding_content bg-white">

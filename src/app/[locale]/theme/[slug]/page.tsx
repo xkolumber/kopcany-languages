@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import { ImageAsset } from "@/lib/interface_photos";
 import { useLocale } from "next-intl";
 import { Suspense } from "react";
+import GroupPictures from "@/components/GroupPictures";
 
 async function getData(slug: string) {
   const query = `*[_type == "themes" && slug.current =="${slug}"][0]`;
@@ -104,19 +105,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         />
 
         {data2[0].skupina_obrazkov && (
-          <div className="skupina_obrazkov">
-            {data2[0].skupina_obrazkov.map((obrazok: ImageAsset) => (
-              <Image
-                key={obrazok.asset._id}
-                src={urlFor(obrazok.asset.url).url()}
-                alt="Additional photo"
-                width={300}
-                height={300}
-                quality={100}
-                className="theme_img"
-              />
-            ))}
-          </div>
+          <GroupPictures data={data2[0]} parameter="skupina_obrazkov" />
         )}
 
         {data.dalsia_foto && (
@@ -138,19 +127,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         )}
 
         {data3[0].skupina_obrazkov2 && (
-          <div className="skupina_obrazkov">
-            {data3[0].skupina_obrazkov2.map((obrazok: ImageAsset) => (
-              <Image
-                key={obrazok.asset._id}
-                src={urlFor(obrazok.asset.url).url()}
-                alt="Additional photo"
-                width={300}
-                height={300}
-                quality={100}
-                className="theme_img"
-              />
-            ))}
-          </div>
+          <GroupPictures data={data3[0]} parameter="skupina_obrazkov2" />
         )}
         {data.komentar_skupina_obrazkov2 && (
           <p className="text-black">
@@ -181,19 +158,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         )}
 
         {data4[0].skupina_obrazkov_3 && (
-          <div className="skupina_obrazkov">
-            {data4[0].skupina_obrazkov_3.map((obrazok: ImageAsset) => (
-              <Image
-                key={obrazok.asset._id}
-                src={urlFor(obrazok.asset.url).url()}
-                alt="Additional photo"
-                width={300}
-                height={300}
-                quality={100}
-                className="theme_img"
-              />
-            ))}
-          </div>
+          <GroupPictures data={data4[0]} parameter="skupina_obrazkov_3" />
         )}
         {data.komentar_skupina_obrazkov3 && (
           <p className="text-black">

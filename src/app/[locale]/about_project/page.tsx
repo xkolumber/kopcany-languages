@@ -8,6 +8,7 @@ import { useLocale } from "next-intl";
 import { About_project } from "../../../lib/interface_about_project";
 import Footer from "@/components/Footer";
 import { ImageAsset } from "@/lib/interface_photos";
+import GroupPictures from "@/components/GroupPictures";
 
 async function getData() {
   const query = `*[_type == "about_project"][0]`;
@@ -102,19 +103,7 @@ const Page = async () => {
           className="full_width_image_mapa"
         />
 
-        <div className="skupina_obrazkov">
-          {data2[0].skupina_obrazkov.map((obrazok: ImageAsset) => (
-            <Image
-              key={obrazok.asset._id}
-              src={urlFor(obrazok.asset.url).url()}
-              alt="Additional photo"
-              width={300}
-              height={300}
-              quality={100}
-              className="theme_img"
-            />
-          ))}
-        </div>
+        <GroupPictures data={data2[0]} parameter="skupina_obrazkov" />
 
         <Partners />
       </div>

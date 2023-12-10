@@ -4,6 +4,7 @@ html {
 }
 body {
   margin: 0;
+  font-family: '__Montserrat_d9370c', '__Montserrat_Fallback_d9370c';
 }
 :root {
   --primary-color: #ffffff;
@@ -218,6 +219,7 @@ p {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  cursor: pointer;
 }
 .text_limit_p {
   overflow: hidden;
@@ -464,12 +466,20 @@ p {
   opacity: 1 !important;
 }
 @media (min-width: 768px) {
+  .languages{
+    gap:1rem;
+  }
   .navbar {
     display: flex;
   }
   .navbar-mobile {
     display: none;
   }
+}
+@media (min-width: 768px) {
+.languages{
+  gap: 1.6rem;
+}
 }
 
 /*Footer*/
@@ -623,7 +633,72 @@ p {
   justify-content: space-between;
   margin-top: 1rem;
 }
+.skeleton_navbar_item{
+  width: 80px;
+}
 .skeleton_text{
   width: 50%;
 }
+}
+@media (min-width:1024px){
+
+.skeleton_navbar_item{
+  width: 130px;
+}
+}
+
+
+/*Custom gallery*/
+
+.custom-gallery-container, .custom-gallery-image {
+  display: none;
+}
+@media (min-width:768px){
+.custom-gallery-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: var(--tertiary-color);
+  opacity: 0.7;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.custom-gallery-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  display: flex;
+  flex-direction: row;
+}
+
+.custom-gallery {
+  height: 100%;
+  width: 80vw;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.custom-gallery-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.custom-gallery-close{
+  position: fixed;
+  top: 10px;
+  right: 48px;
+  cursor: pointer;
+}
+.arrow-space{
+ margin:auto;
+ padding: 1rem;
+}
+
 }
