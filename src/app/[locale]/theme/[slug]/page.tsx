@@ -7,6 +7,7 @@ import Partners from "@/components/Partners";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ImageAsset } from "@/lib/interface_photos";
+import { useLocale } from "next-intl";
 
 async function getData(slug: string) {
   const query = `*[_type == "themes" && slug.current =="${slug}"][0]`;
@@ -25,39 +26,14 @@ async function getPhotos(slug: string, skupina_obrazkov: string) {
   const data = await client.fetch(query);
   return data;
 }
-async function getMap(slug: string) {
-  const query = `*[_type == "themes" && slug.current == "${slug}"]{
-    mapa_oblastt { asset->{
-      _id,
-      url
-  }}
-  }`;
-  const data = await client.fetch(query);
-  return data;
-}
 
-async function getPhoto(slug: string, dalsia_foto: string) {
-  const query = `*[_type == "themes" && slug.current == "${slug}"]{
-    ${dalsia_foto}{ asset->{
-      _id,
-      url
-  }}
-  }`;
-  const data = await client.fetch(query);
-  return data;
-}
-
-const page = async ({ params }: { params: { slug: string } }) => {
+const Page = async ({ params }: { params: { slug: string } }) => {
   const data = (await getData(params.slug)) as Theme;
   const data2 = await getPhotos(params.slug, "skupina_obrazkov");
   const data3 = await getPhotos(params.slug, "skupina_obrazkov2");
   const data4 = await getPhotos(params.slug, "skupina_obrazkov_3");
 
-  const mapp = await getMap(params.slug);
-
-  const data_dalsia_foto = await getPhoto(params.slug, "dalsia_foto");
-  const data_dalsia_foto2 = await getPhoto(params.slug, "dalsia_foto2");
-  const data_dalsia_foto3 = await getPhoto(params.slug, "dalsia_foto3");
+  const locale = useLocale();
 
   return (
     <>
@@ -84,9 +60,13 @@ const page = async ({ params }: { params: { slug: string } }) => {
         <Navbar />
       </div>
       <div className="padding_content bg-white">
-        <h1 className="text-black">{data.nazov_temy}</h1>
+        <h1 className="text-black">
+          {data.nazov_temy[locale as keyof typeof data.nazov_temy]}
+        </h1>
         <div className="text_picture">
-          <p className="text-black ">{data.uvodny_text}</p>
+          <p className="text-black ">
+            {data.uvodny_text[locale as keyof typeof data.nazov_temy]}
+          </p>
 
           <Image
             src={urlFor(data.kresleny_obrazok).url()}
@@ -109,10 +89,12 @@ const page = async ({ params }: { params: { slug: string } }) => {
             objectFit: "cover",
           }}
         />
-        <p className="text-black">{data.pokracovanie_text}</p>
+        <p className="text-black">
+          {data.pokracovanie_text[locale as keyof typeof data.nazov_temy]}
+        </p>
 
         <Image
-          src={urlFor(mapp[0].mapa_oblastt.asset.url as ImageAsset).url()}
+          src={urlFor(data.mapa_oblastt).url()}
           alt="Mapa okolia Záhoria"
           width={1000}
           height={1000}
@@ -135,9 +117,9 @@ const page = async ({ params }: { params: { slug: string } }) => {
           </div>
         )}
 
-        {data_dalsia_foto[0].dalsia_foto && (
+        {data.dalsia_foto && (
           <Image
-            src={urlFor(data_dalsia_foto[0].dalsia_foto.asset.url).url()}
+            src={urlFor(data.dalsia_foto).url()}
             alt="Mapa okolia Záhoria"
             width={1000}
             height={1000}
@@ -148,7 +130,9 @@ const page = async ({ params }: { params: { slug: string } }) => {
           />
         )}
         {data.komentar_fotka && (
-          <p className="text-black">{data.komentar_fotka}</p>
+          <p className="text-black">
+            {data.komentar_fotka[locale as keyof typeof data.nazov_temy]}
+          </p>
         )}
 
         {data3[0].skupina_obrazkov2 && (
@@ -166,10 +150,19 @@ const page = async ({ params }: { params: { slug: string } }) => {
             ))}
           </div>
         )}
+        {data.komentar_skupina_obrazkov2 && (
+          <p className="text-black">
+            {
+              data.komentar_skupina_obrazkov2[
+                locale as keyof typeof data.nazov_temy
+              ]
+            }
+          </p>
+        )}
 
-        {data_dalsia_foto2[0].dalsia_foto2 && (
+        {data.dalsia_foto2 && (
           <Image
-            src={urlFor(data_dalsia_foto2[0].dalsia_foto2.asset.url).url()}
+            src={urlFor(data.dalsia_foto2).url()}
             alt="Historicka foto"
             width={1000}
             height={1000}
@@ -178,6 +171,11 @@ const page = async ({ params }: { params: { slug: string } }) => {
               objectFit: "cover",
             }}
           />
+        )}
+        {data.komentar_fotka2 && (
+          <p className="text-black">
+            {data.komentar_fotka2[locale as keyof typeof data.nazov_temy]}
+          </p>
         )}
 
         {data4[0].skupina_obrazkov_3 && (
@@ -195,10 +193,19 @@ const page = async ({ params }: { params: { slug: string } }) => {
             ))}
           </div>
         )}
+        {data.komentar_skupina_obrazkov3 && (
+          <p className="text-black">
+            {
+              data.komentar_skupina_obrazkov3[
+                locale as keyof typeof data.nazov_temy
+              ]
+            }
+          </p>
+        )}
 
-        {data_dalsia_foto3[0].dalsia_foto3 && (
+        {data.dalsia_foto3 && (
           <Image
-            src={urlFor(data_dalsia_foto3[0].dalsia_foto3.asset.url).url()}
+            src={urlFor(data.dalsia_foto3).url()}
             alt="Historicka foto"
             width={1000}
             height={1000}
@@ -208,6 +215,11 @@ const page = async ({ params }: { params: { slug: string } }) => {
             }}
           />
         )}
+        {data.komentar_fotka3 && (
+          <p className="text-black">
+            {data.komentar_fotka3[locale as keyof typeof data.nazov_temy]}
+          </p>
+        )}
 
         <Partners />
       </div>
@@ -216,4 +228,6 @@ const page = async ({ params }: { params: { slug: string } }) => {
   );
 };
 
-export default page;
+export const dynamic = "force-dynamic";
+
+export default Page;
