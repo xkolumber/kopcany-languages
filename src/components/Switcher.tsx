@@ -22,6 +22,7 @@ const Switcher = () => {
             width={20}
             height={20}
             className={`${useLocale() === "sk" ? "active" : ""} languages_img`}
+            priority={true}
           />
         </span>
         <span onClick={() => switchLang("cz")}>
@@ -31,6 +32,7 @@ const Switcher = () => {
             width={20}
             height={20}
             className={`${useLocale() === "cz" ? "active" : ""} languages_img`}
+            priority={true}
           />
         </span>
         <span onClick={() => switchLang("en")}>
@@ -40,6 +42,7 @@ const Switcher = () => {
             width={20}
             height={20}
             className={`${useLocale() === "en" ? "active" : ""} languages_img`}
+            priority={true}
           />
         </span>
       </div>

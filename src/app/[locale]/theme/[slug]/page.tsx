@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ImageAsset } from "@/lib/interface_photos";
 import { useLocale } from "next-intl";
+import { Suspense } from "react";
 
 async function getData(slug: string) {
   const query = `*[_type == "themes" && slug.current =="${slug}"][0]`;
@@ -46,6 +47,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
             style={{
               objectFit: "cover",
             }}
+            priority={true}
           />
         </div>
         <div className="bg_image_dark_wrapper">

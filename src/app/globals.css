@@ -603,3 +603,27 @@ p {
   }
 
 }
+
+
+/*skeleton**/
+
+.skeleton_navbar{
+  display: none;
+}
+.skeleton_nadpis{
+  width: 85%;
+}
+.skeleton_text{
+  width: 100%;
+}
+@media (min-width:768px){
+.skeleton_navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.skeleton_text{
+  width: 50%;
+}
+}
