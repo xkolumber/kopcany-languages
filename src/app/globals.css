@@ -85,7 +85,6 @@ p {
   padding-left: 1.6rem;
   padding-right: 1.6rem;
   padding-bottom: 1.6rem;
-  min-height: 100vh;
   color: white;
 }
 
@@ -94,6 +93,16 @@ p {
   width: 100%;
   margin:auto;
   object-fit: cover;
+}
+.intro_first{
+  font-size: 4rem !important;
+}
+.intro_second{
+  font-size: 4.8rem !important;
+}
+.home_intro{
+  min-height: 100vh;
+  display: flex;
 }
 
 .padding_content p {
@@ -149,6 +158,9 @@ p {
 /*Custom */
 .max-600px {
   max-width: 600px;
+}
+.width_100{
+  width: 100%;
 }
 
 .relative {
