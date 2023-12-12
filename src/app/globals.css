@@ -306,6 +306,7 @@ p {
   margin-top: 5rem;
   gap: 2rem;
   display: flex;
+  cursor: pointer;
 }
 .dots{
   gap: 1.6rem;
@@ -316,6 +317,17 @@ p {
   height: 0.8rem;
   width: 0.8rem;
   background-color: black;
+  opacity: 0.2;
+}
+.active-dot{
+  opacity: 1 !important;
+}
+.slider_news_max{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 @media (min-width: 768px) {
