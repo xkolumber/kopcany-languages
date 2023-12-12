@@ -104,6 +104,26 @@ p {
   min-height: 100vh;
   display: flex;
 }
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Adjust this based on your layout */
+  overflow: hidden;
+}
+
+.imageContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}  
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .padding_content p {
   font-size: 1.6rem;
