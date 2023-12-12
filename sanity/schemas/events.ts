@@ -7,15 +7,33 @@ export default{
     fields: [
         {
             name:'nazov_podujatia',
-            type:'string',
-            title:'Názov podujatia'
+            type:'object',
+            title:'Názov podujatia',
+            fields:[
+                {
+                    title:'Slovensky',
+                    name:'sk',
+                    type:'string'
+                },
+                {
+                    title:'Anglicky',
+                    name:'en',
+                    type:'string'
+                },
+                {
+                    title:'Česky',
+                    name:'cz',
+                    type:'string'
+                }
+               
+            ]
         },
         {
             name:'slug',
             type:'slug',
             title:'Slug',
             options: {
-                source:'nazov_podujatia',
+                source:'nazov_podujatia.sk',
             }
         },
         {
@@ -26,15 +44,51 @@ export default{
               hotspot: true, 
             },
           },
-        {
+          {
             name:'text_podujatie',
-            type:'string',
-            title:'Text o podujatí'
+            type:'object',
+            title:'Text o podujatí',
+            fields:[
+                {
+                    title:'Slovensky',
+                    name:'sk',
+                    type:'string'
+                },
+                {
+                    title:'Anglicky',
+                    name:'en',
+                    type:'string'
+                },
+                {
+                    title:'Česky',
+                    name:'cz',
+                    type:'string'
+                }
+               
+            ]
         },
         {
             name:'kde',
-            type:'string',
-            title:'Kde'
+            type:'object',
+            title:'Kde',
+            fields:[
+                {
+                    title:'Slovensky',
+                    name:'sk',
+                    type:'string'
+                },
+                {
+                    title:'Anglicky',
+                    name:'en',
+                    type:'string'
+                },
+                {
+                    title:'Česky',
+                    name:'cz',
+                    type:'string'
+                }
+               
+            ]
         },
         {
             name:'kedy',

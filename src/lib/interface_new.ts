@@ -1,5 +1,6 @@
-export interface My_event{
-    nazov_podujatia:{
+
+export interface Interface_new{
+    nazov_aktuality:{
         sk:string;
         cz:string;
         en:string;
@@ -9,18 +10,9 @@ export interface My_event{
         current: string;
     };
     titulna_foto: string;
-    text_podujatie:{
+    text_aktualita:{
         sk:string;
         cz:string;
         en:string;
     };
-    kde:{
-        sk:string;
-        cz:string;
-        en:string;
-    };
-    kedy:string;
-    vstup_bezna_cena:string;
-    vstup_vip:string;
-
 }

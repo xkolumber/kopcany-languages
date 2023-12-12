@@ -23,9 +23,13 @@ const EventOne = ({ event }: Props) => {
         />
 
         <div className="themes_padding">
-          <h4 className="text_limit_h4 text-black">{event.nazov_podujatia}</h4>
+          <h4 className="text_limit_h4 text-black">
+            {event.nazov_podujatia[locale as keyof typeof event.text_podujatie]}
+          </h4>
 
-          <p className="text-black">{event.text_podujatie}</p>
+          <p className="text-black">
+            {event.text_podujatie[locale as keyof typeof event.text_podujatie]}
+          </p>
         </div>
       </Link>
     </div>

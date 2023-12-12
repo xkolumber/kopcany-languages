@@ -9,10 +9,14 @@ import { client } from "@/lib/sanity";
 import AboutProject from "../../components/AboutProject";
 import Partners from "@/components/Partners";
 import Footer from "@/components/Footer";
+import { Interface_new } from "@/lib/interface_new";
 
 const page = async () => {
   const query = `*[_type=='themes']`;
   const data = (await client.fetch(query)) as Theme[];
+
+  const query2 = `*[_type=='news']`;
+  const data2 = (await client.fetch(query2)) as Interface_new[];
 
   return (
     <>
@@ -23,7 +27,7 @@ const page = async () => {
           <Themes />
           <ThreeThemesArticle themes={data} />
 
-          <SliderNews />
+          <SliderNews news={data2} />
         </div>
         <Events />
         <div className="padding_content">

@@ -2,8 +2,13 @@
 import React from "react";
 import ArrowLeft from "./ArrowLeft";
 import ArrowRight from "./ArrowRight";
+import { Interface_new } from "@/lib/interface_new";
 
-const SliderNews = () => {
+interface Props {
+  news: Interface_new[];
+}
+
+const SliderNews = ({ news }: Props) => {
   return (
     <>
       <div className="slider_news_all relative">
