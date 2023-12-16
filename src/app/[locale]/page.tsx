@@ -11,6 +11,7 @@ import Partners from "@/components/Partners";
 import Footer from "@/components/Footer";
 import { Interface_new } from "@/lib/interface_new";
 import DPhotos from "@/components/DPhotos";
+import ArchiveSection from "@/components/ArchiveSection";
 
 const page = async () => {
   const query = `*[_type=='themes']`;
@@ -29,11 +30,14 @@ const page = async () => {
           <Themes />
           <ThreeThemesArticle themes={data} />
 
-          <SliderNews news={data2} />
+          {/* <SliderNews news={data2} /> */}
         </div>
         <Events />
         <div className="padding_content">
           <AboutProject />
+        </div>
+        <ArchiveSection />
+        <div className="padding_content">
           <Partners />
         </div>
       </main>

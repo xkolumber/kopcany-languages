@@ -112,12 +112,20 @@ p {
   color: white;
 }
 
-.video_intro, .mapa_img{
+.video_intro {
   height: 300px;
   width: 100%;
   margin:auto;
   object-fit: cover;
 }
+.mapa_img{
+  height: 170px;
+  width: 100%;
+  margin: auto;
+  -o-object-fit: cover;
+  object-fit: contain;
+}
+
 .intro_first{
   font-size: 4rem !important;
 }
@@ -200,6 +208,9 @@ p {
 }
 
 /*Custom */
+.clickable-area {
+  cursor: pointer;
+}
 .max-600px {
   max-width: 600px;
 }
@@ -340,6 +351,7 @@ p {
   z-index: 2;
   position: relative;
   display: block;
+  max-width: 170px;
 }
 
 .btn--primary {
