@@ -10,6 +10,7 @@ import AboutProject from "../../components/AboutProject";
 import Partners from "@/components/Partners";
 import Footer from "@/components/Footer";
 import { Interface_new } from "@/lib/interface_new";
+import DPhotos from "@/components/DPhotos";
 
 const page = async () => {
   const query = `*[_type=='themes']`;
@@ -23,6 +24,7 @@ const page = async () => {
       <HomeIntro />
       <main className="bg-white">
         <div className="padding_content">
+          {/* <DPhotos /> */}
           <MapSection />
           <Themes />
           <ThreeThemesArticle themes={data} />

@@ -24,9 +24,9 @@ const ThemesArticle = ({ theme }: Props) => {
       />
       <Link href={`/${locale}/theme/${theme.slug.current}`}>
         <div className="themes_padding">
-          <h4 className="text_limit_h4">
+          <h5 className="text_limit_h4">
             {theme.nazov_temy[locale as keyof typeof theme.nazov_temy]}
-          </h4>
+          </h5>
 
           <p className="text_limit_p">
             {theme.uvodny_text[locale as keyof typeof theme.nazov_temy]}
