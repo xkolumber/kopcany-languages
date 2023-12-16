@@ -50,7 +50,12 @@ const Page = async ({ params }: { params: { slug: string } }) => {
             <span>
               {locale === "sk" && <h4>KEDY</h4>}
               {locale === "cz" && <h4>KDY</h4>}
-              {locale === "en" && <h4>WHEN</h4>} <p>{data.kedy}</p>
+              {locale === "en" && <h4>WHEN</h4>}{" "}
+              <p>
+                {data.kedy}
+                {", "}
+                {data.cas}
+              </p>
             </span>
             <span>
               {locale === "sk" && <h4>VSTUP</h4>}
@@ -70,4 +75,5 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   );
 };
 
+export const dynamic = "force-dynamic";
 export default Page;

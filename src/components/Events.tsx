@@ -5,8 +5,10 @@ import { client } from "@/lib/sanity";
 import { My_event } from "@/lib/interface_event";
 
 const Events = async () => {
-  const query2 = `*[_type=='events']`;
-  const events = (await client.fetch(query2)) as My_event[];
+  const currentDate = new Date().toISOString().split("T")[0];
+
+  const query2 = `*[_type == 'events' && kedy >= $currentDate]`;
+  const events = (await client.fetch(query2, { currentDate })) as My_event[];
   return (
     <div className="events">
       <div className="padding_content">

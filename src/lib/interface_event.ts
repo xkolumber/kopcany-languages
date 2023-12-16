@@ -20,6 +20,7 @@ export interface My_event{
         en:string;
     };
     kedy:string;
+    cas:string;
     vstup_bezna_cena:string;
     vstup_vip:string;
 

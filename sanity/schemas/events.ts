@@ -91,10 +91,18 @@ export default{
             ]
         },
         {
-            name:'kedy',
-            type:'string',
-            title:'Kedy'
-        },
+            name: 'kedy', 
+            title: 'Kedy',
+            type: 'date', 
+            options: {
+              dateFormat: 'YYYY-MM-DD', 
+            },
+          },
+          {
+            name:'cas',
+            title:'Presný čas: Napíš v tvare napr. 14:00',
+            type:'string'
+          },
         {
             name:'vstup_bezna_cena',
             type:'string',
