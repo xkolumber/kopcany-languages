@@ -36,6 +36,14 @@
     "title":"Partners",
     "description":"These are our partners"
   },
+  "footer":{
+    "info_centre": "Kopčany Information Centre",
+    "service_guide": "Guide services",
+    "service_others": "Other services",
+    "phone": "Phone",
+    "socials": "Social networks",
+    "rules": "Cookie policy"
+  },
   "Index": {
     "title": "Hello world!"
   }

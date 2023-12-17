@@ -36,6 +36,14 @@
     "title":"Partneři",
     "description":"Toto jsou naši partneři"
   },
+  "footer":{
+    "info_centre": "Informační centrum Kopčany",
+    "service_guide": "Doprovodné služby",
+    "service_others": "Ostatní služby",
+    "phone": "Mobil",
+    "socials": "Sociální sítě",
+    "rules": "Zásady používání souborů cookie"
+  },
   
 
     "Index": {

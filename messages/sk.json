@@ -40,5 +40,13 @@
   
   "Index": {
     "title": "Ahoj svet!"
+  },
+  "footer":{
+    "info_centre": "Informačné centrum Kopčany",
+    "service_guide": "Sprievodské služby",
+    "service_others": "Ostatné služby",
+    "phone": "Mobil",
+    "socials": "Sociálne siete",
+    "rules": "Pravidlá pre používanie súborov cookie"
   }
 }

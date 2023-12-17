@@ -1,25 +1,27 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
+  const t = useTranslations("footer");
   return (
     <footer className="footer">
       <div className="padding_content">
-        <h4>Informačné centrum Kopčany</h4>
+        <h4>{t("info_centre")}</h4>
         <div className="footer_content">
           <div className="footer_column">
             <h5>Email</h5>
-            <p>Sprievodské služby: muzeum.kopcany@gmail.com</p>
-            <p>Ostatné služby: turista@kopcany.sk </p>
+            <p>{t("service_guide")}: muzeum.kopcany@gmail.com</p>
+            <p>{t("service_others")}: turista@kopcany.sk </p>
           </div>
           <div className="footer_column">
-            <h5>Mobil</h5>
+            <h5>{t("phone")}</h5>
             <p>+421(0)911086847</p>
             <p>+421(0)915969172</p>
           </div>
           <div className="footer_column">
-            <h5>Sociálne siete</h5>
+            <h5>{t("socials")}</h5>
             <Link href="https://www.facebook.com/profile.php?id=100068776245374">
               <div className="footer_both">
                 <Image
@@ -59,9 +61,7 @@ const Footer = () => {
           </div>
         </div>
         <p className="footer_last_text margin_top10">GDPR</p>
-        <p className="footer_last_text">
-          Pravidlá pre používanie súborov cookie
-        </p>
+        <p className="footer_last_text">{t("rules")}</p>
       </div>
     </footer>
   );
