@@ -14,6 +14,7 @@ export interface My_event{
         cz:string;
         en:string;
     };
+    plagat: string;
     kde:{
         sk:string;
         cz:string;

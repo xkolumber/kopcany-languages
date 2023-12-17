@@ -3,11 +3,14 @@ import Image from "next/image";
 import { client } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImageUrl";
 
-import { My_event } from "@/lib/interface_event";
-import Navbar from "@/components/Navbar";
-import Events from "@/components/Events";
+import EventPortableText from "@/components/EventPortableText";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import Partners from "@/components/Partners";
+import { My_event } from "@/lib/interface_event";
 import { useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import Link from "next/link";
 
 async function getData(slug: string) {
   const query = `*[_type == "events" && slug.current =="${slug}"][0]`;
@@ -16,6 +19,7 @@ async function getData(slug: string) {
 }
 
 const Page = async ({ params }: { params: { slug: string } }) => {
+  const t = await getTranslations("event");
   const data = (await getData(params.slug)) as My_event;
 
   const locale = useLocale();
@@ -30,27 +34,25 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           style={{
             objectFit: "cover",
           }}
+          priority={true}
         />
       </div>
       <div className="padding_content bg-white">
         <h1 className="text-black">
           {data.nazov_podujatia[locale as keyof typeof data.nazov_podujatia]}
         </h1>
-        <div className="flex flex-col lg:flex-row lg:justify-between">
-          <p className="text-black lg:w-3/6">
-            {data.text_podujatie[locale as keyof typeof data.text_podujatie]}
+        <div className="event_page">
+          <p className="max-width-50">
+            <EventPortableText data={data} specify="text_podujatie" />
           </p>
           <div className="event_data text-black">
             <span>
-              {locale === "sk" && <h4>KDE</h4>}
-              {locale === "cz" && <h4>KDE</h4>}
-              {locale === "en" && <h4>WHERE</h4>}
+              <h4> {t("where")}</h4>
               <p> {data.kde[locale as keyof typeof data.kde]}</p>
             </span>
             <span>
-              {locale === "sk" && <h4>KEDY</h4>}
-              {locale === "cz" && <h4>KDY</h4>}
-              {locale === "en" && <h4>WHEN</h4>}{" "}
+              <h4> {t("when")}</h4>
+
               <p>
                 {data.kedy}
                 {", "}
@@ -58,18 +60,33 @@ const Page = async ({ params }: { params: { slug: string } }) => {
               </p>
             </span>
             <span>
-              {locale === "sk" && <h4>VSTUP</h4>}
-              {locale === "cz" && <h4>VSTUP</h4>}
-              {locale === "en" && <h4>ENTRY</h4>}
+              <h4> {t("entry")}</h4>
               <p>
-                {data.vstup_bezna_cena} {data.vstup_vip}
+                {data.vstup_bezna_cena} {"€ "}
+                <br></br>
+                {"VIP "} {data.vstup_vip}
+                {"€ "}
               </p>
             </span>
-            <button className="btn btn--primary">Zakúpiť lístky</button>
           </div>
         </div>
+        <button className="btn btn--primary">
+          <Link href="/">{t("back")}</Link>{" "}
+        </button>
+        <Image
+          src={urlFor(data.plagat).url()}
+          alt="Mapa okolia Záhoria"
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{
+            objectFit: "contain",
+          }}
+          className="event_poster"
+        />
+        <Partners />
       </div>
-      <Events />
+
       <Footer />
     </>
   );

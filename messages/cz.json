@@ -10,6 +10,12 @@
     "welcome":"Vítejte na území s jedinečnou historií",
     "connect":"spojené lávkou přes řeku Moravu"
   },
+  "event":{
+    "where":"kde",
+    "when":"kdy",
+    "entry":"vstup",
+    "back":"Zpět"
+  },
   
     "Index": {
       "title": "Ahoj sviet!"

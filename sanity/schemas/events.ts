@@ -45,28 +45,47 @@ export default{
             },
           },
           {
-            name:'text_podujatie',
-            type:'object',
-            title:'Text o podujatí',
-            fields:[
-                {
-                    title:'Slovensky',
-                    name:'sk',
-                    type:'string'
-                },
-                {
-                    title:'Anglicky',
-                    name:'en',
-                    type:'string'
-                },
-                {
-                    title:'Česky',
-                    name:'cz',
-                    type:'string'
-                }
-               
-            ]
-        },
+            name: 'text_podujatie',
+            type: 'array',
+            title: 'Text o podujatí',
+            of: [
+              {
+                type: 'object',
+                name: 'activity',
+                title: 'Activity',
+                fields: [
+                  {
+                    name: 'language',
+                    type: 'string',
+                    title: 'Jazyk',
+                    options: {
+                      list: [
+                        { title: 'Slovensky', value: 'sk' },
+                        { title: 'Anglicky', value: 'en' },
+                        { title: 'Česky', value: 'cz' },
+                        // Add other languages as needed
+                      ],
+                    },
+                  },
+                  {
+                    name: 'content',
+                    type: 'array', // Define content as an array of blocks
+                    title: 'Content',
+                    of: [{ type: 'block' }], // Array of blocks for content
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            name: 'plagat',
+            type: 'image',
+            title: 'Plagát k podujatiu',
+            options: {
+              hotspot: true, 
+            },
+          },
+        
         {
             name:'kde',
             type:'object',
@@ -113,6 +132,12 @@ export default{
             type:'string',
             title:'Vstup - VIP'
         },
+        {
+            name: 'skupina_obrazkov',
+            title: 'Galéria obrázkov z udalosti',
+            type: 'array',
+            of: [{ type: 'image' }]
+           },
      
       
      

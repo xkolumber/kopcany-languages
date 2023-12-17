@@ -10,6 +10,12 @@
     "welcome":"Welcome to a territory with a unique history",
     "connect":"connected by the footbridge over the Morava River"
   },
+  "event":{
+    "where":"where",
+    "when":"when",
+    "entry":"entry",
+    "back":"Back"
+  },
   "Index": {
     "title": "Hello world!"
   }
