@@ -4,7 +4,11 @@ import Image from "next/image";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 
-const MapSection = () => {
+interface Props {
+  translation: String[];
+}
+
+const MapSection = ({ translation }: Props) => {
   const locale = useLocale();
   const router = useRouter();
   useEffect(() => {
@@ -66,36 +70,27 @@ const MapSection = () => {
       <Image
         src="/kopcany_video.jpg"
         alt="Video z Kopcian"
-        height={300}
-        width={500}
+        width={0}
+        height={0}
+        sizes="100vw"
         style={{
           objectFit: "cover",
         }}
         className="video_intro"
       />
 
-      <h2 className="text-black">Mapa</h2>
-      <p className="max-600px text-black">
-        but also the leap into electronic typesetting, remaining essentially
-        unchanged.
-      </p>
+      <h2 className="text-black">{translation[0]}</h2>
+      <p className="max-600px text-black">{translation[1]}</p>
       <Image
         src="/mapa.png"
         alt="Mapa okolia Záhoria"
-        height={500}
-        width={500}
+        width={0}
+        height={0}
+        sizes="100vw"
         className="mapa_img"
         useMap="#cityMap"
         id="mapImage"
       />
-      {/* <map name="cityMap">
-        <area
-          shape="circle"
-          coords="50%,5%,10%"
-          alt="City 1"
-          href={`/${locale}/theme/po-stopach-t-g-masaryka`}
-        />
-      </map> */}
     </>
   );
 };

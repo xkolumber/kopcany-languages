@@ -1,14 +1,12 @@
-import React from "react";
-import Image from "next/image";
-import ThreeThemesArticle from "./ThreeThemesArticle";
+import { useTranslations } from "next-intl";
 
 const Themes = () => {
+  const t = useTranslations("home_page");
   return (
     <>
-      <h2 className="text-black">Témy</h2>
+      <h2 className="text-black">{t("themes")}</h2>
       <p className="text-black max-600px p-margin-bottom">
-        but also the leap into electronic typesetting, remaining essentially
-        unchanged.
+        {t("themes_description")}
       </p>
     </>
   );

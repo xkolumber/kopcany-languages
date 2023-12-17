@@ -11,14 +11,20 @@ import { Theme } from "@/lib/interface_theme";
 import { client } from "@/lib/sanity";
 import AboutProject from "../../components/AboutProject";
 import { getTranslations } from "next-intl/server";
+import { About_project } from "@/lib/interface_about_project";
 
 const page = async () => {
   const query = `*[_type=='themes']`;
   const data = (await client.fetch(query)) as Theme[];
 
+  const query2 = `*[_type=='about_project']`;
+  const data2 = (await client.fetch(query2)) as About_project[];
+
   const t = await getTranslations("home_page");
   const homePage_title = t("welcome");
   const homePage_connect = t("connect");
+  const homePage_map = t("map");
+  const homePage_map_title = t("map_description");
 
   const p = await getTranslations("navbar");
   const about_project = p("about_project");
@@ -29,6 +35,8 @@ const page = async () => {
 
   const navbar_array = [about_project, monuments, experience, masaryk, contact];
 
+  const map_words = [homePage_map, homePage_map_title];
+
   return (
     <>
       <HomeIntro
@@ -38,13 +46,13 @@ const page = async () => {
       />
       <main className="bg-white">
         <div className="padding_content">
-          <MapSection />
+          <MapSection translation={map_words} />
           <Themes />
           <ThreeThemesArticle themes={data} />
         </div>
         <Events />
         <div className="padding_content">
-          <AboutProject />
+          <AboutProject data={data2} />
         </div>
         <ArchiveSection />
         <div className="padding_content">

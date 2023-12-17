@@ -1,26 +1,32 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { About_project } from "@/lib/interface_about_project";
+import { urlFor } from "@/lib/sanityImageUrl";
 
-const AboutProject = () => {
+interface Props {
+  data: About_project[];
+}
+
+const AboutProject = ({ data }: Props) => {
+  const t = useTranslations("home_page");
   const locale = useLocale();
+
   return (
     <>
-      <h2 className="text-black">O projekte</h2>
-      <p className="max-600px text-black">
-        but also the leap into electronic typesetting, remaining essentially
-        unchanged.
-      </p>
+      <h2 className="text-black">{t("about_project")}</h2>
+      <p className="max-600px text-black">{t("about_project_description")}</p>
       <Link href={`/${locale}/about_project`}>
-        <div className="btn btn--primary">Zistiť viac</div>
+        <div className="btn btn--primary margin-bottom-button">Zistiť viac</div>
       </Link>
       <Link href={`/${locale}/about_project`}>
         <Image
-          src="/about_projectt.jpg"
+          src={urlFor(data[0].titulna_foto).url()}
           alt="O projekte"
-          height={300}
-          width={500}
+          width={0}
+          height={0}
+          sizes="100vw"
           style={{
             objectFit: "cover",
           }}

@@ -232,6 +232,9 @@ p {
 }
 
 /*Custom */
+.margin-bottom-button{
+  margin-bottom: 3rem;
+}
 .clickable-area {
   cursor: pointer;
 }
@@ -257,6 +260,9 @@ p {
 
 
 @media (min-width: 768px) {
+  .margin-bottom-button{
+    margin-bottom: 5rem;
+  }
 .max-80vw {
   max-width: 60vw;
 }
@@ -268,6 +274,9 @@ p {
 @media (min-width: 1600px) {
   .p-margin-bottom{
     margin-bottom: 10rem;
+  }
+  .margin-bottom-button{
+    margin-bottom: 8rem;
   }
   
 

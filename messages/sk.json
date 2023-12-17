@@ -8,7 +8,15 @@
   },
   "home_page":{
     "welcome":"Vitajte na území s unikátnou históriou",
-    "connect":"spojené Lávkou cez Moravu"
+    "connect":"spojené Lávkou cez Moravu",
+    "events": "Podujatia",
+    "events_description":"V blízkej budúcnosti nás čakajú tieto podujatia:",
+    "map":"Mapa",
+    "map_description": "Na tejto mape nájdete štyri významné mestá spojené s bohatou históriou, ktorá sa prelína s riekou Moravou.",
+    "themes": "Témy",
+    "themes_description": "Preskúmajte a objavte hlavné oblasti histórie, ktoré charakterizujú našu lokalitu. Každá sekcia ponúka jedinečný pohľad na významné udalosti a kultúrne dedičstvo, ktoré formovali našu históriu.",
+    "about_project":"O projekte",
+    "about_project_description": "Myšlienka spoločného projektu vznikla zo spoločnej potreby projektových partnerov prepojiť ponuku kultúrnych turistických atrakcií a podujatí v cezhraničnej oblasti Hodonín - Mikulčice - Kopčany - Holíč."
   },
   "event":{
     "where":"kde",
