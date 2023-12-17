@@ -5,6 +5,7 @@ html {
 body {
   margin: 0;
   font-family: '__Montserrat_d9370c', '__Montserrat_Fallback_d9370c';
+  
 }
 :root {
   --primary-color: #ffffff;
@@ -159,6 +160,7 @@ p {
 
 .padding_content p {
   font-size: 1.6rem;
+  color: black;
 }
 @media (min-width: 768px) {
   .padding_content {
@@ -566,6 +568,9 @@ p {
 .footer{
   background-color: var(--tertiary-color);
 }
+.footer p{
+  color:white;
+}
 
 .footer_title{
   margin-top: 3rem;
@@ -729,6 +734,10 @@ p {
 }
 
 /*About project*/
+.about_two_section{
+  display: flex;
+  flex-direction: column;
+}
 .text_picture{
   display:flex;
   flex-direction: column;
@@ -745,6 +754,13 @@ p {
 
 
 @media (min-width:768px){
+  .about_two_section{
+    display: flex;
+    flex-direction: row;
+  }
+  .about_width_section{
+    width: 50%;
+  }
   .text_picture{
     flex-direction: row;
     margin-bottom: 5rem;
