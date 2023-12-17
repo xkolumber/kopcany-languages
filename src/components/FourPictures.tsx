@@ -2,7 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 
-const FourPictures = () => {
+interface Props {
+  onActiveDotChange: (dotNumber: number) => void;
+}
+
+const FourPictures = ({ onActiveDotChange }: Props) => {
   const images = [
     "/about_project.jpg",
     "/kopcany_uvod.jpg",
@@ -21,6 +25,10 @@ const FourPictures = () => {
 
     return () => clearInterval(interval);
   }, [images.length]);
+
+  useEffect(() => {
+    onActiveDotChange(currentImageIndex);
+  }, [currentImageIndex, onActiveDotChange]);
 
   return (
     <div className="imageWrapper">

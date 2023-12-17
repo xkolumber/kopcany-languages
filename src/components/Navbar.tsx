@@ -1,46 +1,42 @@
+import { useLocale } from "next-intl";
 import Link from "next/link";
-import Switcher from "./Switcher";
 import NavbarMobile from "./NavbarMobile";
-import { useLocale, useTranslations } from "next-intl";
+import Switcher from "./Switcher";
 
-const Navbar = () => {
-  const t = useTranslations("navbar");
+interface Props {
+  navbar_array: string[];
+}
 
+const Navbar = ({ navbar_array }: Props) => {
   const locale = useLocale();
-
-  const about_project = t("about_project");
-  const monuments = t("monuments");
-  const experience = t("experience");
-  const masaryk = t("masaryk");
-  const contact = t("contact");
 
   return (
     <>
       <div className="navbar">
         <Link href={`/${locale}/about_project`}>
-          <p> {t("about_project")}</p>
+          <p> {navbar_array[0]}</p>
         </Link>
         <Link href={`/${locale}/theme/pamiatky-velkej-moravy`}>
-          <p> {t("monuments")}</p>
+          <p> {navbar_array[1]}</p>
         </Link>
         <Link href={`/${locale}/theme/zazi-barokovu-krajinu`}>
-          <p> {t("experience")}</p>
+          <p> {navbar_array[2]}</p>
         </Link>
         <Link href={`/${locale}/theme/po-stopach-t-g-masaryka`}>
-          <p> {t("masaryk")}</p>
+          <p> {navbar_array[3]}</p>
         </Link>
         <Link href={`/${locale}/contact`}>
-          <p> {t("contact")}</p>
+          <p> {navbar_array[4]}</p>
         </Link>
 
         <Switcher />
       </div>
       <NavbarMobile
-        about_project={about_project}
-        monuments={monuments}
-        experience={experience}
-        masaryk={masaryk}
-        contact={contact}
+        about_project={navbar_array[0]}
+        monuments={navbar_array[1]}
+        experience={navbar_array[2]}
+        masaryk={navbar_array[3]}
+        contact={navbar_array[4]}
       />
     </>
   );

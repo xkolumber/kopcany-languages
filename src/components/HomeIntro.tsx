@@ -1,17 +1,33 @@
-import React from "react";
+"use client";
+import { useState } from "react";
 import Navbar from "./Navbar";
-
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 import FourPictures from "./FourPictures";
 
-const HomeIntro = () => {
-  const t = useTranslations("home_page");
+interface Props {
+  title: string;
+  connect: string;
+  navbar_array: string[];
+}
+
+const HomeIntro = ({ title, connect, navbar_array }: Props) => {
+  const [activeDot, setActiveDot] = useState(0);
+
+  const news = [
+    "/about_project.jpg",
+    "/kopcany_uvod.jpg",
+    "/kopcany_video.jpg",
+    "/kopcany_uvod.jpg",
+  ];
+
+  const handleActiveDotChange = (dotNumber: number) => {
+    setActiveDot(dotNumber);
+  };
 
   return (
     <div className="relative grid home_intro">
       <div className="bg_image_wrapper">
-        <FourPictures />
+        <FourPictures onActiveDotChange={handleActiveDotChange} />
       </div>
       <div className="bg_image_dark_wrapper">
         <Image
@@ -23,12 +39,19 @@ const HomeIntro = () => {
         />
       </div>
       <div className="padding_content intro_padding justify-between width_100">
-        <Navbar />
+        <Navbar navbar_array={navbar_array} />
         <div>
-          <p>. . . .</p>
-          <p className="intro_first">{t("welcome")}</p>
+          <div className="dots">
+            {news.map((item, index) => (
+              <div
+                key={index}
+                className={`dot ${index === activeDot ? "active-dot" : ""}`}
+              ></div>
+            ))}
+          </div>
+          <p className="intro_first">{title}</p>
           <h3>Mikulčice - Kopčany - Holíč - Hodonín</h3>
-          <p className="intro_second">{t("connect")}</p>
+          <p className="intro_second">{connect}</p>
         </div>
       </div>
     </div>

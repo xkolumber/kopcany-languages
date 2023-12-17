@@ -70,9 +70,10 @@ const Page = async ({ params }: { params: { slug: string } }) => {
             </span>
           </div>
         </div>
-        <button className="btn btn--primary">
-          <Link href="/">{t("back")}</Link>{" "}
-        </button>
+        <Link href="/">
+          {" "}
+          <button className="btn btn--primary">{t("back")}</button>
+        </Link>
         <Image
           src={urlFor(data.plagat).url()}
           alt="Mapa okolia Záhoria"
