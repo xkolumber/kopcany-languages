@@ -20,7 +20,7 @@ const EventOne = ({ event }: Props) => {
           alt="Titulna foto"
           width={300}
           height={300}
-          className="theme_img"
+          className="themee_img"
         />
 
         <div className="themes_padding">

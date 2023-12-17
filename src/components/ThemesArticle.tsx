@@ -20,7 +20,7 @@ const ThemesArticle = ({ theme }: Props) => {
         width={300}
         height={300}
         quality={100}
-        className="theme_img"
+        className="themee_img"
       />
       <Link href={`/${locale}/theme/${theme.slug.current}`}>
         <div className="themes_padding">
