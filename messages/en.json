@@ -16,6 +16,18 @@
     "entry":"entry",
     "back":"Back"
   },
+  "about_project":{
+    "project_description":"Project description:",
+    "project_goal":"Objective of the project:",
+    "project_result":"Project result:",
+    "project_activity":"Project activities of the Lead Partner:",
+    "project_activity_main":"Project activities of the Main Cross-Border Partner:",
+    "project_budget":"Project budget:"
+  },
+  "partners":{
+    "title":"Partners",
+    "description":"These are our partners"
+  },
   "Index": {
     "title": "Hello world!"
   }

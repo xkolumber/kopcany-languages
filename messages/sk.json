@@ -16,6 +16,20 @@
     "entry":"vstup",
     "back":"Naspäť"
   },
+  "about_project":{
+    "project_description":"Opis projektu:",
+    "project_goal":"Cieľ projektu:",
+    "project_result":"Výsledok projektu:",
+    "project_activity":"Projektové aktivity Vedúceho partnera:",
+    "project_activity_main":"Projektové aktivity Hlavného cezhraničného partnera:",
+    "project_budget":"Rozpočet projektu:"
+  },
+  "partners":{
+    "title":"Partneri",
+    "description":"Toto sú naši partneri"
+  },
+
+  
   "Index": {
     "title": "Ahoj svet!"
   }

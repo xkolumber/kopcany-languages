@@ -1,11 +1,13 @@
 import React from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const Partners = () => {
+  const t = useTranslations("partners");
   return (
     <>
-      <h2 className="text-black partners_title">Partneri</h2>
-      <p className="text-black">Toto sú naši partneri</p>
+      <h2 className="text-black partners_title">{t("title")}</h2>
+      <p className="text-black"> {t("description")}</p>
       <div className="partners">
         <Image
           src="/partner0.svg"

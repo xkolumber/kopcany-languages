@@ -1,16 +1,15 @@
 import Image from "next/image";
 
+import AboutPortableText from "@/components/AboutPortableText";
+import Footer from "@/components/Footer";
+import GroupPictures from "@/components/GroupPictures";
 import Navbar from "@/components/Navbar";
 import Partners from "@/components/Partners";
 import { client } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImageUrl";
 import { useLocale } from "next-intl";
 import { About_project } from "../../../lib/interface_about_project";
-import Footer from "@/components/Footer";
-import { ImageAsset } from "@/lib/interface_photos";
-import GroupPictures from "@/components/GroupPictures";
-import { PortableText } from "@portabletext/react";
-import AboutPortableText from "@/components/AboutPortableText";
+import { getTranslations } from "next-intl/server";
 
 async function getData() {
   const query = `*[_type == "about_project"][0]`;
@@ -32,6 +31,7 @@ async function getPhotos() {
 }
 
 const Page = async () => {
+  const t = await getTranslations("about_project");
   const data = (await getData()) as About_project;
 
   const data2 = await getPhotos();
@@ -83,7 +83,7 @@ const Page = async () => {
             }}
           />
         </div>
-        <h5>Opis projektu</h5>
+        <h5> {t("project_description")}</h5>
         <p className="text-black ">
           {data.uvodny_text[locale as keyof typeof data.nazov_temy]}
         </p>
@@ -106,13 +106,13 @@ const Page = async () => {
         />
         <div className="about_two_section">
           <div className="about_width_section">
-            <h4 className="text-black">Cieľ projektu</h4>
+            <h4 className="text-black">{t("project_goal")}</h4>
             <p className="text-black">
               {data.projekt_ciel[locale as keyof typeof data.nazov_temy]}
             </p>
           </div>
           <div className="about_width_section">
-            <h4 className="text-black">Výsledok projektu</h4>
+            <h4 className="text-black">{t("project_result")}</h4>
             <p className="text-black">
               {data.projekt_vysledok[locale as keyof typeof data.nazov_temy]}
             </p>
@@ -121,17 +121,13 @@ const Page = async () => {
 
         <div className="about_two_section">
           <div className="about_width_section">
-            <h4 className="text-black">
-              Projektové aktivity Vedúceho partnera:
-            </h4>
+            <h4 className="text-black">{t("project_activity")}</h4>
             <p className="text-black">
               <AboutPortableText data={data} specify="projekt_aktivity" />
             </p>
           </div>
           <div className="about_width_section">
-            <h4 className="text-black">
-              Projektové aktivity Hlavného cezhraničného partnera:
-            </h4>
+            <h4 className="text-black">{t("project_activity_main")}</h4>
             <p className="text-black">
               <AboutPortableText
                 data={data}
@@ -149,7 +145,7 @@ const Page = async () => {
         />
 
         <GroupPictures data={data2[0]} parameter="skupina_obrazkov" />
-        <h4 className="text-black">Rozpočet projektu:</h4>
+        <h4 className="text-black">{t("project_budget")}</h4>
         <AboutPortableText data={data} specify="rozpocet" />
 
         <Partners />

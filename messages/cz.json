@@ -16,7 +16,20 @@
     "entry":"vstup",
     "back":"Zpět"
   },
+  "about_project":{
+    "project_description":"Popis projektu:",
+    "project_goal":"Cíl projektu:",
+    "project_result":"Výsledek projektu:",
+    "project_activity":"Projektové činnosti vedoucího partnera:",
+    "project_activity_main":"Projektové aktivity hlavního přeshraničního partnera:",
+    "project_budget":"Rozpočet projektu:"
+  },
+  "partners":{
+    "title":"Partneři",
+    "description":"Toto jsou naši partneři"
+  },
   
+
     "Index": {
       "title": "Ahoj sviet!"
     }
