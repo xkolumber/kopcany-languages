@@ -38,10 +38,6 @@ const Page = async () => {
 
   const locale = useLocale();
 
-  // const contentForCurrentLanguage3 = data.rozpocet.find(
-  //   (activity) => activity.language === locale
-  // )?.content;
-
   return (
     <>
       <div className="titulna_foto intro_padding padding_content">
@@ -153,8 +149,8 @@ const Page = async () => {
         />
 
         <GroupPictures data={data2[0]} parameter="skupina_obrazkov" />
-        {/* <h4 className="text-black">Rozpočet projektu:</h4>
-        <PortableText value={contentForCurrentLanguage3 || []} /> */}
+        <h4 className="text-black">Rozpočet projektu:</h4>
+        <AboutPortableText data={data} specify="rozpocet" />
 
         <Partners />
       </div>
