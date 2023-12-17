@@ -137,6 +137,9 @@ p {
   min-height: 100vh;
   display: flex;
 }
+.home_intro p{
+  color: white !important;
+}
 .imageWrapper {
   position: relative;
   width: 100%;

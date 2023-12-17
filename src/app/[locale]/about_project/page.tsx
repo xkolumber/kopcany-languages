@@ -64,7 +64,7 @@ const Page = async () => {
         <Navbar />
       </div>
       <div className="padding_content bg-white">
-        <h1 className="text-black">
+        <h1 className="text-black max-width-50">
           {data.nazov_temy[locale as keyof typeof data.nazov_temy]}
         </h1>
         <div className="text_picture">
