@@ -5,6 +5,7 @@ import Image from "next/image";
 import { My_event } from "@/lib/interface_event";
 import { urlFor } from "@/lib/sanityImageUrl";
 import { useLocale } from "next-intl";
+import EventPortableText from "./EventPortableText";
 
 interface Props {
   event: My_event;
@@ -28,7 +29,11 @@ const EventOne = ({ event }: Props) => {
           </h5>
 
           <p className="text-black">
-            {event.text_podujatie[locale as keyof typeof event.text_podujatie]}
+            <EventPortableText
+              data={event}
+              specify="text_podujatie"
+              view={true}
+            />
           </p>
         </div>
       </Link>

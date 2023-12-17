@@ -1,15 +1,13 @@
 import Image from "next/image";
 
-import { client } from "@/lib/sanity";
-import { Theme } from "@/lib/interface_theme";
-import { urlFor } from "@/lib/sanityImageUrl";
-import Partners from "@/components/Partners";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ImageAsset } from "@/lib/interface_photos";
-import { useLocale } from "next-intl";
-import { Suspense } from "react";
 import GroupPictures from "@/components/GroupPictures";
+import NavbarSecond from "@/components/NavbarSecond";
+import Partners from "@/components/Partners";
+import { Theme } from "@/lib/interface_theme";
+import { client } from "@/lib/sanity";
+import { urlFor } from "@/lib/sanityImageUrl";
+import { useLocale } from "next-intl";
 
 async function getData(slug: string) {
   const query = `*[_type == "themes" && slug.current =="${slug}"][0]`;
@@ -60,7 +58,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
             className="bg_image_dark"
           />
         </div>
-        <Navbar />
+        <NavbarSecond />
       </div>
       <div className="padding_content bg-white">
         <h1 className="text-black">

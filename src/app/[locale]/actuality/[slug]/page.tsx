@@ -3,10 +3,9 @@ import Image from "next/image";
 import { client } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImageUrl";
 
-import { Interface_new } from "@/lib/interface_new";
-import Navbar from "@/components/Navbar";
-import Events from "@/components/Events";
 import Footer from "@/components/Footer";
+import NavbarSecond from "@/components/NavbarSecond";
+import { Interface_new } from "@/lib/interface_new";
 import { useLocale } from "next-intl";
 
 async function getData(slug: string) {
@@ -22,7 +21,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   return (
     <>
       <div className="padding_content bg-white intro_padding">
-        <Navbar />
+        <NavbarSecond />
         <h1 className="text-black">
           {data.nazov_aktuality[locale as keyof typeof data.nazov_aktuality]}
         </h1>

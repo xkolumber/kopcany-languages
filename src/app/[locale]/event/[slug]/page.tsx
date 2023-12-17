@@ -5,7 +5,7 @@ import { urlFor } from "@/lib/sanityImageUrl";
 
 import EventPortableText from "@/components/EventPortableText";
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import NavbarSecond from "@/components/NavbarSecond";
 import Partners from "@/components/Partners";
 import { My_event } from "@/lib/interface_event";
 import { useLocale } from "next-intl";
@@ -26,7 +26,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   return (
     <>
       <div className="titulna_foto padding_content intro_padding">
-        <Navbar />
+        <NavbarSecond />
         <Image
           src={urlFor(data.titulna_foto).url()}
           alt="Mapa okolia Záhoria"

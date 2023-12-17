@@ -3,13 +3,13 @@ import Image from "next/image";
 import AboutPortableText from "@/components/AboutPortableText";
 import Footer from "@/components/Footer";
 import GroupPictures from "@/components/GroupPictures";
-import Navbar from "@/components/Navbar";
+import NavbarSecond from "@/components/NavbarSecond";
 import Partners from "@/components/Partners";
 import { client } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImageUrl";
 import { useLocale } from "next-intl";
-import { About_project } from "../../../lib/interface_about_project";
 import { getTranslations } from "next-intl/server";
+import { About_project } from "../../../lib/interface_about_project";
 
 async function getData() {
   const query = `*[_type == "about_project"][0]`;
@@ -61,7 +61,7 @@ const Page = async () => {
             className="bg_image_dark"
           />
         </div>
-        <Navbar />
+        <NavbarSecond />
       </div>
       <div className="padding_content bg-white">
         <h1 className="text-black max-width-50">

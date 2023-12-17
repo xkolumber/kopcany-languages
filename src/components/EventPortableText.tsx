@@ -6,6 +6,7 @@ import { My_event } from "@/lib/interface_event";
 interface Props {
   data: My_event;
   specify: string;
+  view?: boolean;
 }
 
 interface Block {
@@ -13,7 +14,7 @@ interface Block {
   children: { text: string }[];
 }
 
-const AboutPortableText = ({ data, specify }: Props) => {
+const AboutPortableText = ({ data, specify, view }: Props) => {
   const locale = useLocale();
   const [noveData, setNoveData] = useState<Block[]>([]);
 
@@ -25,7 +26,12 @@ const AboutPortableText = ({ data, specify }: Props) => {
         (activity) => activity.language === locale
       );
       const content = foundActivity?.content || [];
-      setNoveData(content);
+      {
+        view && setNoveData(content.slice(0, 1));
+      }
+      {
+        !view && setNoveData(content);
+      }
     }
   }, [data, locale, specify]);
 
