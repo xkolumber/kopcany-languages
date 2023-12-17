@@ -13,6 +13,7 @@ interface Props {
   experience: string;
   masaryk: string;
   contact: string;
+  black?: boolean;
 }
 
 const NavbarMobile = ({
@@ -21,6 +22,7 @@ const NavbarMobile = ({
   experience,
   masaryk,
   contact,
+  black,
 }: Props) => {
   const locale = useLocale();
   const [clickedHamburger, setClickedHamburger] = useState(false);
@@ -29,7 +31,10 @@ const NavbarMobile = ({
   };
   return (
     <div className="navbar-mobile">
-      <GiHamburgerMenu onClick={toggleClickHamburger} className="hamburger" />
+      <GiHamburgerMenu
+        onClick={toggleClickHamburger}
+        className="hamburger text-black-imp"
+      />
       {clickedHamburger && (
         <>
           <div className="expanded-navbar padding_content">

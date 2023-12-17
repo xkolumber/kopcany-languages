@@ -1,10 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const Footer = () => {
   const t = useTranslations("footer");
+
+  const locale = useLocale();
   return (
     <footer className="footer">
       <div className="padding_content">
@@ -60,7 +62,9 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <p className="footer_last_text margin_top10">GDPR</p>
+        <Link href={`/${locale}/gdpr`}>
+          <p className="footer_last_text margin_top10">GDPR</p>
+        </Link>
         <p className="footer_last_text">{t("rules")}</p>
       </div>
     </footer>

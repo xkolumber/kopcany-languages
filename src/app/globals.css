@@ -17,6 +17,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
+li{
+  font-size: 1.6rem;
+}
 
 h1 {
   font-size: 3.6rem; /* Default font size for h1 */
@@ -250,6 +253,9 @@ p {
 }
 .text-black {
   color: black;
+}
+.text-black-imp{
+  color: black !important;
 }
 .justify-between {
   justify-content: space-between;
@@ -950,4 +956,13 @@ p {
  padding: 1rem;
 }
 
+}
+
+/*gdpr*/
+
+.gdpr{
+  color:black;
+}
+.gdpr_title{
+  margin-top: 5rem;
 }

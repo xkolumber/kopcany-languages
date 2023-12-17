@@ -3,7 +3,11 @@ import Switcher from "./Switcher";
 import NavbarMobile from "./NavbarMobile";
 import { useLocale, useTranslations } from "next-intl";
 
-const NavbarSecond = () => {
+interface Props {
+  black?: boolean;
+}
+
+const NavbarSecond = ({ black }: Props) => {
   const t = useTranslations("navbar");
 
   const locale = useLocale();
@@ -16,21 +20,35 @@ const NavbarSecond = () => {
 
   return (
     <>
-      <div className="navbar">
+      <div className="navbar ">
         <Link href={`/${locale}/about_project`}>
-          <p> {t("about_project")}</p>
+          <p className={`${black === true && "text-black-imp"} `}>
+            {t("about_project")}
+          </p>
         </Link>
         <Link href={`/${locale}/theme/pamiatky-velkej-moravy`}>
-          <p> {t("monuments")}</p>
+          <p className={`${black === true && "text-black-imp"} `}>
+            {" "}
+            {t("monuments")}
+          </p>
         </Link>
         <Link href={`/${locale}/theme/zazi-barokovu-krajinu`}>
-          <p> {t("experience")}</p>
+          <p className={`${black === true && "text-black-imp"} `}>
+            {" "}
+            {t("experience")}
+          </p>
         </Link>
         <Link href={`/${locale}/theme/po-stopach-t-g-masaryka`}>
-          <p> {t("masaryk")}</p>
+          <p className={`${black === true && "text-black-imp"} `}>
+            {" "}
+            {t("masaryk")}
+          </p>
         </Link>
         <Link href={`/${locale}/contact`}>
-          <p> {t("contact")}</p>
+          <p className={`${black === true && "text-black-imp"} `}>
+            {" "}
+            {t("contact")}
+          </p>
         </Link>
 
         <Switcher />
@@ -41,6 +59,7 @@ const NavbarSecond = () => {
         experience={experience}
         masaryk={masaryk}
         contact={contact}
+        black={true}
       />
     </>
   );
