@@ -8,6 +8,7 @@ import { Theme } from "@/lib/interface_theme";
 import { client } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImageUrl";
 import { useLocale } from "next-intl";
+import YouTubeVideo from "@/components/YoutubeVideo";
 
 async function getData(slug: string) {
   const query = `*[_type == "themes" && slug.current =="${slug}"][0]`;
@@ -80,16 +81,9 @@ const Page = async ({ params }: { params: { slug: string } }) => {
             }}
           />
         </div>
-        <Image
-          src={urlFor(data.foto_stred_clanku).url()}
-          alt="Mapa okolia Záhoria"
-          width={1000}
-          height={1000}
-          className="video_intro"
-          style={{
-            objectFit: "cover",
-          }}
-        />
+
+        <YouTubeVideo id="kmzpWM23rws" />
+
         <p className="text-black">
           {data.pokracovanie_text[locale as keyof typeof data.nazov_temy]}
         </p>

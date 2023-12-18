@@ -2,11 +2,11 @@ import Image from "next/image";
 
 import { client } from "@/lib/sanity";
 
+import EventOne from "@/components/EventOne";
 import Footer from "@/components/Footer";
 import NavbarSecond from "@/components/NavbarSecond";
 import Partners from "@/components/Partners";
 import { My_event } from "@/lib/interface_event";
-import EventOne from "@/components/EventOne";
 import { getTranslations } from "next-intl/server";
 
 const Page = async () => {
@@ -19,6 +19,7 @@ const Page = async () => {
   const events2 = (await client.fetch(query2, { currentDate })) as My_event[];
 
   const t = await getTranslations("home_page");
+
   return (
     <>
       <div className="titulna_foto intro_padding padding_content">
