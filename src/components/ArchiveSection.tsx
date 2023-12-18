@@ -1,19 +1,19 @@
-import React from "react";
+import { useLocale, useTranslations } from "next-intl";
+import Link from "next/link";
 
-import EventOne from "./EventOne";
-import { client } from "@/lib/sanity";
-import { My_event } from "@/lib/interface_event";
+const ArchiveSection = () => {
+  const t = useTranslations("home_page");
 
-const ArchiveSection = async () => {
+  const locale = useLocale();
   return (
     <div className="events">
       <div className="padding_content">
-        <h2 className="text-black">Archív predošlých podujatí</h2>
-        <p className="text-black">
-          Prezrite si naše spoločné akcie a neváhajte sa zúčastniť
-          nasledujúcich! :)
-        </p>
-        <div className="btn btn--primary">Pozrieť archív</div>
+        <h2 className="text-black">{t("archive")}</h2>
+        <p className="text-black">{t("archive_text")}</p>
+
+        <Link href={`/${locale}/all_events`}>
+          <div className="btn btn--primary">{t("archive_button")}</div>
+        </Link>
         <div className="three_themes"></div>
       </div>
     </div>

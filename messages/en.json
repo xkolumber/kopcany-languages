@@ -16,7 +16,10 @@
     "themes": "Themes",
     "themes_description": "Explore and discover the main areas of history that characterise our locality. Each section offers a unique perspective on the significant events and cultural heritage that have shaped our history.",
     "about_project":"About Project",
-    "about_project_description": "The idea of the joint project arose from the common need of the project partners to connect the offer of cultural tourist attractions and events in the cross-border area Hodonín - Mikulčice - Kopčany - Holíč."
+    "about_project_description": "The idea of the joint project arose from the common need of the project partners to connect the offer of cultural tourist attractions and events in the cross-border area Hodonín - Mikulčice - Kopčany - Holíč.",
+    "archive": "Archive of previous events",
+    "archive_text": "Take a look at our joint events and feel free to participate in the following ones! :)",
+    "archive_button": "View archive"
   },
   "event":{
     "where":"where",

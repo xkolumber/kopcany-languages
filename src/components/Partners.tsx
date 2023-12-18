@@ -1,9 +1,9 @@
-import React from "react";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const Partners = () => {
   const t = useTranslations("partners");
+
   return (
     <>
       <h2 className="text-black partners_title">{t("title")}</h2>
