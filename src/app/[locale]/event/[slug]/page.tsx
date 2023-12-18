@@ -63,7 +63,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           <p className="max-width-50">
             <EventPortableText data={data} specify="text_podujatie" />
           </p>
-          {currentDate < data.kedy && (
+          {currentDate <= data.kedy && (
             <>
               <div className="event_data text-black">
                 <span>
@@ -92,7 +92,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
             </>
           )}
         </div>
-        {currentDate < data.kedy && (
+        {currentDate <= data.kedy && (
           <>
             <Link href="/">
               {" "}

@@ -10,7 +10,9 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="padding_content">
-        <h4>{t("info_centre")}</h4>
+        <Link href="/">
+          <h4>{t("info_centre")}</h4>
+        </Link>
         <div className="footer_content">
           <div className="footer_column">
             <h5>Email</h5>
