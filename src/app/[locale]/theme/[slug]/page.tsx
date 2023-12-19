@@ -9,6 +9,7 @@ import { client } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImageUrl";
 import { useLocale } from "next-intl";
 import YouTubeVideo from "@/components/YoutubeVideo";
+import ThemePortableText from "@/components/ThemePortableText";
 
 async function getData(slug: string) {
   const query = `*[_type == "themes" && slug.current =="${slug}"][0]`;
@@ -67,7 +68,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         </h1>
         <div className="text_picture">
           <p className="text-black ">
-            {data.uvodny_text[locale as keyof typeof data.nazov_temy]}
+            <ThemePortableText data={data} specify="uvodny_text" />
+            {/* {data.uvodny_text[locale as keyof typeof data.nazov_temy]} */}
           </p>
 
           <Image
@@ -85,7 +87,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         <YouTubeVideo id="kmzpWM23rws" />
 
         <p className="text-black">
-          {data.pokracovanie_text[locale as keyof typeof data.nazov_temy]}
+          <ThemePortableText data={data} specify="pokracovanie_text" />
+          {/* {data.pokracovanie_text[locale as keyof typeof data.nazov_temy]} */}
         </p>
 
         <Image
@@ -114,7 +117,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         )}
         {data.komentar_fotka && (
           <p className="text-black">
-            {data.komentar_fotka[locale as keyof typeof data.nazov_temy]}
+            <ThemePortableText data={data} specify="komentar_fotka" />
+            {/* {data.komentar_fotka[locale as keyof typeof data.nazov_temy]} */}
           </p>
         )}
 
@@ -124,9 +128,13 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         {data.komentar_skupina_obrazkov2 && (
           <p className="text-black">
             {
-              data.komentar_skupina_obrazkov2[
-                locale as keyof typeof data.nazov_temy
-              ]
+              <ThemePortableText
+                data={data}
+                specify="komentar_skupina_obrazkov2"
+              />
+              // data.komentar_skupina_obrazkov2[
+              //   locale as keyof typeof data.nazov_temy
+              // ]
             }
           </p>
         )}
@@ -145,7 +153,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         )}
         {data.komentar_fotka2 && (
           <p className="text-black">
-            {data.komentar_fotka2[locale as keyof typeof data.nazov_temy]}
+            <ThemePortableText data={data} specify="komentar_fotka2" />
+            {/* {data.komentar_fotka2[locale as keyof typeof data.nazov_temy]} */}
           </p>
         )}
 
@@ -155,9 +164,13 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         {data.komentar_skupina_obrazkov3 && (
           <p className="text-black">
             {
-              data.komentar_skupina_obrazkov3[
-                locale as keyof typeof data.nazov_temy
-              ]
+              <ThemePortableText
+                data={data}
+                specify="komentar_skupina_obrazkov3"
+              />
+              // data.komentar_skupina_obrazkov3[
+              //   locale as keyof typeof data.nazov_temy
+              // ]
             }
           </p>
         )}
@@ -176,7 +189,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         )}
         {data.komentar_fotka3 && (
           <p className="text-black">
-            {data.komentar_fotka3[locale as keyof typeof data.nazov_temy]}
+            <ThemePortableText data={data} specify="komentar_fotka3" />
+            {/* {data.komentar_fotka3[locale as keyof typeof data.nazov_temy]} */}
           </p>
         )}
 

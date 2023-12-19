@@ -99,13 +99,10 @@ export default{
             ]
         },
         {
-            name: 'foto_stred_clanku',
-            type: 'image',
-            title: 'Fotka v strede článku',
-            options: {
-              hotspot: true, 
-            },
-          },
+          name: 'youtube_link',
+          type: 'string',
+          title: 'Youtube video URL',
+        },
        
         {
             name: 'mapa',
