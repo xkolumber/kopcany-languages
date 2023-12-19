@@ -10,6 +10,7 @@ import { urlFor } from "@/lib/sanityImageUrl";
 import { useLocale } from "next-intl";
 import YouTubeVideo from "@/components/YoutubeVideo";
 import ThemePortableText from "@/components/ThemePortableText";
+import DPhotos from "@/components/DPhotos";
 
 async function getData(slug: string) {
   const query = `*[_type == "themes" && slug.current =="${slug}"][0]`;
@@ -67,7 +68,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           {data.nazov_temy[locale as keyof typeof data.nazov_temy]}
         </h1>
         <div className="text_picture">
-          <p className="text-black ">
+          <p className="text-black max-width-50">
             <ThemePortableText data={data} specify="uvodny_text" />
             {/* {data.uvodny_text[locale as keyof typeof data.nazov_temy]} */}
           </p>
@@ -86,11 +87,6 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 
         <YouTubeVideo id="kmzpWM23rws" />
 
-        <p className="text-black">
-          <ThemePortableText data={data} specify="pokracovanie_text" />
-          {/* {data.pokracovanie_text[locale as keyof typeof data.nazov_temy]} */}
-        </p>
-
         <Image
           src={urlFor(data.mapa_oblastt).url()}
           alt="Mapa okolia Záhoria"
@@ -98,6 +94,11 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           height={1000}
           className="full_width_image_mapa"
         />
+        <p className="text-black">
+          <ThemePortableText data={data} specify="pokracovanie_text" />
+          {/* {data.pokracovanie_text[locale as keyof typeof data.nazov_temy]} */}
+        </p>
+        <DPhotos url="/3d.jpg" />
 
         {data2[0].skupina_obrazkov && (
           <GroupPictures data={data2[0]} parameter="skupina_obrazkov" />

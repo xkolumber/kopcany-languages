@@ -13,13 +13,16 @@ const Navbar = ({ navbar_array }: Props) => {
   return (
     <>
       <div className="navbar">
+        <Link href={`/`}>
+          <p> {navbar_array[5]}</p>
+        </Link>
         <Link href={`/${locale}/about_project`}>
           <p> {navbar_array[0]}</p>
         </Link>
         <Link href={`/${locale}/theme/pamiatky-velkej-moravy`}>
           <p> {navbar_array[1]}</p>
         </Link>
-        <Link href={`/${locale}/theme/zazi-barokovu-krajinu`}>
+        <Link href={`/${locale}/baroque`}>
           <p> {navbar_array[2]}</p>
         </Link>
         <Link href={`/${locale}/theme/po-stopach-t-g-masaryka`}>
@@ -37,6 +40,7 @@ const Navbar = ({ navbar_array }: Props) => {
         experience={navbar_array[2]}
         masaryk={navbar_array[3]}
         contact={navbar_array[4]}
+        home={navbar_array[5]}
       />
     </>
   );

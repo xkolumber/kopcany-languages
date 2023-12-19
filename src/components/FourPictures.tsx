@@ -4,15 +4,10 @@ import React, { useEffect, useState } from "react";
 
 interface Props {
   onActiveDotChange: (dotNumber: number) => void;
+  images: string[];
 }
 
-const FourPictures = ({ onActiveDotChange }: Props) => {
-  const images = [
-    "/about_project.jpg",
-    "/kopcany_uvod.jpg",
-    "/kopcany_video.jpg",
-    "/kopcany_uvod.jpg",
-  ];
+const FourPictures = ({ onActiveDotChange, images }: Props) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [scale, setScale] = useState(1);
 

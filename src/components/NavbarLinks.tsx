@@ -8,6 +8,9 @@ const NavbarLinks = () => {
 
   return (
     <>
+      <Link href={`/`}>
+        <p> {t("home")}</p>
+      </Link>
       <Link href={`/${locale}/about_project`}>
         <p> {t("about_project")}</p>
       </Link>

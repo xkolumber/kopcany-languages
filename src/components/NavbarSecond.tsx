@@ -12,6 +12,7 @@ const NavbarSecond = ({ black }: Props) => {
 
   const locale = useLocale();
 
+  const home = t("home");
   const about_project = t("about_project");
   const monuments = t("monuments");
   const experience = t("experience");
@@ -21,6 +22,11 @@ const NavbarSecond = ({ black }: Props) => {
   return (
     <>
       <div className="navbar ">
+        <Link href={`/`}>
+          <p className={`${black === true && "text-black-imp"} `}>
+            {t("home")}
+          </p>
+        </Link>
         <Link href={`/${locale}/about_project`}>
           <p className={`${black === true && "text-black-imp"} `}>
             {t("about_project")}
@@ -32,7 +38,7 @@ const NavbarSecond = ({ black }: Props) => {
             {t("monuments")}
           </p>
         </Link>
-        <Link href={`/${locale}/theme/zazi-barokovu-krajinu`}>
+        <Link href={`/${locale}/baroque`}>
           <p className={`${black === true && "text-black-imp"} `}>
             {" "}
             {t("experience")}
@@ -54,6 +60,7 @@ const NavbarSecond = ({ black }: Props) => {
         <Switcher />
       </div>
       <NavbarMobile
+        home={home}
         about_project={about_project}
         monuments={monuments}
         experience={experience}

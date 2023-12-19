@@ -32,8 +32,16 @@ const page = async () => {
   const experience = p("experience");
   const masaryk = p("masaryk");
   const contact = p("contact");
+  const home = p("home");
 
-  const navbar_array = [about_project, monuments, experience, masaryk, contact];
+  const navbar_array = [
+    about_project,
+    monuments,
+    experience,
+    masaryk,
+    contact,
+    home,
+  ];
 
   const map_words = [homePage_map, homePage_map_title];
 

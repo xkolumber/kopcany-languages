@@ -8,6 +8,7 @@ import { useLocale } from "next-intl";
 import Switcher from "./Switcher";
 
 interface Props {
+  home: string;
   about_project: string;
   monuments: string;
   experience: string;
@@ -17,6 +18,7 @@ interface Props {
 }
 
 const NavbarMobile = ({
+  home,
   about_project,
   monuments,
   experience,
@@ -42,6 +44,10 @@ const NavbarMobile = ({
               onClick={toggleClickHamburger}
               className="hamburger_close"
             />
+            <Link href={`/`} onClick={toggleClickHamburger}>
+              <p> {home}</p>
+            </Link>
+
             <Link
               href={`/${locale}/about_project`}
               onClick={toggleClickHamburger}
@@ -54,10 +60,7 @@ const NavbarMobile = ({
             >
               <p> {monuments}</p>
             </Link>
-            <Link
-              href={`/${locale}/theme/zazi-barokovu-krajinu`}
-              onClick={toggleClickHamburger}
-            >
+            <Link href={`/${locale}/baroque`} onClick={toggleClickHamburger}>
               <p> {experience}</p>
             </Link>
             <Link

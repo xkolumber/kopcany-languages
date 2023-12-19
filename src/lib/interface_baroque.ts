@@ -9,35 +9,38 @@ export interface Baroque{
     slug: {
         current: string;
     };
-    financovanie_text:{
-        sk:string;
-        cz:string;
-        en:string;
-    };
+    uvodny_text:Activity[];
+
     titulna_foto: string;
     kresleny_obrazok: string;
-    uvodny_text:{
-        sk:string;
-        cz:string;
-        en:string;
-    };
-   
-    foto_stred_clanku: string;
     mapa:string;
-    projekt_ciel:{
+    text_pred_mapou:{
         sk:string;
         cz:string;
         en:string;
     };
-    projekt_vysledok:{
+    nadpis_sekcie1:{
         sk:string;
         cz:string;
         en:string;
     };
-    projekt_aktivity: Activity[]; 
-    projekt_aktivity_hlavne:Activity[]; 
+    popis_sekcie1:Activity[];
+    skupina_obrazkov:string;
+    nadpis_sekcie2:{
+        sk:string;
+        cz:string;
+        en:string;
+    };
+    popis_sekcie2:Activity[];
+    skupina_obrazkov2:string;
+    nadpis_sekcie3:{
+        sk:string;
+        cz:string;
+        en:string;
+    };
+    popis_sekcie3:Activity[];
     three_d_foto:string;
-    rozpocet:Activity[]; 
+    skupina_obrazkov3:string;
 
 }
 interface Activity {

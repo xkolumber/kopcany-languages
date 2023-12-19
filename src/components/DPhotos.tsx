@@ -2,11 +2,15 @@
 import React from "react";
 import { ReactPhotoSphereViewer } from "react-photo-sphere-viewer";
 
-const DPhotos = () => {
+interface Props {
+  url: string;
+}
+
+const DPhotos = ({ url }: Props) => {
   return (
     <ReactPhotoSphereViewer
-      src="./mikulcice360.jpg"
-      height={"100vh"}
+      src={url}
+      height={"50vh"}
       width={"100%"}
     ></ReactPhotoSphereViewer>
   );
