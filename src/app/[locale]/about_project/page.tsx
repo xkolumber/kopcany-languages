@@ -10,6 +10,8 @@ import { urlFor } from "@/lib/sanityImageUrl";
 import { useLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { About_project } from "../../../lib/interface_about_project";
+import YouTubeVideo from "@/components/YoutubeVideo";
+import DPhotos from "@/components/DPhotos";
 
 async function getData() {
   const query = `*[_type == "about_project"][0]`;
@@ -68,7 +70,7 @@ const Page = async () => {
           {data.nazov_temy[locale as keyof typeof data.nazov_temy]}
         </h1>
         <div className="text_picture">
-          <p className="text-black ">
+          <p className="text-black italic max-width-50">
             {data.financovanie_text[locale as keyof typeof data.nazov_temy]}
           </p>
 
@@ -83,20 +85,12 @@ const Page = async () => {
             }}
           />
         </div>
-        <h5> {t("project_description")}</h5>
-        <p className="text-black ">
+        <h5 className="text-black"> {t("project_description")}</h5>
+        <p className="text-black max-width-50 margin-bottom-10 ">
           {data.uvodny_text[locale as keyof typeof data.nazov_temy]}
         </p>
-        <Image
-          src={urlFor(data.foto_stred_clanku).url()}
-          alt="Mapa okolia Záhoria"
-          width={1000}
-          height={1000}
-          className="full_width_image"
-          style={{
-            objectFit: "cover",
-          }}
-        />
+        <YouTubeVideo id="kmzpWM23rws" />
+      
         <Image
           src={urlFor(data.mapa).url()}
           alt="Mapa okolia Záhoria"
@@ -104,7 +98,7 @@ const Page = async () => {
           height={1000}
           className="full_width_image_mapa"
         />
-        <div className="about_two_section">
+        <div className="about_two_section margin-bottom-10">
           <div className="about_width_section">
             <h4 className="text-black">{t("project_goal")}</h4>
             <p className="text-black">
@@ -136,15 +130,12 @@ const Page = async () => {
             </p>
           </div>
         </div>
-        <Image
-          src={urlFor(data.three_d_foto).url()}
-          alt="Mapa okolia Záhoria"
-          width={1000}
-          height={1000}
-          className="full_width_image"
-        />
-
+        <div className="margin-top-10">
+           <DPhotos url="/3d.jpg" />
+        </div>
+       
         <GroupPictures data={data2[0]} parameter="skupina_obrazkov" />
+   
         <h4 className="text-black">{t("project_budget")}</h4>
         <AboutPortableText data={data} specify="rozpocet" />
 

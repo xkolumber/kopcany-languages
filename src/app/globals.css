@@ -249,6 +249,15 @@ p {
 }
 
 /*Custom */
+.margin-top-10{
+  margin-top: 3rem;
+}
+.margin-bottom-10{
+  margin-bottom: 3rem;
+}
+.italic{
+  font-style: italic;
+}
 .margin-bottom-button{
   margin-bottom: 3rem;
 }
@@ -280,6 +289,12 @@ p {
 
 
 @media (min-width: 768px) {
+  .margin-top-10{
+    margin-top: 5rem;
+  }
+  .margin-bottom-10{
+    margin-bottom: 5rem;
+  }
   .margin-bottom-button{
     margin-bottom: 5rem;
   }
@@ -292,6 +307,12 @@ p {
 }
 
 @media (min-width: 1600px) {
+  .margin-top-10{
+    margin-top: 10rem;
+  }
+  .margin-bottom-10{
+    margin-bottom: 10rem;
+  }
   .p-margin-bottom{
     margin-bottom: 10rem;
   }
@@ -772,16 +793,19 @@ p {
   grid-template-columns: repeat(1, 1fr);
   gap: 1.6rem;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 @media (min-width:768px){
   .skupina_obrazkov{
     grid-template-columns: repeat(3, 1fr);
     margin-top: 5rem;
+    margin-bottom: 5rem;
   }
 }
 @media (min-width:1556px){
   .skupina_obrazkov{
     margin-top: 13rem;
+    margin-bottom: 13rem;
   }
 }
 
@@ -830,6 +854,7 @@ p {
 .about_two_section{
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
 .text_picture{
   display:flex;
@@ -850,6 +875,7 @@ p {
   .about_two_section{
     display: flex;
     flex-direction: row;
+    gap: 4rem;
   }
   .about_width_section{
     width: 50%;
