@@ -1,0 +1,55 @@
+{
+  "navbar":{
+    "home":"Home",
+    "about_project": "About project",
+    "monuments":"Monuments of Great Moravia",
+    "experience":"Experience the Baroque landscape",
+    "masaryk": "Tracing the footsteps of T.G. Masaryk",
+    "contact": "Contact"
+  },
+  "home_page":{
+    "welcome":"Welcome to a territory with a unique history",
+    "connect":"connected by the footbridge over the Morava River",
+    "events": "Events",
+    "events_description":"The following events are coming up in the near future:",
+    "map":"Map",
+    "map_description": "On this map you will find four important towns connected with a rich history that is intertwined with the Morava River.",
+    "themes": "Themes",
+    "themes_description": "Explore and discover the main areas of history that characterise our locality. Each section offers a unique perspective on the significant events and cultural heritage that have shaped our history.",
+    "about_project":"About Project",
+    "about_project_description": "The idea of the joint project arose from the common need of the project partners to connect the offer of cultural tourist attractions and events in the cross-border area Hodonín - Mikulčice - Kopčany - Holíč.",
+    "archive": "Archive of previous events",
+    "archive_text": "Take a look at our joint events and feel free to participate in the following ones! :)",
+    "archive_button": "View archive"
+  },
+  "event":{
+    "where":"where",
+    "when":"when",
+    "entry":"entry",
+    "back":"Back"
+  },
+  "about_project":{
+    "project_description":"Project description:",
+    "project_goal":"Objective of the project:",
+    "project_result":"Project result:",
+    "project_activity":"Project activities of the Lead Partner:",
+    "project_activity_main":"Project activities of the Main Cross-Border Partner:",
+    "project_budget":"Project budget:"
+  },
+  "partners":{
+    "title":"Partners",
+    "description":"These are our partners"
+  },
+  "footer":{
+    "info_centre": "Kopčany Information Centre",
+    "service_guide": "Guide services",
+    "service_others": "Other services",
+    "phone": "Phone",
+    "socials": "Social networks",
+    "rules": "Cookie policy"
+  },
+  "Index": {
+    "title": "Hello world!"
+  }
+  }
+  

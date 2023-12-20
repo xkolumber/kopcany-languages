@@ -1,0 +1,57 @@
+{
+  "navbar":{
+    "home":"Domov",
+    "about_project": "O projekte",
+    "monuments":"Památky Velké Moravy",
+    "experience":"Zažijte barokní krajinu",
+    "masaryk": "Po stopách T.G. Masaryka",
+    "contact": "Kontakt"
+  },
+  "home_page":{
+    "welcome":"Vítejte na území s jedinečnou historií",
+    "connect":"spojené lávkou přes řeku Moravu",
+    "events": "Události",
+    "events_description":"V blízké budoucnosti se chystají následující akce:",
+    "map":"Mapa",
+    "map_description": "Na této mapě najdete čtyři významná města spojená s bohatou historií, která je spjata s řekou Moravou.",
+    "themes": "Témata",
+    "themes_description": "Prozkoumejte a objevte hlavní oblasti historie, které charakterizují naši lokalitu. Každá část nabízí jedinečný pohled na významné události a kulturní dědictví, které utvářely naši historii.",
+    "about_project":"O projektu",
+    "about_project_description": "Myšlenka společného projektu vznikla ze společné potřeby partnerů projektu propojit nabídku kulturních turistických atraktivit a akcí v přeshraniční oblasti Hodonín - Mikulčice - Kopčany - Holíč.",
+    "archive": "Archiv předchozích akcí",
+    "archive_text": "Podívejte se na naše společné akce a neváhejte se zúčastnit těch následujících! :)",
+    "archive_button": "Zobrazit archiv"
+  },
+  "event":{
+    "where":"kde",
+    "when":"kdy",
+    "entry":"vstup",
+    "back":"Zpět"
+  },
+  "about_project":{
+    "project_description":"Popis projektu:",
+    "project_goal":"Cíl projektu:",
+    "project_result":"Výsledek projektu:",
+    "project_activity":"Projektové činnosti vedoucího partnera:",
+    "project_activity_main":"Projektové aktivity hlavního přeshraničního partnera:",
+    "project_budget":"Rozpočet projektu:"
+  },
+  "partners":{
+    "title":"Partneři",
+    "description":"Toto jsou naši partneři"
+  },
+  "footer":{
+    "info_centre": "Informační centrum Kopčany",
+    "service_guide": "Doprovodné služby",
+    "service_others": "Ostatní služby",
+    "phone": "Mobil",
+    "socials": "Sociální sítě",
+    "rules": "Zásady používání souborů cookie"
+  },
+  
+
+    "Index": {
+      "title": "Ahoj sviet!"
+    }
+  
+}
