@@ -29,10 +29,11 @@ const HomeIntro = ({ title, connect, navbar_array }: Props) => {
   // const news = await getPhotos();
 
   const news = [
-    "/about_project.jpg",
-    "/kopcany_uvod.jpg",
-    "/kopcany_video.jpg",
-    "/kopcany_uvod.jpg",
+    "/home_banner1.jpg",
+    "/home_banner2.jpg",
+    "/home_banner3.jpg",
+    "/home_banner4.jpg",
+    "/home_banner5.jpg",
   ];
 
   const handleActiveDotChange = (dotNumber: number) => {
@@ -53,7 +54,7 @@ const HomeIntro = ({ title, connect, navbar_array }: Props) => {
           className="bg_image_dark"
         />
       </div>
-      <div className="padding_content intro_padding justify-between width_100">
+      <div className="padding_content intro_padding justify-between width_100 home_intro_margin">
         <Navbar navbar_array={navbar_array} />
         <div>
           <div className="dots">

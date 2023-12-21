@@ -7,10 +7,11 @@ import Partners from "@/components/Partners";
 import { Theme } from "@/lib/interface_theme";
 import { client } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImageUrl";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import YouTubeVideo from "@/components/YoutubeVideo";
 import ThemePortableText from "@/components/ThemePortableText";
 import DPhotos from "@/components/DPhotos";
+import { getTranslations } from "next-intl/server";
 
 async function getData(slug: string) {
   const query = `*[_type == "themes" && slug.current =="${slug}"][0]`;
@@ -38,6 +39,19 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 
   const locale = useLocale();
 
+
+  const t = await getTranslations("navbar");
+
+  const home = t("home");
+  const about_project = t("about_project");
+  const monuments = t("monuments");
+  const experience = t("experience");
+  const masaryk = t("masaryk");
+  const contact = t("contact");
+
+  const navbar_array = [home, about_project, monuments, experience, masaryk, contact];
+
+
   return (
     <>
       <div className="titulna_foto intro_padding">
@@ -61,7 +75,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
             className="bg_image_dark"
           />
         </div>
-        <NavbarSecond />
+        <NavbarSecond navbar_array={navbar_array} />
         {params.slug ==='po-stopach-t-g-masaryka' &&  <p>Kopčany - Hodonín</p>}
         {params.slug ==='pamiatky-velkej-moravy' &&  <p>Mikulčice - Kopčany</p>}
        
@@ -73,7 +87,6 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         <div className="text_picture">
           <p className="text-black max-width-50">
             <ThemePortableText data={data} specify="uvodny_text" />
-            {/* {data.uvodny_text[locale as keyof typeof data.nazov_temy]} */}
           </p>
 
           <Image

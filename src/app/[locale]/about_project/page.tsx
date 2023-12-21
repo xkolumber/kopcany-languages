@@ -40,6 +40,18 @@ const Page = async () => {
 
   const locale = useLocale();
 
+  const p = await getTranslations("navbar");
+
+  const home = p("home");
+  const about_project = p("about_project");
+  const monuments = p("monuments");
+  const experience = p("experience");
+  const masaryk = p("masaryk");
+  const contact = p("contact");
+
+  const navbar_array = [home, about_project, monuments, experience, masaryk, contact];
+
+
   return (
     <>
       <div className="titulna_foto intro_padding">
@@ -63,7 +75,7 @@ const Page = async () => {
             className="bg_image_dark"
           />
         </div>
-        <NavbarSecond />
+        <NavbarSecond navbar_array={navbar_array}/>
         <p>Mikulčice - Kopčany - Holíč - Hodonín</p>
       </div>
       <div className="padding_content bg-white">

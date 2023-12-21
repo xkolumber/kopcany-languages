@@ -8,11 +8,12 @@ import Partners from "@/components/Partners";
 import { Baroque } from "@/lib/interface_baroque";
 import { client } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImageUrl";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import ThemePortableText from "@/components/ThemePortableText";
 import BaroquePortableText from "@/components/BaroquePortableText";
 import YouTubeVideo from "@/components/YoutubeVideo";
 import DPhotos from "@/components/DPhotos";
+import { getTranslations } from "next-intl/server";
 
 async function getData() {
   const query = `*[_type == "baroque"][0]`;
@@ -41,6 +42,18 @@ const Page = async () => {
   const data4 = await getPhotos("skupina_obrazkov3");
   const locale = useLocale();
 
+  const p =  await getTranslations("navbar");
+
+  const home = p("home");
+  const about_project = p("about_project");
+  const monuments = p("monuments");
+  const experience = p("experience");
+  const masaryk = p("masaryk");
+  const contact = p("contact");
+
+  
+  const navbar_array = [home, about_project, monuments, experience, masaryk, contact];
+
   return (
     <>
       <div className="titulna_foto intro_padding">
@@ -64,7 +77,7 @@ const Page = async () => {
             className="bg_image_dark"
           />
         </div>
-        <NavbarSecond />
+        <NavbarSecond  navbar_array={navbar_array}/>
         <p>Kopčany - Holíč</p>
       </div>
       <div className="padding_content bg-white">

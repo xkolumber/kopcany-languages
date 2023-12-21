@@ -41,10 +41,23 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 
   const locale = useLocale();
 
+  
+  const p =  await getTranslations("navbar");
+
+  const home = p("home");
+  const about_project = p("about_project");
+  const monuments = p("monuments");
+  const experience = p("experience");
+  const masaryk = p("masaryk");
+  const contact = p("contact");
+
+  
+  const navbar_array = [home, about_project, monuments, experience, masaryk, contact];
+
   return (
     <>
       <div className="titulna_foto padding_content intro_padding">
-        <NavbarSecond />
+        <NavbarSecond navbar_array={navbar_array}/>
         <Image
           src={urlFor(data.titulna_foto).url()}
           alt="Mapa okolia Záhoria"

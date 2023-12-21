@@ -1,3 +1,4 @@
+import ScrollButtonTop from "@/components/ScrollButtonTop";
 import { Montserrat } from "next/font/google";
 import { notFound } from "next/navigation";
 import { ReactNode } from "react";
@@ -21,6 +22,7 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
 
   return (
     <html lang={locale}>
+      {/* <ScrollButtonTop />  */}
       <body>{children}</body>
     </html>
   );

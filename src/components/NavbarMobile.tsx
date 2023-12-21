@@ -6,6 +6,7 @@ import { IoMdClose } from "react-icons/io";
 import Image from "next/image";
 import { useLocale } from "next-intl";
 import Switcher from "./Switcher";
+import { usePathname } from "next/navigation";
 
 interface Props {
   home: string;
@@ -31,6 +32,9 @@ const NavbarMobile = ({
   const toggleClickHamburger = () => {
     setClickedHamburger(!clickedHamburger);
   };
+
+  const pathaname = usePathname();
+
   return (
     <div className="navbar-mobile">
       <GiHamburgerMenu
@@ -45,32 +49,32 @@ const NavbarMobile = ({
               className="hamburger_close"
             />
             <Link href={`/`} onClick={toggleClickHamburger}>
-              <p> {home}</p>
+              <p className={`${pathaname === `/` ? 'active_navbar_link' : ''} `}> {home}</p>
             </Link>
 
             <Link
               href={`/${locale}/about_project`}
               onClick={toggleClickHamburger}
             >
-              <p> {about_project}</p>
+              <p className ={`${pathaname === `/${locale}/about_project` ? 'active_navbar_link' : ''}`}>{about_project}</p>
             </Link>
             <Link
               href={`/${locale}/theme/pamiatky-velkej-moravy`}
               onClick={toggleClickHamburger}
             >
-              <p> {monuments}</p>
+               <p className ={`${pathaname === `/${locale}/theme/pamiatky-velkej-moravy` ? 'active_navbar_link' : ''}`}> {monuments}</p>
             </Link>
             <Link href={`/${locale}/baroque`} onClick={toggleClickHamburger}>
-              <p> {experience}</p>
+            <p className ={`${pathaname === `/${locale}/baroque` ? 'active_navbar_link' : ''}`}>{experience}</p>
             </Link>
             <Link
               href={`/${locale}/theme/po-stopach-t-g-masaryka`}
               onClick={toggleClickHamburger}
             >
-              <p> {masaryk}</p>
+               <p className ={`${pathaname ===  `/${locale}/theme/po-stopach-t-g-masaryka` ? 'active_navbar_link' : ''}`}> {masaryk}</p>
             </Link>
             <Link href={`/${locale}/contact`} onClick={toggleClickHamburger}>
-              <p> {contact}</p>
+            <p className ={`${pathaname ===  `/${locale}/contact`  ? 'active_navbar_link' : ''}`}> {contact}</p>
             </Link>
             <div className="grid gap-3">
               <Switcher />

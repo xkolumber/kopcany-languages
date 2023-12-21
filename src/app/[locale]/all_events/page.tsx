@@ -20,6 +20,18 @@ const Page = async () => {
 
   const t = await getTranslations("home_page");
 
+  const p =  await getTranslations("navbar");
+
+  const home = p("home");
+  const about_project = p("about_project");
+  const monuments = p("monuments");
+  const experience = p("experience");
+  const masaryk = p("masaryk");
+  const contact = p("contact");
+
+  
+  const navbar_array = [home, about_project, monuments, experience, masaryk, contact];
+
   return (
     <>
       <div className="titulna_foto intro_padding padding_content">
@@ -43,7 +55,7 @@ const Page = async () => {
             className="bg_image_dark"
           />
         </div>
-        <NavbarSecond />
+        <NavbarSecond navbar_array={navbar_array}/>
       </div>
 
       <div className="padding_content bg-white">

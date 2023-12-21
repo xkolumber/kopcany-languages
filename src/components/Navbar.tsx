@@ -1,7 +1,11 @@
+'use client';
+
 import { useLocale } from "next-intl";
 import Link from "next/link";
 import NavbarMobile from "./NavbarMobile";
 import Switcher from "./Switcher";
+import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 interface Props {
   navbar_array: string[];
@@ -10,11 +14,15 @@ interface Props {
 const Navbar = ({ navbar_array }: Props) => {
   const locale = useLocale();
 
+
+  const pathaname = usePathname();
+
+
   return (
     <>
       <div className="navbar">
-        <Link href={`/`}>
-          <p> {navbar_array[5]}</p>
+        <Link href={`/`} >
+          <p className={`${pathaname === `/${locale}` ? 'active_navbar_link' : ''} `}> {navbar_array[5]}</p>
         </Link>
         <Link href={`/${locale}/about_project`}>
           <p> {navbar_array[0]}</p>
