@@ -16,11 +16,11 @@ interface Props {
 const NavbarSecond = ({ black,navbar_array }: Props) => {
 
   const [blackColor, setBlackColor] = useState(false);
-  console.log(black);
   useEffect(() => {
     if(black) {
       setBlackColor(true);
     }
+    console.log(blackColor)
    
   }, [black]);
  
@@ -33,34 +33,34 @@ const NavbarSecond = ({ black,navbar_array }: Props) => {
 
   return (
     <>
-      <div className="navbar ">
+      <div className={`navbar ${blackColor ? "navbar-black" : '' }`}>
       <Link href={`/`} >
-          <p className={`${blackColor && "text-black-imp"} ${pathaname === `/` ? 'active_navbar_link' : ''} `}>
+          <p className={`} ${pathaname === `/` ? 'active_navbar_link' : ''} `}>
             {navbar_array[0]}
           </p>
         </Link>
         <Link href={`/${locale}/about_project`}>
-          <p className={`${blackColor && "text-black-imp"} ${pathaname === `/${locale}/about_project` ? 'active_navbar_link' : ''}`}>
+          <p className={`${blackColor ? "text-black-imp" : 'text-white-imp'} ${pathaname === `/${locale}/about_project` ? 'active_navbar_link' : ''}`}>
           {navbar_array[1]}
           </p>
         </Link>
         <Link href={`/${locale}/theme/pamiatky-velkej-moravy`}>
-          <p className={`${blackColor && "text-black-imp"} ${pathaname === `/${locale}/theme/pamiatky-velkej-moravy` ? 'active_navbar_link' : ''}`}>
+          <p className={`${blackColor ? "text-black-imp" : 'text-white-imp'} ${pathaname === `/${locale}/theme/pamiatky-velkej-moravy` ? 'active_navbar_link' : ''}`}>
           {navbar_array[2]}
           </p>
         </Link>
         <Link href={`/${locale}/baroque`}>
-          <p className={`${blackColor && "text-black-imp"}  ${pathaname === `/${locale}/baroque` ? 'active_navbar_link' : ''} `}>    
+          <p className={`${blackColor ? "text-black-imp" : 'text-white-imp'}  ${pathaname === `/${locale}/baroque` ? 'active_navbar_link' : ''} `}>    
           {navbar_array[3]}
           </p>
         </Link>
         <Link href={`/${locale}/theme/po-stopach-t-g-masaryka`}>
-          <p className={`${blackColor && "text-black-imp"}  ${pathaname === `/${locale}/theme/po-stopach-t-g-masaryka` ? 'active_navbar_link' : ''} `}>
+          <p className={`${blackColor  ? "text-black-imp" : 'text-white-imp'}  ${pathaname === `/${locale}/theme/po-stopach-t-g-masaryka` ? 'active_navbar_link' : ''} `}>
           {navbar_array[4]}
           </p>
         </Link>
         <Link href={`/${locale}/contact`}>
-          <p className={`${black === true && "text-black-imp"}  ${pathaname === `/${locale}/contact` ? 'active_navbar_link' : ''} `}>
+          <p className={`${black === true  ? "text-black-imp" : 'text-white-imp'}  ${pathaname === `/${locale}/contact` ? 'active_navbar_link' : ''} `}>
           {navbar_array[5]}
           </p>
         </Link>

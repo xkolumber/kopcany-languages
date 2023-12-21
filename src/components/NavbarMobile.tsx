@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import Image from "next/image";
@@ -33,13 +33,21 @@ const NavbarMobile = ({
     setClickedHamburger(!clickedHamburger);
   };
 
+  const [blackColor, setBlackColor] = useState(false);
+  useEffect(() => {
+    if(black) {
+      setBlackColor(true);
+    }
+   
+  }, [black]);
+
   const pathaname = usePathname();
 
   return (
     <div className="navbar-mobile">
       <GiHamburgerMenu
         onClick={toggleClickHamburger}
-        className="hamburger text-black-imp"
+        className={`hamburger ${blackColor ? 'text-black-imp' : 'text-white-imp'}`}
       />
       {clickedHamburger && (
         <>
