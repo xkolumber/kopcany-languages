@@ -64,6 +64,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
               objectFit: "cover",
             }}
             priority={true}
+            quality={100}
           />
         </div>
         <div className="bg_image_dark_wrapper">
@@ -109,6 +110,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           width={1000}
           height={1000}
           className="full_width_image_mapa"
+          quality={100}
         />
         <p className="text-black">
           <ThemePortableText data={data} specify="pokracovanie_text" />

@@ -74,7 +74,7 @@ const NavbarSecond = ({ black,navbar_array }: Props) => {
         experience= {navbar_array[3]}
         masaryk= {navbar_array[4]}
         contact= {navbar_array[5]}
-        black={true}
+        black={blackColor}
       />
     </>
   );

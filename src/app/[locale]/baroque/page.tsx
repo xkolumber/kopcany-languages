@@ -77,7 +77,7 @@ const Page = async () => {
             className="bg_image_dark"
           />
         </div>
-        <NavbarSecond  navbar_array={navbar_array}/>
+        <NavbarSecond  navbar_array={navbar_array} />
         <p>Kopčany - Holíč</p>
       </div>
       <div className="padding_content bg-white">

@@ -51,6 +51,8 @@ const page = async () => {
     home,
   ];
 
+  const events_description = data4
+
   const map_words = [homePage_map, homePage_map_title];
 
   return (
@@ -62,7 +64,7 @@ const page = async () => {
       />
       <main className="bg-white">
         <div className="padding_content">
-          <MapSection translation={map_words} url={data4.youtube_link} />
+          <MapSection translation={map_words} data={data4} />
           <Themes />
           <ThreeThemesArticle themes={data} baroque={data3}/>
         </div>

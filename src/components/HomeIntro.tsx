@@ -52,9 +52,10 @@ const HomeIntro = ({ title, connect, navbar_array }: Props) => {
           fill={true}
           style={{ objectFit: "cover" }}
           className="bg_image_dark"
+          quality={100}
         />
       </div>
-      <div className="padding_content intro_padding justify-between width_100 home_intro_margin">
+      <div className="padding_content intro_padding justify-between width_100">
         <Navbar navbar_array={navbar_array} />
         <div>
           <div className="dots">

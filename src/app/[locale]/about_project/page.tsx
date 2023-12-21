@@ -63,6 +63,7 @@ const Page = async () => {
             style={{
               objectFit: "cover",
             }}
+            quality={100}
           />
         </div>
 

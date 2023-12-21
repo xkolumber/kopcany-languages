@@ -20,7 +20,8 @@
     "about_project_description": "The idea of the joint project arose from the common need of the project partners to connect the offer of cultural tourist attractions and events in the cross-border area Hodonín - Mikulčice - Kopčany - Holíč.",
     "archive": "Archive of previous events",
     "archive_text": "Take a look at our joint events and feel free to participate in the following ones! :)",
-    "archive_button": "View archive"
+    "archive_button": "View archive",
+    "get_to_know": "find out more"
   },
   "event":{
     "where":"where",

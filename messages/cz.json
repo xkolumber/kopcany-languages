@@ -20,7 +20,8 @@
     "about_project_description": "Myšlenka společného projektu vznikla ze společné potřeby partnerů projektu propojit nabídku kulturních turistických atraktivit a akcí v přeshraniční oblasti Hodonín - Mikulčice - Kopčany - Holíč.",
     "archive": "Archiv předchozích akcí",
     "archive_text": "Podívejte se na naše společné akce a neváhejte se zúčastnit těch následujících! :)",
-    "archive_button": "Zobrazit archiv"
+    "archive_button": "Zobrazit archiv",
+    "get_to_know": "Zjistit více"
   },
   "event":{
     "where":"kde",
