@@ -49,8 +49,10 @@
     "socials": "Social networks",
     "rules": "Cookie policy"
   },
-  "Index": {
-    "title": "Hello world!"
+  "contact":{
+    "title":"Contact",
+    "name_lastname":"Name and lastname",
+    "message":"Message"
   }
   }
   

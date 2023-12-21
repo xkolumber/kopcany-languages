@@ -50,9 +50,10 @@
     "rules": "Zásady používání souborů cookie"
   },
   
-
-    "Index": {
-      "title": "Ahoj sviet!"
-    }
+  "contact":{
+    "title":"Kontakt",
+    "name_lastname":"Jméno a příjmení",
+    "message":"Zpráva"
+  }
   
 }

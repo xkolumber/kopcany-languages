@@ -9,7 +9,11 @@ import { useRouter } from "next/navigation";
 
 import React from "react";
 
-const ContactForm = () => {
+interface Props{
+    contact_array: String[];
+}
+
+const ContactForm = ({contact_array}:Props) => {
   const schema = yup.object({
     name: yup
       .string()

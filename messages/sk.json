@@ -53,5 +53,10 @@
     "phone": "Mobil",
     "socials": "Sociálne siete",
     "rules": "Pravidlá pre používanie súborov cookie"
+  },
+  "contact":{
+    "title":"Kontakt",
+    "name_lastname":"Meno a priezvisko",
+    "message":"Správa"
   }
 }
