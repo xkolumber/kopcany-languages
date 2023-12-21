@@ -35,17 +35,7 @@ const Page = async () => {
   return (
     <>
       <div className="titulna_foto intro_padding padding_content">
-        <div className="bg_image_wrapper">
-          <Image
-            src="/about_projectt.jpg"
-            alt="Mapa okolia Záhoria"
-            fill={true}
-            style={{
-              objectFit: "cover",
-            }}
-            priority={true}
-          />
-        </div>
+        <img  src="/all_events.jpg" alt=""  className="bg_image_wrapper" />
         <div className="bg_image_dark_wrapper">
           <Image
             src="/dark.png"

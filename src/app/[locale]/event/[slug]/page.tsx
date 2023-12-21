@@ -58,15 +58,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     <>
       <div className="titulna_foto padding_content intro_padding">
         <NavbarSecond navbar_array={navbar_array}/>
-        <Image
-          src={urlFor(data.titulna_foto).url()}
-          alt="Mapa okolia Záhoria"
-          fill={true}
-          style={{
-            objectFit: "cover",
-          }}
-          priority={true}
-        />
+        <img   src={urlFor(data.titulna_foto).url()} alt="" className="bg_image_wrapper" />
       </div>
       <div className="padding_content bg-white">
         <h1 className="text-black">
@@ -122,6 +114,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
                 objectFit: "contain",
               }}
               className="event_poster"
+              quality={100}
             />
           </>
         )}

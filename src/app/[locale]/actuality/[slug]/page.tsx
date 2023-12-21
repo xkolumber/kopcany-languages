@@ -43,8 +43,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 
           <button className="btn btn--primary">Zakúpiť lístky</button>
         </div>
-
-        <Image
+        <img   src={urlFor(data.titulna_foto).url()} alt="" className="full_width_image_mapa" />
+        {/* <Image
           src={urlFor(data.titulna_foto).url()}
           alt="Mapa okolia Záhoria"
           width={1000}
@@ -53,7 +53,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
             objectFit: "cover",
           }}
           className="full_width_image_mapa"
-        />
+        /> */}
       </div>
       <Footer />
     </>

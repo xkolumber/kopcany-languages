@@ -28,18 +28,7 @@ const AboutProject = async({ data }: Props) => {
         <div className="btn btn--primary margin-bottom-button">{t('get_to_know')}</div>
       </Link>
       <Link href={`/${locale}/about_project`}>
-        <Image
-          src={urlFor(data[0].titulna_foto).url()}
-          alt="O projekte"
-          width={0}
-          height={0}
-          sizes="100vw"
-          style={{
-            objectFit: "cover",
-          }}
-          className="video_intro"
-          quality={100}
-        />
+        <img  src={urlFor(data[0].titulna_foto).url()} alt=""  className="video_intro" />
       </Link>
     </>
   );

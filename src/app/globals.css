@@ -214,7 +214,7 @@ p {
   }
   .video_intro{
     height: 500px;
-    object-fit: contain;
+    object-fit: cover;
     margin-bottom: 12rem;
   }
   .mapa_img{
@@ -367,6 +367,7 @@ p {
   width: 100%;
   height: 100%;
   z-index: -1; /* Move them behind the content */
+  object-fit: cover;
 }
 .bg_image_dark_wrapper{
   opacity: 0.5;
@@ -1111,4 +1112,86 @@ flex-direction: column;
 }
 .scroll_button.show {
   opacity: 1; /* Show the button when the show class is added */
+}
+
+/*input, textarea*/
+form{
+margin-top: 3rem;
+}
+
+input, textarea, select{
+  background-color: var(--primary-color);
+  width: 100%;
+  border:none;
+  font-size: 1.6rem !important;
+  border-bottom: 1px solid var(--tertiary-color);
+  border-radius: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  min-height: 3rem;
+  opacity: 0.4;
+  font-weight: bolder;
+
+}
+select{
+  color:var(--tertiary-color);
+  opacity: 0.5;
+}
+select.selected {
+  color:black;
+  opacity: 1;
+}
+
+input::placeholder, textarea::placeholder{
+  opacity: 0.5;
+}
+input:focus, textarea:focus, select:focus{
+  outline: none;
+  border-bottom:  2px solid var(--tertiary-color);
+}
+textarea{
+  width: 100%;
+  resize: none;
+}
+.display_flex{
+  display: flex;
+  width: 100%;
+}
+.input_vertically{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media screen and (min-width:768px){
+  .message-form{
+    margin-top: 3rem;
+  }
+  form{
+    margin-top: 5rem;
+    }
+  input, textarea, select{
+      width: 100%;
+      border:none;
+      border-bottom: 1px solid var(--tertiary-color);
+  }
+  .input_both, .input_both2{
+      display: flex;
+      gap: 2rem;
+  }
+  .list_favourite_checkbox{
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+  }
+  .list_favourite_checkbox h3{
+      font-size: 3rem !important;
+      
+  }
+
+  
+}
+
+.error_message{
+  color:#dc3545 !important;
+  margin-top: 2px;
 }

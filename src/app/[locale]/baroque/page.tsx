@@ -57,17 +57,7 @@ const Page = async () => {
   return (
     <>
       <div className="titulna_foto intro_padding">
-        <div className="bg_image_wrapper">
-          <Image
-            src={urlFor(data.titulna_foto).url()}
-            alt="Mapa okolia Záhoria"
-            fill={true}
-            style={{
-              objectFit: "cover",
-            }}
-          />
-        </div>
-
+      <img   src={urlFor(data.titulna_foto).url()} alt="" className="bg_image_wrapper" />
         <div className="bg_image_dark_wrapper">
           <Image
             src="/dark.png"

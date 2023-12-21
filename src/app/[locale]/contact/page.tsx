@@ -1,3 +1,4 @@
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import NavbarSecond from "@/components/NavbarSecond";
 import { useTranslations } from "next-intl";
@@ -19,16 +20,10 @@ const Page = () => {
   return (
     <>
       <div className="padding_content gdpr intro_padding">
-      <NavbarSecond navbar_array={navbar_array}/>
+      <NavbarSecond navbar_array={navbar_array} black={true} />
         <h2 className="gdpr_title">Kontakt</h2>
+        <ContactForm />
 
-        <p>
-          {" "}
-          Všeobecné nariadenie o ochrane osobných údajov (General Data
-          Protection Regulation čiže GDPR), účinné od 25. 5. 2018 má za cieľ
-          chrániť práva (predovšetkým) občanov Európskej únie proti
-          neoprávnenému nakladaniu s ich osobnými údajmi.
-        </p>
       </div>
       <Footer />
     </>
