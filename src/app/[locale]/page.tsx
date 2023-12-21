@@ -12,6 +12,7 @@ import { client } from "@/lib/sanity";
 import AboutProject from "../../components/AboutProject";
 import { getTranslations } from "next-intl/server";
 import { About_project } from "@/lib/interface_about_project";
+import { Baroque } from "@/lib/interface_baroque";
 
 const page = async () => {
   const query = `*[_type=='themes']`;
@@ -19,6 +20,9 @@ const page = async () => {
 
   const query2 = `*[_type=='about_project']`;
   const data2 = (await client.fetch(query2)) as About_project[];
+
+  const query3 =`*[_type == "baroque"][0]`;
+  const data3 = (await client.fetch(query3)) as Baroque;
 
   const t = await getTranslations("home_page");
   const homePage_title = t("welcome");
@@ -56,7 +60,7 @@ const page = async () => {
         <div className="padding_content">
           <MapSection translation={map_words} />
           <Themes />
-          <ThreeThemesArticle themes={data} />
+          <ThreeThemesArticle themes={data} baroque={data3}/>
         </div>
         <Events />
         <div className="padding_content">

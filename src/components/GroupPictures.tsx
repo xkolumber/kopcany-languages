@@ -3,7 +3,7 @@
 import { ImageAsset } from "@/lib/interface_photos";
 import { urlFor } from "@/lib/sanityImageUrl";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ArrowLeftGallery from "./ArrowLeftGallery";
 import ArrowRightGallery from "./ArrowRightGallery";
 import CloseButton from "./CloseButton";
@@ -35,6 +35,29 @@ const GroupPictures = ({ data, parameter }: Props) => {
   const closeButton = () => {
     setSelectedImageIndex(null);
   };
+  const closeGallery = () => {
+    setSelectedImageIndex(null);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const galleryContainer = document.querySelector('.custom-gallery-container');
+
+      if (
+        galleryContainer &&
+        !galleryContainer.contains(event.target as Node)
+      ) {
+        closeGallery();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []); // Empty dependency array ensures this effect runs once
+
 
   return (
     <>
@@ -79,9 +102,7 @@ const GroupPictures = ({ data, parameter }: Props) => {
               <ArrowRightGallery />
             </div>
 
-            <div onClick={closeButton}>
-              <CloseButton />
-            </div>
+           
           </div>
         </>
       )}

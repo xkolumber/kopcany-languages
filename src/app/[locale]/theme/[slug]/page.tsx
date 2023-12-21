@@ -40,7 +40,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <div className="titulna_foto intro_padding padding_content">
+      <div className="titulna_foto intro_padding">
         <div className="bg_image_wrapper">
           <Image
             src={urlFor(data.titulna_foto).url()}
@@ -62,6 +62,9 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           />
         </div>
         <NavbarSecond />
+        {params.slug ==='po-stopach-t-g-masaryka' &&  <p>Kopčany - Hodonín</p>}
+        {params.slug ==='pamiatky-velkej-moravy' &&  <p>Mikulčice - Kopčany</p>}
+       
       </div>
       <div className="padding_content bg-white">
         <h1 className="text-black">

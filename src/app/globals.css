@@ -160,11 +160,9 @@ p {
 }
 .intro_first{
   font-size: 2rem !important;
-  font-weight:bold;
 }
 .intro_second{
   font-size: 2rem !important;
-  font-weight:bold;
 }
 
 .imageContainer {
@@ -188,13 +186,15 @@ p {
 @media (min-width: 768px) {
   .intro_first{
     font-size: 3rem !important;
-    font-weight:bold;
   }
   .intro_second{
     font-size: 3.8rem !important;
-    font-weight:bold;
   }
 
+  .titulna_foto{
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
+  }
   .padding_content {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -224,6 +224,10 @@ p {
     padding-top: 10rem;
     padding-bottom: 10rem;
   }
+  .titulna_foto{
+    padding-left: 12rem !important;
+    padding-right: 12rem !important;
+  }
 }
 
 @media (min-width: 1536px) {
@@ -232,6 +236,10 @@ p {
     padding-left: 20rem;
     padding-top: 15rem;
     padding-bottom: 15rem;
+  }
+  .titulna_foto{
+    padding-left: 20rem !important;
+    padding-right: 20rem !important;
   }
   .video_intro{
     height: 800px;
@@ -408,6 +416,14 @@ p {
 .titulna_foto {
   min-height: 70vh;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.6rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  padding-bottom: 1.6rem;
+  color: white;
+  justify-content: space-between;
 }
 
 /*Buttons*/
@@ -627,7 +643,7 @@ p {
   flex-direction: column;
   z-index: 1000;
   padding: 20px;
-  gap: 5rem;
+  gap: 3rem;
 }
 .hamburger,
 .hamburger_close {
@@ -967,6 +983,7 @@ p {
   flex-direction: row;
   align-items: center;
   height: 90vh;
+  z-index: 90;
 }
 
 .custom-gallery {

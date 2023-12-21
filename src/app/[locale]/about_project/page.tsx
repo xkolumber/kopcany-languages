@@ -42,7 +42,7 @@ const Page = async () => {
 
   return (
     <>
-      <div className="titulna_foto intro_padding padding_content">
+      <div className="titulna_foto intro_padding">
         <div className="bg_image_wrapper">
           <Image
             src={urlFor(data.titulna_foto).url()}
@@ -64,16 +64,18 @@ const Page = async () => {
           />
         </div>
         <NavbarSecond />
+        <p>Mikulčice - Kopčany - Holíč - Hodonín</p>
       </div>
       <div className="padding_content bg-white">
         <h1 className="text-black max-width-50">
           {data.nazov_temy[locale as keyof typeof data.nazov_temy]}
         </h1>
         <div className="text_picture">
-          <p className="text-black italic max-width-50">
-            {data.financovanie_text[locale as keyof typeof data.nazov_temy]}
-          </p>
-
+        
+              <p className="text-black italic max-width-50">
+                {data.financovanie_text[locale as keyof typeof data.nazov_temy]}
+              </p>
+             
           <Image
             src={urlFor(data.kresleny_obrazok).url()}
             alt="Mapa okolia Záhoria"
@@ -86,9 +88,10 @@ const Page = async () => {
           />
         </div>
         <h5 className="text-black"> {t("project_description")}</h5>
-        <p className="text-black max-width-50 margin-bottom-10 ">
-          {data.uvodny_text[locale as keyof typeof data.nazov_temy]}
-        </p>
+            <p className="text-black max-width-50 margin-bottom-10 ">
+              {data.uvodny_text[locale as keyof typeof data.nazov_temy]}
+            </p>
+       
         <YouTubeVideo id="kmzpWM23rws" />
       
         <Image

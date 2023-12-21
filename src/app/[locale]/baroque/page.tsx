@@ -43,7 +43,7 @@ const Page = async () => {
 
   return (
     <>
-      <div className="titulna_foto intro_padding padding_content">
+      <div className="titulna_foto intro_padding">
         <div className="bg_image_wrapper">
           <Image
             src={urlFor(data.titulna_foto).url()}
@@ -65,6 +65,7 @@ const Page = async () => {
           />
         </div>
         <NavbarSecond />
+        <p>Kopčany - Holíč</p>
       </div>
       <div className="padding_content bg-white">
         <h1 className="text-black max-width-50">
