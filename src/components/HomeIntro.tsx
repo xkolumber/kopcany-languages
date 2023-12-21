@@ -1,11 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-import Image from "next/image";
-import FourPictures from "./FourPictures";
 import { client } from "@/lib/sanity";
-import { ImageAsset } from "@/lib/interface_photos";
-import { urlFor } from "@/lib/sanityImageUrl";
+import Image from "next/image";
+import { useState } from "react";
+import FourPictures from "./FourPictures";
+import Navbar from "./Navbar";
 
 async function getPhotos() {
   const query = `*[_type == "about_project"]{
@@ -66,9 +64,9 @@ const HomeIntro = ({ title, connect, navbar_array }: Props) => {
               ></div>
             ))}
           </div>
-          <p className="intro_first">{title}</p>
-          <h3>Mikulčice - Kopčany - Holíč - Hodonín</h3>
-          <p className="intro_second">{connect}</p>
+          <h4 className="font-weight-regular">{title}</h4>
+          <h2>Mikulčice - Kopčany - Holíč - Hodonín</h2>
+          <h4 className="font-weight-regular">{connect}</h4>
         </div>
       </div>
     </div>

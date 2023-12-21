@@ -72,7 +72,9 @@ const Page = async () => {
           {data.nazov_temy[locale as keyof typeof data.nazov_temy]}
         </h1>
         <div className="text_picture">
+          <div className="max-width-50">
           <BaroquePortableText data={data} specify="uvodny_text" />
+          </div>
 
           <Image
             src={urlFor(data.kresleny_obrazok).url()}
@@ -86,8 +88,11 @@ const Page = async () => {
           />
         </div>
 
-        <YouTubeVideo id="kmzpWM23rws" />
-        <h5 className="text-black">
+          <div className="youtube_video">
+              <YouTubeVideo url={data.youtube_link} />
+          </div>
+      
+        <h5 className="text-black padding-2rem">
           {" "}
           {
             data.text_pred_mapou[locale as keyof typeof data.text_pred_mapou]
@@ -101,26 +106,28 @@ const Page = async () => {
           height={1000}
           className="full_width_image_mapa"
         />
-        <h5 className="text-black">
+        <div className="padding-2rem">
+        <h3 className="text-black">
           {data.nadpis_sekcie1[locale as keyof typeof data.nadpis_sekcie1]}{" "}
-        </h5>
+        </h3>
         <div className="text-black">
           <BaroquePortableText data={data} specify="popis_sekcie1" />
         </div>
+        </div>
         <GroupPictures data={data2} parameter="skupina_obrazkov" />
 
-        <h5 className="text-black">
+        <h3 className="text-black padding-2rem">
           {data.nadpis_sekcie2[locale as keyof typeof data.nadpis_sekcie2]}{" "}
-        </h5>
-        <div className="text-black">
+        </h3>
+        <div className="text-black padding-2rem">
           <BaroquePortableText data={data} specify="popis_sekcie2" />
         </div>
         <GroupPictures data={data3} parameter="skupina_obrazkov2" />
 
-        <h5 className="text-black">
+        <h3 className="text-black padding-2rem">
           {data.nadpis_sekcie3[locale as keyof typeof data.nadpis_sekcie3]}{" "}
-        </h5>
-        <div className="text-black">
+        </h3>
+        <div className="text-black padding-2rem">
           <BaroquePortableText data={data} specify="popis_sekcie3" />
         </div>
         <DPhotos url="/3d.jpg" />

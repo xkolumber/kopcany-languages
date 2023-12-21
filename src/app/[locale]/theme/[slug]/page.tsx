@@ -88,7 +88,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           />
         </div>
 
-        <YouTubeVideo id="kmzpWM23rws" />
+        <YouTubeVideo url={data.youtube_link} />
 
         <Image
           src={urlFor(data.mapa_oblastt).url()}
@@ -99,7 +99,6 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         />
         <p className="text-black">
           <ThemePortableText data={data} specify="pokracovanie_text" />
-          {/* {data.pokracovanie_text[locale as keyof typeof data.nazov_temy]} */}
         </p>
         <DPhotos url="/3d.jpg" />
 
@@ -122,7 +121,6 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         {data.komentar_fotka && (
           <p className="text-black">
             <ThemePortableText data={data} specify="komentar_fotka" />
-            {/* {data.komentar_fotka[locale as keyof typeof data.nazov_temy]} */}
           </p>
         )}
 
@@ -136,9 +134,6 @@ const Page = async ({ params }: { params: { slug: string } }) => {
                 data={data}
                 specify="komentar_skupina_obrazkov2"
               />
-              // data.komentar_skupina_obrazkov2[
-              //   locale as keyof typeof data.nazov_temy
-              // ]
             }
           </p>
         )}
@@ -158,7 +153,6 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         {data.komentar_fotka2 && (
           <p className="text-black">
             <ThemePortableText data={data} specify="komentar_fotka2" />
-            {/* {data.komentar_fotka2[locale as keyof typeof data.nazov_temy]} */}
           </p>
         )}
 
@@ -172,9 +166,6 @@ const Page = async ({ params }: { params: { slug: string } }) => {
                 data={data}
                 specify="komentar_skupina_obrazkov3"
               />
-              // data.komentar_skupina_obrazkov3[
-              //   locale as keyof typeof data.nazov_temy
-              // ]
             }
           </p>
         )}
@@ -194,7 +185,6 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         {data.komentar_fotka3 && (
           <p className="text-black">
             <ThemePortableText data={data} specify="komentar_fotka3" />
-            {/* {data.komentar_fotka3[locale as keyof typeof data.nazov_temy]} */}
           </p>
         )}
 

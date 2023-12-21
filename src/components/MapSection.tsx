@@ -1,14 +1,16 @@
 "use client";
-import React, { useEffect } from "react";
-import Image from "next/image";
 import { useLocale } from "next-intl";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import YouTubeVideo from "./YoutubeVideo";
 
 interface Props {
   translation: String[];
+  url:string
 }
 
-const MapSection = ({ translation }: Props) => {
+const MapSection = ({ translation, url }: Props) => {
   const locale = useLocale();
   const router = useRouter();
   useEffect(() => {
@@ -67,17 +69,10 @@ const MapSection = ({ translation }: Props) => {
 
   return (
     <>
-      <Image
-        src="/kopcany_video.jpg"
-        alt="Video z Kopcian"
-        width={0}
-        height={0}
-        sizes="100vw"
-        style={{
-          objectFit: "cover",
-        }}
-        className="video_intro"
-      />
+    <div className="youtube_video">
+          <YouTubeVideo url={url} />
+    </div>
+      
 
       <h2 className="text-black">{translation[0]}</h2>
       <p className="max-600px text-black">{translation[1]}</p>

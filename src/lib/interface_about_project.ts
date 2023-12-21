@@ -22,7 +22,7 @@ export interface About_project{
         en:string;
     };
    
-    foto_stred_clanku: string;
+    youtube_link: string;
     mapa:string;
     projekt_ciel:{
         sk:string;

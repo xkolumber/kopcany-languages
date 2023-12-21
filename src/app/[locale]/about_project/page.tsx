@@ -92,7 +92,7 @@ const Page = async () => {
               {data.uvodny_text[locale as keyof typeof data.nazov_temy]}
             </p>
        
-        <YouTubeVideo id="kmzpWM23rws" />
+        <YouTubeVideo url={data.youtube_link} />
       
         <Image
           src={urlFor(data.mapa).url()}

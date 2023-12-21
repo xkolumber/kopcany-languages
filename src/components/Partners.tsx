@@ -11,30 +11,34 @@ const Partners = () => {
       <div className="partners">
         <Image
           src="/partner0.svg"
-          width={100}
-          height={50}
-          alt="foto1"
+          width={0}
+          height={0}
+          sizes="100vw"
+          alt="Partner 1 logo"
           className="partner_img_first"
         />
         <Image
-          src="/partner1__.svg"
-          width={100}
-          height={50}
-          alt="foto1"
+          src="/partner1.svg"
+          width={0}
+          height={0}
+          sizes="100vw"
+          alt="Partner 2 logo"
           className="partner_img_second"
         />
         <Image
           src="/partner2.jpg"
-          width={100}
-          height={50}
-          alt="foto1"
+          width={0}
+          height={0}
+          sizes="100vw"
+          alt="Partner 3 logo"
           className="partner_img_third"
         />
         <Image
           src="/partner3.svg"
-          width={100}
-          height={50}
-          alt="foto1"
+          width={0}
+          height={0}
+          sizes="100vw"
+          alt="Partner 4 logo"
           className="partner_img_fourth"
         />
       </div>

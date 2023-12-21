@@ -13,6 +13,7 @@ import AboutProject from "../../components/AboutProject";
 import { getTranslations } from "next-intl/server";
 import { About_project } from "@/lib/interface_about_project";
 import { Baroque } from "@/lib/interface_baroque";
+import { Main_page } from "@/lib/interface_main_page";
 
 const page = async () => {
   const query = `*[_type=='themes']`;
@@ -23,6 +24,9 @@ const page = async () => {
 
   const query3 =`*[_type == "baroque"][0]`;
   const data3 = (await client.fetch(query3)) as Baroque;
+
+  const query4 =`*[_type == "homepage"][0]`;
+  const data4 = (await client.fetch(query4)) as Main_page;
 
   const t = await getTranslations("home_page");
   const homePage_title = t("welcome");
@@ -58,7 +62,7 @@ const page = async () => {
       />
       <main className="bg-white">
         <div className="padding_content">
-          <MapSection translation={map_words} />
+          <MapSection translation={map_words} url={data4.youtube_link} />
           <Themes />
           <ThreeThemesArticle themes={data} baroque={data3}/>
         </div>

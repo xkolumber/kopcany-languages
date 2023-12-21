@@ -2,10 +2,13 @@
 import YouTube from "react-youtube";
 
 interface Props {
-  id: string;
+  url: string;
 }
 
-const YouTubeVideo = ({ id }: Props) => {
+const YouTubeVideo = ({ url }: Props) => {
+
+  const urlParams = new URLSearchParams(new URL(url).search);
+const v = urlParams.get('v'); 
   const opts = {
     width: "100%",
     height: "100%",
@@ -13,7 +16,7 @@ const YouTubeVideo = ({ id }: Props) => {
 
   return (
     <div className="fullscreen-video">
-      <YouTube videoId={id} opts={opts} />;
+      <YouTube videoId={v!} opts={opts} />;
     </div>
   );
 };

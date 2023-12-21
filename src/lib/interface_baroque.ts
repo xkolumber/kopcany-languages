@@ -13,6 +13,7 @@ export interface Baroque{
 
     titulna_foto: string;
     kresleny_obrazok: string;
+    youtube_link:string;
     mapa:string;
     text_pred_mapou:{
         sk:string;
