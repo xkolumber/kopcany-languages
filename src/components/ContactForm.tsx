@@ -8,12 +8,14 @@ import * as yup from "yup";
 import { useRouter } from "next/navigation";
 
 import React from "react";
+import { useLocale } from "next-intl";
 
 interface Props{
     contact_array: String[];
 }
 
 const ContactForm = ({contact_array}:Props) => {
+    const locale = useLocale();
   const schema = yup.object({
     name: yup
       .string()
@@ -42,7 +44,7 @@ const ContactForm = ({contact_array}:Props) => {
 
     try {
       const response = await fetch(
-        process.env.NEXT_PUBLIC_BACKEND_API2!, // <-- Comma was missing here
+        process.env.NEXT_PUBLIC_BACKEND_API!, // <-- Comma was missing here
         {
           method: "POST",
           headers: {
@@ -58,7 +60,7 @@ const ContactForm = ({contact_array}:Props) => {
 
       if (response.ok) {
         reset();
-        navigate.push("/thanks");
+        navigate.push(`/${locale}/thanks`);
         console.log("Email sent successfully!");
         setIsLoading(false);
       } else {
@@ -77,7 +79,7 @@ const ContactForm = ({contact_array}:Props) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="input_both">
         <div className="input_vertically">
-            <h6>*Meno a Priezvisko</h6>
+            <h6>*{contact_array[0]}</h6>
           <input
             type="text"
             id="meno"
@@ -100,7 +102,7 @@ const ContactForm = ({contact_array}:Props) => {
         </div>
       </div>
       <div className="message-form">
-      <h6>Správa</h6>
+      <h6>{contact_array[1]}</h6>
       <textarea
         id="message"
         rows={3}
@@ -116,7 +118,7 @@ const ContactForm = ({contact_array}:Props) => {
         {isLoading ? (
           <ClipLoader size={20} color={"#32a8a0"} loading={isLoading} />
         ) : (
-          "Odoslať"
+            contact_array[2]
         )}
       </button>
     </form>

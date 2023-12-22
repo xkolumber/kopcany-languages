@@ -475,6 +475,7 @@ p {
   position: relative;
   display: block;
   max-width: 170px;
+  min-width: 130px;
 }
 
 .btn--primary {
@@ -1194,4 +1195,11 @@ textarea{
 .error_message{
   color:#dc3545 !important;
   margin-top: 2px;
+}
+.thanks_center{
+  height: 50vh;
+  align-items: center;
+  margin: auto;
+  display: flex;
+  text-align: center;
 }

@@ -56,7 +56,11 @@
   },
   "contact":{
     "title":"Kontakt",
-    "name_lastname":"Meno a priezvisko",
-    "message":"Správa"
+    "name_lastname":"Meno a Priezvisko",
+    "message":"Správa",
+    "send":"odoslať"
+  },
+  "thanks":{
+    "message":"Ďakujeme za Vašu správu. V priebehu nasledujúcich hodín Vám na ňu zodpovieme."
   }
 }

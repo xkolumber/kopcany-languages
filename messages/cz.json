@@ -52,8 +52,12 @@
   
   "contact":{
     "title":"Kontakt",
-    "name_lastname":"Jméno a příjmení",
-    "message":"Zpráva"
+    "name_lastname":"Jméno a Příjmení",
+    "message":"Zpráva",
+    "send":"Odeslat"
+  },
+  "thanks":{
+    "message":"Děkujeme za Vaši zprávu. Odpovíme na ni během několika následujících hodin."
   }
   
 }

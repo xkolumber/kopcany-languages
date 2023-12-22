@@ -18,18 +18,17 @@ const Page = () => {
 
 
   const t =  useTranslations("contact");
+  const name_lastname = t("name_lastname");
+  const message = t("message");
+  const send = t("send");
 
-  const title = p("title");
-  const name_lastname = p("name_lastname");
-  const message = p("message");
-
-  const contact_array = [title, name_lastname, message];
+  const contact_array = [name_lastname,message, send];
 
   return (
     <>
       <div className="padding_content gdpr intro_padding">
       <NavbarSecond navbar_array={navbar_array} black={true} />
-        <h2 className="gdpr_title">Kontakt</h2>
+        <h2 className="gdpr_title">{t("title")}</h2>
         <ContactForm contact_array={contact_array}/>
 
       </div>
