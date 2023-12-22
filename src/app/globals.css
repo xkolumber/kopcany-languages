@@ -119,7 +119,7 @@ p {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
+   
     background-color: var(--secondary-color);
     z-index: 10000;
     display: flex;
@@ -271,6 +271,7 @@ p {
         height: 50vh;
     }
     .cookies_container{
+      width: 100%;
         flex-direction: row;
         padding-top: 4rem;
         padding-bottom: 4rem;
