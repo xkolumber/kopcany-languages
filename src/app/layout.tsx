@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import ScrollButtonTop from "@/components/ScrollButtonTop";
 import GoogleAnalyticsScript from "./GoogleAnalyticsScript";
+import CookieComponent from "@/components/CookieComponent";
 
 interface HTMLProps extends React.HTMLProps<HTMLBodyElement> {}
 
@@ -29,7 +30,7 @@ export default function RootLayout({
       <body className={montserrat.className}>
       <ScrollButtonTop />
         {children}
-
+        <CookieComponent />
       </body>
     </html>
   );
