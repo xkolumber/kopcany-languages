@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import YouTubeVideo from "./YoutubeVideo";
 import { Main_page } from "@/lib/interface_main_page";
 import { urlFor } from "@/lib/sanityImageUrl";
+import {isMobile} from 'react-device-detect';
 
 interface Props {
   translation: String[];
@@ -29,42 +30,83 @@ const MapSection = ({ translation, data }: Props) => {
       const relativeX = (x / imageWidth) * 100;
       const relativeY = (y / imageHeight) * 100;
 
-      console.log(`Clicked at (${relativeX}%, ${relativeY}%)`);
+     
+      if (isMobile) {
+       
+        if (
+          relativeX >= 40 &&
+          relativeX <= 70 &&
+          relativeY >= 4 &&
+          relativeY <= 26
+        ) {
+         
+          router.push(`/${locale}/theme/po-stopach-t-g-masaryka`);
+        }
+        if (
+          relativeX >= 5 &&
+          relativeX <= 26 &&
+          relativeY >= 41 &&
+          relativeY <= 59
+        ) {
+         
+          router.push(`/${locale}/theme/pamiatky-velkej-moravy`);
+        }
+        if (
+          relativeX >= 69 &&
+          relativeX <= 86 &&
+          relativeY >= 47 &&
+          relativeY <= 66
+        ) {
+          router.push(`/${locale}/baroque`);
+        }
+        if (
+          relativeX >= 44 &&
+          relativeX <= 64 &&
+          relativeY >= 69 &&
+          relativeY <= 88
+        ) {
+          router.push(`/${locale}/about_project`);
+        }
+      }
+      if(!isMobile){
+        if (
+          relativeX >= 40 &&
+          relativeX <= 70 &&
+          relativeY >= 4 &&
+          relativeY <= 26
+        ) {
+          router.push(`/${locale}/theme/po-stopach-t-g-masaryka`);
+        }
+        if (
+          relativeX >= 29 &&
+          relativeX <= 37 &&
+          relativeY >= 39 &&
+          relativeY <= 57
+        ) {
+          router.push(`/${locale}/theme/pamiatky-velkej-moravy`);
+        }
+  
+        /*new*/
+        if (
+          relativeX >= 59 &&
+          relativeX <= 68 &&
+          relativeY >= 46 &&
+          relativeY <= 65
+        ) {
+          router.push(`/${locale}/baroque`);
+        }
+         if (
+          relativeX >= 45 &&
+          relativeX <= 59 &&
+          relativeY >= 68 &&
+          relativeY <= 87
+        ) {
+          router.push(`/${locale}/about_project`);
+        }
+      }
 
-      if (
-        relativeX >= 40 &&
-        relativeX <= 70 &&
-        relativeY >= 4 &&
-        relativeY <= 26
-      ) {
-        router.push(`/${locale}/theme/po-stopach-t-g-masaryka`);
-      }
-      if (
-        relativeX >= 29 &&
-        relativeX <= 37 &&
-        relativeY >= 39 &&
-        relativeY <= 57
-      ) {
-        router.push(`/${locale}/theme/pamiatky-velkej-moravy`);
-      }
 
-      /*new*/
-      if (
-        relativeX >= 59 &&
-        relativeX <= 68 &&
-        relativeY >= 46 &&
-        relativeY <= 65
-      ) {
-        router.push(`/${locale}/baroque`);
-      }
-       if (
-        relativeX >= 45 &&
-        relativeX <= 59 &&
-        relativeY >= 68 &&
-        relativeY <= 87
-      ) {
-        router.push(`/${locale}/about_project`);
-      }
+     
     }
 
     if (image) {

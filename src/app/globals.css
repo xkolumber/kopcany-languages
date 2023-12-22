@@ -215,7 +215,6 @@ p {
   .video_intro{
     height: 500px;
     object-fit: cover;
-    margin-bottom: 12rem;
   }
   .mapa_img{
     max-width: 1200px;
@@ -230,10 +229,10 @@ p {
 }
 @media (min-width: 1024px) {
   .padding_content {
-    padding-right: 12rem;
-    padding-left: 12rem;
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding-right: 10rem;
+    padding-left: 10rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
   .titulna_foto{
     padding-left: 12rem !important;
@@ -254,7 +253,6 @@ p {
   }
   .video_intro{
     height: 800px;
-    margin-bottom: 28rem;
   }
   .mapa_img{
     height: 600px;
@@ -880,7 +878,7 @@ p {
 }
 .full_width_image_mapa{
   width: 100%;
-  height: 300px;
+  height: 256px;
   object-fit: cover;
   margin-top: 2rem;
   margin-bottom: 2rem;
