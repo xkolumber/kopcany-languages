@@ -70,6 +70,7 @@ const Page = async () => {
   const navbar_array = [home, about_project, monuments, experience, masaryk, contact];
 
 
+  
   return (
     <>
       <div className="titulna_foto intro_padding">
@@ -114,13 +115,14 @@ const Page = async () => {
             </p>
        
         <YouTubeVideo url={data.youtube_link} />
-      
+
         <Image
           src={urlFor(data.mapa).url()}
           alt="Mapa okolia Záhoria"
           width={1000}
           height={1000}
           className="full_width_image_mapa"
+        
         />
         <div className="about_two_section margin-bottom-10">
           <div className="about_width_section">

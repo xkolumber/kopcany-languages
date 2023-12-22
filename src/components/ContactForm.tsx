@@ -43,8 +43,7 @@ const ContactForm = ({contact_array}:Props) => {
 
 
     try {
-      const response = await fetch(
-        process.env.NEXT_PUBLIC_BACKEND_API!, // <-- Comma was missing here
+      const response = await fetch('/api/send-form', 
         {
           method: "POST",
           headers: {

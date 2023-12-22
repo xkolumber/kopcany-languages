@@ -55,7 +55,15 @@ const MapSection = ({ translation, data }: Props) => {
         relativeY >= 46 &&
         relativeY <= 65
       ) {
-        router.push(`/${locale}/theme/zazi-barokovu-krajinu`);
+        router.push(`/${locale}/baroque`);
+      }
+       if (
+        relativeX >= 45 &&
+        relativeX <= 59 &&
+        relativeY >= 68 &&
+        relativeY <= 87
+      ) {
+        router.push(`/${locale}/about_project`);
       }
     }
 
