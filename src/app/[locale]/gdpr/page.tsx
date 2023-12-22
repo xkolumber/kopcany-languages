@@ -1,7 +1,25 @@
 import Footer from "@/components/Footer";
 import NavbarSecond from "@/components/NavbarSecond";
+import { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Gdpr",
+  description:
+    "Ochrana osobných údajov",
+  openGraph: {
+    title: "Gdpr",
+  description:
+    "Ochrana osobných údajov",
+    images: [
+      {
+        url: "/home_banner3.jpg",
+        alt: "Ochrana osobných údajov",
+      },
+    ],
+  },
+};
 
 const Page = () => {
   

@@ -6,14 +6,32 @@ import MapSection from "@/components/MapSection";
 import Partners from "@/components/Partners";
 import Themes from "@/components/Themes";
 import ThreeThemesArticle from "@/components/ThreeThemesArticle";
-import { Interface_new } from "@/lib/interface_new";
-import { Theme } from "@/lib/interface_theme";
-import { client } from "@/lib/sanity";
-import AboutProject from "../../components/AboutProject";
-import { getTranslations } from "next-intl/server";
 import { About_project } from "@/lib/interface_about_project";
 import { Baroque } from "@/lib/interface_baroque";
 import { Main_page } from "@/lib/interface_main_page";
+import { Theme } from "@/lib/interface_theme";
+import { client } from "@/lib/sanity";
+import { getTranslations } from "next-intl/server";
+import AboutProject from "../../components/AboutProject";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Lávkou cez Moravu",
+  description:
+    "Preskúmajte a objavte hlavné oblasti histórie, ktoré charakterizujú našu lokalitu.",
+  keywords: ["Lávkou cez Moravu", "Kopčany",  "Kopčany", "Hodonín", "Holíč", "Mikulčice"],
+  openGraph: {
+    title: "Lávkou cez Moravu",
+    description:
+    "Preskúmajte a objavte hlavné oblasti histórie, ktoré charakterizujú našu lokalitu.",
+    images: [
+      {
+        url: "/home_banner1.jpg",
+        alt: "Lávkou cez Moravu",
+      },
+    ],
+  },
+};
 
 const page = async () => {
   const query = `*[_type=='themes']`;
@@ -51,7 +69,6 @@ const page = async () => {
     home,
   ];
 
-  const events_description = data4
 
   const map_words = [homePage_map, homePage_map_title];
 

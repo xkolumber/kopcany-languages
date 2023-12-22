@@ -8,6 +8,24 @@ import NavbarSecond from "@/components/NavbarSecond";
 import Partners from "@/components/Partners";
 import { My_event } from "@/lib/interface_event";
 import { getTranslations } from "next-intl/server";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Udalosti",
+  description:
+    "Prezrite si naše spoločné akcie a neváhajte sa zúčastniť nasledujúcich",
+  openGraph: {
+    title: "Udalosti",
+    description:
+    "Prezrite si naše spoločné akcie a neváhajte sa zúčastniť nasledujúcich",
+    images: [
+      {
+        url: "/all_events.jpg",
+        alt: "Udalosti",
+      },
+    ],
+  },
+};
 
 const Page = async () => {
   const currentDate = new Date().toISOString().split("T")[0];

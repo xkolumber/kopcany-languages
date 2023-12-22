@@ -12,6 +12,8 @@ import { useLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import GroupPictures from "@/components/GroupPictures";
+import { Metadata } from "next";
+
 
 async function getPhotos(slug: string, skupina_obrazkov: string) {
   const query = `*[_type == "events" && slug.current == "${slug}"]{

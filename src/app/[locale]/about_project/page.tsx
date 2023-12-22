@@ -12,6 +12,24 @@ import { getTranslations } from "next-intl/server";
 import { About_project } from "../../../lib/interface_about_project";
 import YouTubeVideo from "@/components/YoutubeVideo";
 import DPhotos from "@/components/DPhotos";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "O projekte",
+  description:
+    "Myšlienka spoločného projektu  vznikla zo spoločnej potreby projektových partnerov spojenia ponuky kultúrnych turistických atrakcií a podujatí v cezhraničnom priestore",
+  openGraph: {
+    title: "Lávkou cez Moravu",
+    description:
+    "Myšlienka spoločného projektu  vznikla zo spoločnej potreby projektových partnerov spojenia ponuky kultúrnych turistických atrakcií a podujatí v cezhraničnom priestore",
+    images: [
+      {
+        url: "/all_events.jpg",
+        alt: "O projekte",
+      },
+    ],
+  },
+};
 
 async function getData() {
   const query = `*[_type == "about_project"][0]`;

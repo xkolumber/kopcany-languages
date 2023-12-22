@@ -1,8 +1,27 @@
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import NavbarSecond from "@/components/NavbarSecond";
+import { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Kontakt",
+  description:
+    "Kontaktujte nás v prípade akejkoľvek otázky.",
+  openGraph: {
+    title: "Kontakt",
+    description:
+    "Kontaktujte nás v prípade akejkoľvek otázky.",
+    images: [
+      {
+        url: "/home_banner1.jpg",
+        alt: "Kontakt",
+      },
+    ],
+  },
+};
+
 
 const Page = () => {
   const p =  useTranslations("navbar");

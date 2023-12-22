@@ -6,13 +6,16 @@ import Footer from "@/components/Footer";
 import NavbarSecond from "@/components/NavbarSecond";
 import { useTranslations } from "next-intl";
 
-// export const metadata: Metadata = {
-//   title: "Poďakovanie",
-//   openGraph: {
-//     title: "Naše služby",
-//   },
-// };
-
+export const metadata: Metadata = {
+  title: "Poďakovanie",
+  description:
+    "Poďakovanie za správu",
+  openGraph: {
+    title: "Poďakovanie",
+  description:
+    "Poďakovanie za správu",
+  },
+};
 const Page = () => {
     const p =  useTranslations("navbar");
 

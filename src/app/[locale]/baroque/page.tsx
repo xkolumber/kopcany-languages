@@ -14,6 +14,25 @@ import BaroquePortableText from "@/components/BaroquePortableText";
 import YouTubeVideo from "@/components/YoutubeVideo";
 import DPhotos from "@/components/DPhotos";
 import { getTranslations } from "next-intl/server";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Zaži barokovú krajinu",
+  description:
+    "Druhá polovica 18. storočia bola pre územie Kopčian, Holíča a Hodonína mimoriadne významná.",
+  openGraph: {
+    title: "Zaži barokovú krajinu",
+    description:
+    "Druhá polovica 18. storočia bola pre územie Kopčian, Holíča a Hodonína mimoriadne významná.",
+    images: [
+      {
+        url: "/barok_main.jpg",
+        alt: "Zaži barokovú krajinu",
+      },
+    ],
+  },
+};
+
 
 async function getData() {
   const query = `*[_type == "baroque"][0]`;
