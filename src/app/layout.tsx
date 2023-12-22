@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import ScrollButtonTop from "@/components/ScrollButtonTop";
+import GoogleAnalyticsScript from "./GoogleAnalyticsScript";
 
 interface HTMLProps extends React.HTMLProps<HTMLBodyElement> {}
 
@@ -23,8 +24,12 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      
-      <body className={montserrat.className}>{children}</body>
+       <GoogleAnalyticsScript />
+      <body className={montserrat.className}>
+      <ScrollButtonTop />
+        {children}
+
+      </body>
     </html>
   );
 }
