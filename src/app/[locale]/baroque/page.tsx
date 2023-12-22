@@ -16,7 +16,17 @@ import DPhotos from "@/components/DPhotos";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
+const dynamicImageUrl = async() => {
+  const query = `*[_type == "baroque"][0]`;
+  const data = await client.fetch(query);
+  const src =  urlFor(data.titulna_foto).url()
+  return src;
+};
+
+const generateMetadata = async () => {
+  const imageUrl = await dynamicImageUrl();
+
+  return {
   title: "Zaži barokovú krajinu",
   description:
     "Druhá polovica 18. storočia bola pre územie Kopčian, Holíča a Hodonína mimoriadne významná.",
@@ -26,12 +36,14 @@ export const metadata: Metadata = {
     "Druhá polovica 18. storočia bola pre územie Kopčian, Holíča a Hodonína mimoriadne významná.",
     images: [
       {
-        url: "/barok_main.jpg",
+        url: imageUrl,
         alt: "Zaži barokovú krajinu",
       },
     ],
-  },
+  },}
 };
+
+export const metadata: Promise<Metadata> = generateMetadata();
 
 
 async function getData() {

@@ -146,7 +146,6 @@ p {
     justify-content: center;
   }
   .cookie_settings_all{
-    padding: 5rem;
     background-color: red;
     position: fixed;
     top: 50%;
@@ -209,7 +208,7 @@ p {
     font-weight: 600;
   }
   .switch_label::after{
-    content: '-->'
+    content: " ->";
   }
   .description_cookies_text{
     padding-top: 1rem;
@@ -267,6 +266,7 @@ p {
   
   @media screen and (min-width:768px){
     .cookie_settings_all{
+      padding: 5rem;
         width:80vw;
         height: 50vh;
     }
