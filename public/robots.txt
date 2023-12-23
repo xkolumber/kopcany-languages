@@ -1,9 +1,1 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://lavkoucezmoravu.eu
-
-# Sitemaps
-Sitemap: https://lavkoucezmoravu.eu/sitemap.xml
+Sitemap: https://www.lavkoucezmoravu.eu/sitemap.xml

@@ -4,7 +4,7 @@ const withNextIntl = require('next-intl/plugin')();
 const nextConfig = {
     images:{
         domains: ['cdn.sanity.io'],
-    },    
+    },  
 };
 
 module.exports = withNextIntl(nextConfig);
