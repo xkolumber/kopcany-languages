@@ -1,28 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-      <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
-      <url>
-      <loc>https://www.lavkoucezmoravu.eu</loc>
-      <lastmod>2023-12-23</lastmod>
-      <priority>1</priority>
-    </url>
-    <url>
-      <loc>https://www.lavkoucezmoravu.eu/sk/about_project</loc>
-      <lastmod>2023-12-23</lastmod>
-      <priority>0.8</priority>
-    </url>
-    <url>
-      <loc>https://www.lavkoucezmoravu.eu/sk/theme/pamiatky-velkej-moravy</loc>
-      <lastmod>2023-12-23</lastmod>
-      <priority>0.8</priority>
-    </url>
-    <url>
-      <loc>https://www.lavkoucezmoravu.eu/sk/baroque</loc>
-      <lastmod>2023-12-23</lastmod>
-      <priority>0.8</priority>
-    </url>
-    <url>
-      <loc>https://www.lavkoucezmoravu.eu/sk/theme/po-stopach-t-g-masaryka</loc>
-      <lastmod>2023-12-23</lastmod>
-      <priority>0.8</priority>
-    </url>
-      </urlset>
+<!-- public/sitemap.xml -->
+   <xml version="1.0" encoding="UTF-8">
+   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+     <url>
+       <loc>https://www.lavkoucezmoravu.eu</loc>
+       <lastmod>2023-12-24</lastmod>
+     </url>
+   </urlset>
+   </xml>
