@@ -14,22 +14,43 @@ import YouTubeVideo from "@/components/YoutubeVideo";
 import DPhotos from "@/components/DPhotos";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
+const dynamicImageUrl = async() => {
+  const query = `*[_type == "about_project"][0]`;
+  const data = await client.fetch(query);
+  const src =  urlFor(data.titulna_foto).url()
+  return src;
+};
+const dynamicDescription = async() => {
+  const query = `*[_type == "about_project"][0]`;
+  const data = await client.fetch(query);
+  const text =  data.financovanie_text['sk'];
+  return text;
+};
+
+
+const generateMetadata = async () => {
+  const imageUrl = await dynamicImageUrl();
+  const descriptionText = await dynamicDescription();
+
+  return {
   title: "O projekte",
   description:
-    "Myšlienka spoločného projektu  vznikla zo spoločnej potreby projektových partnerov spojenia ponuky kultúrnych turistických atrakcií a podujatí v cezhraničnom priestore",
+  descriptionText,
   openGraph: {
-    title: "Lávkou cez Moravu",
+    title: "O projekte",
     description:
-    "Myšlienka spoločného projektu  vznikla zo spoločnej potreby projektových partnerov spojenia ponuky kultúrnych turistických atrakcií a podujatí v cezhraničnom priestore",
+    descriptionText,
     images: [
       {
-        url: "/all_events.jpg",
+        url: imageUrl,
         alt: "O projekte",
       },
     ],
-  },
+  },}
 };
+
+export const metadata: Promise<Metadata> = generateMetadata();
+
 
 async function getData() {
   const query = `*[_type == "about_project"][0]`;

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "Prezrite si naše spoločné akcie a neváhajte sa zúčastniť nasledujúcich",
     images: [
       {
-        url: "/all_events.jpg",
+        url: "/home_banner1.jpg",
         alt: "Udalosti",
       },
     ],

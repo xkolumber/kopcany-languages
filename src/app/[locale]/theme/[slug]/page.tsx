@@ -1,17 +1,65 @@
 import Image from "next/image";
 
+import DPhotos from "@/components/DPhotos";
 import Footer from "@/components/Footer";
 import GroupPictures from "@/components/GroupPictures";
 import NavbarSecond from "@/components/NavbarSecond";
 import Partners from "@/components/Partners";
+import ThemePortableText from "@/components/ThemePortableText";
+import YouTubeVideo from "@/components/YoutubeVideo";
 import { Theme } from "@/lib/interface_theme";
 import { client } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImageUrl";
-import { useLocale, useTranslations } from "next-intl";
-import YouTubeVideo from "@/components/YoutubeVideo";
-import ThemePortableText from "@/components/ThemePortableText";
-import DPhotos from "@/components/DPhotos";
+import { Metadata } from "next";
+import { useLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
+
+const dynamicTitle= async(slug: string) => {
+  const query = `*[_type == "themes" && slug.current == "${slug}"][0].nazov_temy['sk']`;
+  const data = await client.fetch(query);
+  return data;
+};
+
+const dynamicImageUrl = async(slug: string) => {
+  const query = `*[_type == "themes" && slug.current ==  "${slug}"][0]`;
+  const data = await client.fetch(query);
+  const src =  urlFor(data.titulna_foto).url()
+  return src;
+};
+const dynamicDescription = async(slug: string) => {
+  const query = `*[_type == "themes" && slug.current ==  "${slug}"].uvodny_text[0].content[0].children[0].text`;
+  const data = await client.fetch(query);
+  const stringData = String(data);
+  return stringData.substring(0, Math.min(stringData.length, 80))
+};
+
+type Props = {
+  params: { slug: string };
+};
+
+export const generateMetadata = async({ params }: Props): Promise<Metadata> => {
+   const title = await dynamicTitle(params.slug);
+  const imageUrl = await dynamicImageUrl(params.slug);
+  const dynamicText = await dynamicDescription(params.slug);
+
+  return {
+  title: title,
+  description:
+  dynamicText,
+  openGraph: {
+    title: title,
+    description:
+    dynamicText,
+    images: [
+      {
+        url: imageUrl,
+        alt: title,
+      },
+    ],
+  }
+};
+};
+
 
 async function getData(slug: string) {
   const query = `*[_type == "themes" && slug.current =="${slug}"][0]`;

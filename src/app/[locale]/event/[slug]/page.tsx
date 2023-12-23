@@ -14,6 +14,53 @@ import Link from "next/link";
 import GroupPictures from "@/components/GroupPictures";
 import { Metadata } from "next";
 
+const dynamicTitle= async(slug: string) => {
+  const query = `*[_type == "events" && slug.current == "${slug}"][0].nazov_podujatia['sk']`;
+  const data = await client.fetch(query);
+  return data;
+};
+
+const dynamicImageUrl = async(slug: string) => {
+  const query = `*[_type == "events" && slug.current ==  "${slug}"][0]`;
+  const data = await client.fetch(query);
+  const src =  urlFor(data.titulna_foto).url()
+  return src;
+};
+const dynamicDescription = async(slug: string) => {
+  const query = `*[_type == "events" && slug.current ==  "${slug}"].text_podujatie[0].content[0].children[0].text`;
+  const data = await client.fetch(query);
+  const stringData = String(data);
+  return stringData.substring(0, Math.min(stringData.length, 80))
+};
+
+type Props = {
+  params: { slug: string };
+};
+
+export const generateMetadata = async({ params }: Props): Promise<Metadata> => {
+   const title = await dynamicTitle(params.slug);
+  const imageUrl = await dynamicImageUrl(params.slug);
+  const dynamicText = await dynamicDescription(params.slug);
+
+  return {
+  title: title,
+  description:
+  dynamicText,
+  openGraph: {
+    title: title,
+    description:
+    dynamicText,
+    images: [
+      {
+        url: imageUrl,
+        alt: title,
+      },
+    ],
+  }
+};
+};
+
+
 
 async function getPhotos(slug: string, skupina_obrazkov: string) {
   const query = `*[_type == "events" && slug.current == "${slug}"]{
