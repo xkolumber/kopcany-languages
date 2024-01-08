@@ -1,4 +1,4 @@
 User-Agent: *
 Allow: /
 
-Sitemap: https://lavkoucezmoravu.eu/sitemap_index.xml
+Sitemap: https://lavkoucezmoravu.eu/sitemap_index2.xml
