@@ -32,7 +32,11 @@ const BaroqueArticle = ({ baroque }: Props) => {
           </h5>
 
           <p className="text_limit_p">
-            <BaroquePortableText data={baroque} specify="uvodny_text" />
+            <BaroquePortableText
+              data={baroque}
+              specify="uvodny_text"
+              view={true}
+            />
           </p>
         </div>
       </Link>

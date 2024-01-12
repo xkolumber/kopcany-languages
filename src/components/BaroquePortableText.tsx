@@ -7,6 +7,7 @@ import { Baroque } from "@/lib/interface_baroque";
 interface Props {
   data: Baroque;
   specify: string;
+  view?: true;
 }
 
 interface Block {
@@ -14,7 +15,7 @@ interface Block {
   children: { text: string }[];
 }
 
-const BaroquePortableText = ({ data, specify }: Props) => {
+const BaroquePortableText = ({ data, specify, view }: Props) => {
   const locale = useLocale();
   const [noveData, setNoveData] = useState<Block[]>([]);
 
@@ -26,7 +27,12 @@ const BaroquePortableText = ({ data, specify }: Props) => {
         (activity) => activity.language === locale
       );
       const content = foundActivity?.content || [];
-      setNoveData(content);
+      {
+        view && setNoveData([content[0]]);
+      }
+      {
+        !view && setNoveData(content);
+      }
     }
   }, [data, locale, specify]);
 
