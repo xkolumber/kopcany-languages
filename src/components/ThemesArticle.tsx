@@ -1,10 +1,9 @@
-import React from "react";
 import Image from "next/image";
 
-import Link from "next/link";
 import { Theme } from "@/lib/interface_theme";
 import { urlFor } from "@/lib/sanityImageUrl";
 import { useLocale } from "next-intl";
+import Link from "next/link";
 import ThemePortableText from "./ThemePortableText";
 
 interface Props {
@@ -30,7 +29,7 @@ const ThemesArticle = ({ theme }: Props) => {
           </h5>
 
           <p className="text_limit_p">
-            <ThemePortableText data={theme} specify="uvodny_text" view={true}/>
+            <ThemePortableText data={theme} specify="uvodny_text" view={true} />
           </p>
         </div>
       </Link>

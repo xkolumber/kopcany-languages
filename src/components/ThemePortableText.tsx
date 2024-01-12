@@ -6,7 +6,7 @@ import { Theme } from "@/lib/interface_theme";
 interface Props {
   data: Theme;
   specify: string;
-  view?:true;
+  view?: true;
 }
 
 interface Block {
@@ -14,7 +14,7 @@ interface Block {
   children: { text: string }[];
 }
 
-const ThemePortableText = ({ data, specify,view }: Props) => {
+const ThemePortableText = ({ data, specify, view }: Props) => {
   const locale = useLocale();
   const [noveData, setNoveData] = useState<Block[]>([]);
 
@@ -27,12 +27,11 @@ const ThemePortableText = ({ data, specify,view }: Props) => {
       );
       const content = foundActivity?.content || [];
       {
-        view && setNoveData(content.slice(0, 1));
+        view && setNoveData([content[0]]);
       }
       {
         !view && setNoveData(content);
       }
-    
     }
   }, [data, locale, specify]);
 
