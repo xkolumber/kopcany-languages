@@ -14,52 +14,51 @@ import { Metadata } from "next";
 import { useLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
-const dynamicTitle= async(slug: string) => {
+const dynamicTitle = async (slug: string) => {
   const query = `*[_type == "themes" && slug.current == "${slug}"][0].nazov_temy['sk']`;
   const data = await client.fetch(query);
   return data;
 };
 
-const dynamicImageUrl = async(slug: string) => {
+const dynamicImageUrl = async (slug: string) => {
   const query = `*[_type == "themes" && slug.current ==  "${slug}"][0]`;
   const data = await client.fetch(query);
-  const src =  urlFor(data.titulna_foto).url()
+  const src = urlFor(data.titulna_foto).url();
   return src;
 };
-const dynamicDescription = async(slug: string) => {
+const dynamicDescription = async (slug: string) => {
   const query = `*[_type == "themes" && slug.current ==  "${slug}"].uvodny_text[0].content[0].children[0].text`;
   const data = await client.fetch(query);
   const stringData = String(data);
-  return stringData.substring(0, Math.min(stringData.length, 80))
+  return stringData.substring(0, Math.min(stringData.length, 80));
 };
 
 type Props = {
   params: { slug: string };
 };
 
-export const generateMetadata = async({ params }: Props): Promise<Metadata> => {
-   const title = await dynamicTitle(params.slug);
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const title = await dynamicTitle(params.slug);
   const imageUrl = await dynamicImageUrl(params.slug);
   const dynamicText = await dynamicDescription(params.slug);
 
   return {
-  title: title,
-  description:
-  dynamicText,
-  openGraph: {
     title: title,
-    description:
-    dynamicText,
-    images: [
-      {
-        url: imageUrl,
-        alt: title,
-      },
-    ],
-  }
+    description: dynamicText,
+    openGraph: {
+      title: title,
+      description: dynamicText,
+      images: [
+        {
+          url: imageUrl,
+          alt: title,
+        },
+      ],
+    },
+  };
 };
-};
-
 
 async function getData(slug: string) {
   const query = `*[_type == "themes" && slug.current =="${slug}"][0]`;
@@ -87,7 +86,6 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 
   const locale = useLocale();
 
-
   const t = await getTranslations("navbar");
 
   const home = t("home");
@@ -97,13 +95,23 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   const masaryk = t("masaryk");
   const contact = t("contact");
 
-  const navbar_array = [home, about_project, monuments, experience, masaryk, contact];
-
+  const navbar_array = [
+    home,
+    about_project,
+    monuments,
+    experience,
+    masaryk,
+    contact,
+  ];
 
   return (
     <>
       <div className="titulna_foto intro_padding">
-      <img   src={urlFor(data.titulna_foto).url()} alt="" className="bg_image_wrapper" />
+        <img
+          src={urlFor(data.titulna_foto).url()}
+          alt=""
+          className="bg_image_wrapper"
+        />
         <div className="bg_image_dark_wrapper">
           <Image
             src="/dark.png"
@@ -114,9 +122,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           />
         </div>
         <NavbarSecond navbar_array={navbar_array} />
-        {params.slug ==='po-stopach-t-g-masaryka' &&  <p>Kopčany - Hodonín</p>}
-        {params.slug ==='pamiatky-velkej-moravy' &&  <p>Mikulčice - Kopčany</p>}
-       
+        {params.slug === "po-stopach-t-g-masaryka" && <p>Kopčany - Hodonín</p>}
+        {params.slug === "pamiatky-velkej-moravy" && <p>Mikulčice - Kopčany</p>}
       </div>
       <div className="padding_content bg-white">
         <h1 className="text-black">
@@ -152,7 +159,12 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         <p className="text-black">
           <ThemePortableText data={data} specify="pokracovanie_text" />
         </p>
-        <DPhotos url="/3d.jpg" />
+        {params.slug === "po-stopach-t-g-masaryka" && (
+          <DPhotos url="/3d_tomas.jpg" />
+        )}
+        {params.slug === "pamiatky-velkej-moravy" && (
+          <DPhotos url="/3d_pamiatky.jpg" />
+        )}
 
         {data2[0].skupina_obrazkov && (
           <GroupPictures data={data2[0]} parameter="skupina_obrazkov" />

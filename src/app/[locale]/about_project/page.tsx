@@ -14,43 +14,40 @@ import YouTubeVideo from "@/components/YoutubeVideo";
 import DPhotos from "@/components/DPhotos";
 import { Metadata } from "next";
 
-const dynamicImageUrl = async() => {
+const dynamicImageUrl = async () => {
   const query = `*[_type == "about_project"][0]`;
   const data = await client.fetch(query);
-  const src =  urlFor(data.titulna_foto).url()
+  const src = urlFor(data.titulna_foto).url();
   return src;
 };
-const dynamicDescription = async() => {
+const dynamicDescription = async () => {
   const query = `*[_type == "about_project"][0]`;
   const data = await client.fetch(query);
-  const text =  data.financovanie_text['sk'];
+  const text = data.financovanie_text["sk"];
   return text;
 };
-
 
 const generateMetadata = async () => {
   const imageUrl = await dynamicImageUrl();
   const descriptionText = await dynamicDescription();
 
   return {
-  title: "O projekte",
-  description:
-  descriptionText,
-  openGraph: {
     title: "O projekte",
-    description:
-    descriptionText,
-    images: [
-      {
-        url: imageUrl,
-        alt: "O projekte",
-      },
-    ],
-  },}
+    description: descriptionText,
+    openGraph: {
+      title: "O projekte",
+      description: descriptionText,
+      images: [
+        {
+          url: imageUrl,
+          alt: "O projekte",
+        },
+      ],
+    },
+  };
 };
 
 export const metadata: Promise<Metadata> = generateMetadata();
-
 
 async function getData() {
   const query = `*[_type == "about_project"][0]`;
@@ -88,15 +85,23 @@ const Page = async () => {
   const masaryk = p("masaryk");
   const contact = p("contact");
 
-  const navbar_array = [home, about_project, monuments, experience, masaryk, contact];
+  const navbar_array = [
+    home,
+    about_project,
+    monuments,
+    experience,
+    masaryk,
+    contact,
+  ];
 
-
-  
   return (
     <>
       <div className="titulna_foto intro_padding">
-       
-        <img   src={urlFor(data.titulna_foto).url()} alt="" className="bg_image_wrapper" />
+        <img
+          src={urlFor(data.titulna_foto).url()}
+          alt=""
+          className="bg_image_wrapper"
+        />
         <div className="bg_image_dark_wrapper">
           <Image
             src="/dark.png"
@@ -106,7 +111,7 @@ const Page = async () => {
             className="bg_image_dark"
           />
         </div>
-        <NavbarSecond navbar_array={navbar_array}/>
+        <NavbarSecond navbar_array={navbar_array} />
         <p>Mikulčice - Kopčany - Holíč - Hodonín</p>
       </div>
       <div className="padding_content bg-white">
@@ -114,11 +119,10 @@ const Page = async () => {
           {data.nazov_temy[locale as keyof typeof data.nazov_temy]}
         </h1>
         <div className="text_picture">
-        
-              <p className="text-black italic max-width-50">
-                {data.financovanie_text[locale as keyof typeof data.nazov_temy]}
-              </p>
-             
+          <p className="text-black italic max-width-50">
+            {data.financovanie_text[locale as keyof typeof data.nazov_temy]}
+          </p>
+
           <Image
             src={urlFor(data.kresleny_obrazok).url()}
             alt="Mapa okolia Záhoria"
@@ -131,10 +135,10 @@ const Page = async () => {
           />
         </div>
         <h5 className="text-black"> {t("project_description")}</h5>
-            <p className="text-black max-width-50 margin-bottom-10 ">
-              {data.uvodny_text[locale as keyof typeof data.nazov_temy]}
-            </p>
-       
+        <p className="text-black max-width-50 margin-bottom-10 ">
+          {data.uvodny_text[locale as keyof typeof data.nazov_temy]}
+        </p>
+
         <YouTubeVideo url={data.youtube_link} />
 
         <Image
@@ -143,7 +147,6 @@ const Page = async () => {
           width={1000}
           height={1000}
           className="full_width_image_mapa"
-        
         />
         <div className="about_two_section margin-bottom-10">
           <div className="about_width_section">
@@ -178,11 +181,11 @@ const Page = async () => {
           </div>
         </div>
         <div className="margin-top-10">
-           <DPhotos url="/3d.jpg" />
+          <DPhotos url="/3d_about.jpg" />
         </div>
-       
+
         <GroupPictures data={data2[0]} parameter="skupina_obrazkov" />
-   
+
         <h4 className="text-black">{t("project_budget")}</h4>
         <AboutPortableText data={data} specify="rozpocet" />
 

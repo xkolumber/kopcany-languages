@@ -29,7 +29,11 @@ const ThemesArticle = ({ theme }: Props) => {
           </h5>
 
           <p className="text_limit_p">
-            <ThemePortableText data={theme} specify="uvodny_text" view={true} />
+            <ThemePortableText
+              data={theme}
+              specify="pokracovanie_text"
+              view={true}
+            />
           </p>
         </div>
       </Link>
