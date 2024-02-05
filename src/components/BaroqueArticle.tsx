@@ -31,13 +31,13 @@ const BaroqueArticle = ({ baroque }: Props) => {
             {baroque.nazov_temy[locale as keyof typeof baroque.nazov_temy]}
           </h5>
 
-          <p className="text_limit_p">
+          <div className="text_limit_p">
             <BaroquePortableText
               data={baroque}
               specify="uvodny_text"
               view={true}
             />
-          </p>
+          </div>
         </div>
       </Link>
     </div>

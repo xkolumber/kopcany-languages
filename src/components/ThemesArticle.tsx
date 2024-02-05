@@ -28,13 +28,13 @@ const ThemesArticle = ({ theme }: Props) => {
             {theme.nazov_temy[locale as keyof typeof theme.nazov_temy]}
           </h5>
 
-          <p className="text_limit_p">
+          <div className="text_limit_p">
             <ThemePortableText
               data={theme}
               specify="pokracovanie_text"
               view={true}
             />
-          </p>
+          </div>
         </div>
       </Link>
     </div>

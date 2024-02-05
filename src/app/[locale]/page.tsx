@@ -7,13 +7,10 @@ import Partners from "@/components/Partners";
 import Themes from "@/components/Themes";
 import ThreeThemesArticle from "@/components/ThreeThemesArticle";
 import { About_project } from "@/lib/interface_about_project";
-import { Baroque } from "@/lib/interface_baroque";
-import { Main_page } from "@/lib/interface_main_page";
-import { Theme } from "@/lib/interface_theme";
 import { client } from "@/lib/sanity";
+import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import AboutProject from "../../components/AboutProject";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Lávkou cez Moravu",
@@ -41,17 +38,8 @@ export const metadata: Metadata = {
 };
 
 const page = async () => {
-  const query = `*[_type=='themes']`;
-  const data = (await client.fetch(query)) as Theme[];
-
   const query2 = `*[_type=='about_project']`;
   const data2 = (await client.fetch(query2)) as About_project[];
-
-  const query3 = `*[_type == "baroque"][0]`;
-  const data3 = (await client.fetch(query3)) as Baroque;
-
-  // const query4 = `*[_type == "homepage"][0]`;
-  // const data4 = (await client.fetch(query4)) as Main_page;
 
   const t = await getTranslations("home_page");
   const homePage_title = t("welcome");
@@ -89,7 +77,7 @@ const page = async () => {
         <div className="padding_content">
           <MapSection translation={map_words} />
           <Themes />
-          <ThreeThemesArticle themes={data} baroque={data3} />
+          <ThreeThemesArticle />
         </div>
         <Events />
         <div className="padding_content">

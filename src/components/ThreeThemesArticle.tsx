@@ -5,13 +5,12 @@ import ThemesArticle from "./ThemesArticle";
 import { Theme } from "@/lib/interface_theme";
 import { Baroque } from "@/lib/interface_baroque";
 import BaroqueArticle from "./BaroqueArticle";
+import { ClipLoader } from "react-spinners";
 
-interface Props {
-  themes: Theme[];
-  baroque: Baroque;
-}
-
-const ThreeThemesArticle = ({ themes, baroque}: Props) => {
+const ThreeThemesArticle = () => {
+  const [themes, setThemes] = useState<Theme[] | null>(null);
+  const [baroque, setBaroque] = useState<Baroque | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
@@ -34,15 +33,75 @@ const ThreeThemesArticle = ({ themes, baroque}: Props) => {
   } else if (windowWidth >= 1400) {
     articlesToShow = 4;
   }
-  const displayedThemes = themes.slice(0, 3);
+
+  useEffect(() => {
+    const fetchThemes = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch("/api/get-home-page-themes", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        const themes = await response.json();
+
+        setThemes(themes);
+
+        if (response.ok) {
+          setIsLoading(false);
+        } else {
+          console.error("failed");
+        }
+      } catch (error) {
+        setIsLoading(false);
+      }
+    };
+
+    fetchThemes();
+  }, []);
+
+  useEffect(() => {
+    const fetchBaroque = async () => {
+      try {
+        //setIsLoading(true);
+        const response = await fetch("/api/get-home-page-baroque", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        const baroque = await response.json();
+
+        setBaroque(baroque);
+
+        if (response.ok) {
+          //setIsLoading(false);
+        } else {
+          console.error("failed");
+        }
+      } catch (error) {
+        //setIsLoading(false);
+      }
+    };
+
+    fetchBaroque();
+  }, []);
 
   return (
     <>
       <div className="three_themes">
-        {displayedThemes.map((theme) => (
-          <ThemesArticle key={theme._id} theme={theme} />
-        ))}
-         <BaroqueArticle key={baroque._id} baroque={baroque} />
+        {isLoading && (
+          <ClipLoader size={40} color={"#32a8a0"} loading={isLoading} />
+        )}
+        {themes &&
+          themes.map((theme) => (
+            <ThemesArticle key={theme._id} theme={theme} />
+          ))}
+
+        {baroque && <BaroqueArticle key={baroque._id} baroque={baroque} />}
       </div>
     </>
   );

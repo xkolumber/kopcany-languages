@@ -117,7 +117,7 @@ const MapSection = ({ translation }: Props) => {
   }, []); // Empty dependency array ensures this runs once after initial render
 
   useEffect(() => {
-    const fetchAllProducts = async () => {
+    const fetchHomePageData = async () => {
       try {
         setIsLoading(true);
         const response = await fetch("/api/get-home-page-data", {
@@ -141,7 +141,7 @@ const MapSection = ({ translation }: Props) => {
       }
     };
 
-    fetchAllProducts();
+    fetchHomePageData();
   }, []);
 
   return (
