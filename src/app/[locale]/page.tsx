@@ -19,11 +19,18 @@ export const metadata: Metadata = {
   title: "Lávkou cez Moravu",
   description:
     "Preskúmajte a objavte hlavné oblasti histórie, ktoré charakterizujú našu lokalitu.",
-  keywords: ["Lávkou cez Moravu", "Kopčany",  "Kopčany", "Hodonín", "Holíč", "Mikulčice"],
+  keywords: [
+    "Lávkou cez Moravu",
+    "Kopčany",
+    "Kopčany",
+    "Hodonín",
+    "Holíč",
+    "Mikulčice",
+  ],
   openGraph: {
     title: "Lávkou cez Moravu",
     description:
-    "Preskúmajte a objavte hlavné oblasti histórie, ktoré charakterizujú našu lokalitu.",
+      "Preskúmajte a objavte hlavné oblasti histórie, ktoré charakterizujú našu lokalitu.",
     images: [
       {
         url: "/home_banner1.jpg",
@@ -40,11 +47,11 @@ const page = async () => {
   const query2 = `*[_type=='about_project']`;
   const data2 = (await client.fetch(query2)) as About_project[];
 
-  const query3 =`*[_type == "baroque"][0]`;
+  const query3 = `*[_type == "baroque"][0]`;
   const data3 = (await client.fetch(query3)) as Baroque;
 
-  const query4 =`*[_type == "homepage"][0]`;
-  const data4 = (await client.fetch(query4)) as Main_page;
+  // const query4 = `*[_type == "homepage"][0]`;
+  // const data4 = (await client.fetch(query4)) as Main_page;
 
   const t = await getTranslations("home_page");
   const homePage_title = t("welcome");
@@ -69,7 +76,6 @@ const page = async () => {
     home,
   ];
 
-
   const map_words = [homePage_map, homePage_map_title];
 
   return (
@@ -81,9 +87,9 @@ const page = async () => {
       />
       <main className="bg-white">
         <div className="padding_content">
-          <MapSection translation={map_words} data={data4} />
+          <MapSection translation={map_words} />
           <Themes />
-          <ThreeThemesArticle themes={data} baroque={data3}/>
+          <ThreeThemesArticle themes={data} baroque={data3} />
         </div>
         <Events />
         <div className="padding_content">

@@ -139,7 +139,7 @@ const Page = async () => {
           {data.uvodny_text[locale as keyof typeof data.nazov_temy]}
         </p>
 
-        <YouTubeVideo url={data.youtube_link} />
+        {data.youtube_link && <YouTubeVideo url={data.youtube_link} />}
 
         <Image
           src={urlFor(data.mapa).url()}

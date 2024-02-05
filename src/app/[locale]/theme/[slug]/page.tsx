@@ -146,7 +146,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           />
         </div>
 
-        <YouTubeVideo url={data.youtube_link} />
+        {data.youtube_link && <YouTubeVideo url={data.youtube_link} />}
 
         <Image
           src={urlFor(data.mapa_oblastt).url()}

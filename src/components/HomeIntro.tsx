@@ -5,18 +5,18 @@ import { useState } from "react";
 import FourPictures from "./FourPictures";
 import Navbar from "./Navbar";
 
-async function getPhotos() {
-  const query = `*[_type == "about_project"]{
-  skupina_obrazkov[]{
-         asset->{
-      _id,
-      url
-    }
-     }
-}`;
-  const data = await client.fetch(query);
-  return data;
-}
+// async function getPhotos() {
+//   const query = `*[_type == "about_project"]{
+//   skupina_obrazkov[]{
+//          asset->{
+//       _id,
+//       url
+//     }
+//      }
+// }`;
+//   const data = await client.fetch(query);
+//   return data;
+// }
 interface Props {
   title: string;
   connect: string;
