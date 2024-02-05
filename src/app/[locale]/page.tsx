@@ -6,10 +6,8 @@ import MapSection from "@/components/MapSection";
 import Partners from "@/components/Partners";
 import Themes from "@/components/Themes";
 import ThreeThemesArticle from "@/components/ThreeThemesArticle";
-import { About_project } from "@/lib/interface_about_project";
-import { client } from "@/lib/sanity";
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import AboutProject from "../../components/AboutProject";
 
 export const metadata: Metadata = {
@@ -37,17 +35,16 @@ export const metadata: Metadata = {
   },
 };
 
-const page = async () => {
-  const query2 = `*[_type=='about_project']`;
-  const data2 = (await client.fetch(query2)) as About_project[];
-
-  const t = await getTranslations("home_page");
+const Page = () => {
+  const t = useTranslations("home_page");
   const homePage_title = t("welcome");
   const homePage_connect = t("connect");
   const homePage_map = t("map");
   const homePage_map_title = t("map_description");
+  const homePage_about = t("about_project");
+  const homePage_get_to_know = t("get_to_know");
 
-  const p = await getTranslations("navbar");
+  const p = useTranslations("navbar");
   const about_project = p("about_project");
   const monuments = p("monuments");
   const experience = p("experience");
@@ -66,6 +63,8 @@ const page = async () => {
 
   const map_words = [homePage_map, homePage_map_title];
 
+  const about_project_translate = [homePage_about, homePage_get_to_know];
+
   return (
     <>
       <HomeIntro
@@ -81,7 +80,7 @@ const page = async () => {
         </div>
         <Events />
         <div className="padding_content">
-          <AboutProject data={data2} />
+          <AboutProject translate_words={about_project_translate} />
         </div>
         <ArchiveSection />
         <div className="padding_content">
@@ -95,4 +94,4 @@ const page = async () => {
 
 export const dynamic = "force-dynamic";
 
-export default page;
+export default Page;

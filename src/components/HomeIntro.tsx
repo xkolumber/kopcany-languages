@@ -26,8 +26,6 @@ interface Props {
 const HomeIntro = ({ title, connect, navbar_array }: Props) => {
   const [activeDot, setActiveDot] = useState(0);
 
-  // const news = await getPhotos();
-
   const news = [
     "/home_banner1.jpg",
     "/home_banner2.jpg",

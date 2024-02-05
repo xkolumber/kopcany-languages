@@ -1,14 +1,11 @@
-import createMiddleware from 'next-intl/middleware';
- 
+import createMiddleware from "next-intl/middleware";
+
 export default createMiddleware({
-  // A list of all locales that are supported
-  locales: ['sk', 'cz','en'],
- 
-  // Used when no locale matches
-  defaultLocale: 'sk'
+  locales: ["sk", "cz", "en"],
+
+  defaultLocale: "sk",
 });
- 
+
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ['/', '/(sk|cz|en)/:path*']
+  matcher: ["/", "/(sk|cz|en)/:path*"],
 };
