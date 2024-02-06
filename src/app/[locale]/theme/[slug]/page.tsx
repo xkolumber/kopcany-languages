@@ -169,10 +169,18 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         {data2[0].skupina_obrazkov && (
           <GroupPictures data={data2[0]} parameter="skupina_obrazkov" />
         )}
+        {data.komentar_skupina_obrazkov && (
+          <div className="text-black">
+            <ThemePortableText
+              data={data}
+              specify="komentar_skupina_obrazkov"
+            />
+          </div>
+        )}
 
-        {data.dalsia_foto && (
+        {data.dalsia_foto2 && (
           <Image
-            src={urlFor(data.dalsia_foto).url()}
+            src={urlFor(data.dalsia_foto2).url()}
             alt="Mapa okolia Záhoria"
             width={1000}
             height={1000}
@@ -182,24 +190,24 @@ const Page = async ({ params }: { params: { slug: string } }) => {
             }}
           />
         )}
-        {data.komentar_fotka && (
-          <p className="text-black">
-            <ThemePortableText data={data} specify="komentar_fotka" />
-          </p>
+        {data.komentar_fotka2 && (
+          <div className="text-black">
+            <ThemePortableText data={data} specify="komentar_fotka2" />
+          </div>
         )}
 
         {data3[0].skupina_obrazkov2 && (
           <GroupPictures data={data3[0]} parameter="skupina_obrazkov2" />
         )}
         {data.komentar_skupina_obrazkov2 && (
-          <p className="text-black">
+          <div className="text-black">
             {
               <ThemePortableText
                 data={data}
                 specify="komentar_skupina_obrazkov2"
               />
             }
-          </p>
+          </div>
         )}
 
         {data.dalsia_foto2 && (
@@ -215,23 +223,23 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           />
         )}
         {data.komentar_fotka2 && (
-          <p className="text-black">
+          <div className="text-black">
             <ThemePortableText data={data} specify="komentar_fotka2" />
-          </p>
+          </div>
         )}
 
         {data4[0].skupina_obrazkov_3 && (
           <GroupPictures data={data4[0]} parameter="skupina_obrazkov_3" />
         )}
         {data.komentar_skupina_obrazkov3 && (
-          <p className="text-black">
+          <div className="text-black">
             {
               <ThemePortableText
                 data={data}
                 specify="komentar_skupina_obrazkov3"
               />
             }
-          </p>
+          </div>
         )}
 
         {data.dalsia_foto3 && (
