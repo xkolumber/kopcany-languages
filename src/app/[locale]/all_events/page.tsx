@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Udalosti",
     description:
-    "Prezrite si naše spoločné akcie a neváhajte sa zúčastniť nasledujúcich",
+      "Prezrite si naše spoločné akcie a neváhajte sa zúčastniť nasledujúcich",
     images: [
       {
         url: "/home_banner1.jpg",
@@ -38,7 +38,7 @@ const Page = async () => {
 
   const t = await getTranslations("home_page");
 
-  const p =  await getTranslations("navbar");
+  const p = await getTranslations("navbar");
 
   const home = p("home");
   const about_project = p("about_project");
@@ -47,13 +47,19 @@ const Page = async () => {
   const masaryk = p("masaryk");
   const contact = p("contact");
 
-  
-  const navbar_array = [home, about_project, monuments, experience, masaryk, contact];
+  const navbar_array = [
+    home,
+    about_project,
+    monuments,
+    experience,
+    masaryk,
+    contact,
+  ];
 
   return (
     <>
       <div className="titulna_foto intro_padding padding_content">
-        <img  src="/all_events.jpg" alt=""  className="bg_image_wrapper" />
+        <img src="/all_events.jpg" alt="" className="bg_image_wrapper" />
         <div className="bg_image_dark_wrapper">
           <Image
             src="/dark.png"
@@ -61,9 +67,10 @@ const Page = async () => {
             fill={true}
             style={{ objectFit: "cover" }}
             className="bg_image_dark"
+            priority
           />
         </div>
-        <NavbarSecond navbar_array={navbar_array}/>
+        <NavbarSecond navbar_array={navbar_array} />
       </div>
 
       <div className="padding_content bg-white">

@@ -14,53 +14,51 @@ import Link from "next/link";
 import GroupPictures from "@/components/GroupPictures";
 import { Metadata } from "next";
 
-const dynamicTitle= async(slug: string) => {
+const dynamicTitle = async (slug: string) => {
   const query = `*[_type == "events" && slug.current == "${slug}"][0].nazov_podujatia['sk']`;
   const data = await client.fetch(query);
   return data;
 };
 
-const dynamicImageUrl = async(slug: string) => {
+const dynamicImageUrl = async (slug: string) => {
   const query = `*[_type == "events" && slug.current ==  "${slug}"][0]`;
   const data = await client.fetch(query);
-  const src =  urlFor(data.titulna_foto).url()
+  const src = urlFor(data.titulna_foto).url();
   return src;
 };
-const dynamicDescription = async(slug: string) => {
+const dynamicDescription = async (slug: string) => {
   const query = `*[_type == "events" && slug.current ==  "${slug}"].text_podujatie[0].content[0].children[0].text`;
   const data = await client.fetch(query);
   const stringData = String(data);
-  return stringData.substring(0, Math.min(stringData.length, 80))
+  return stringData.substring(0, Math.min(stringData.length, 80));
 };
 
 type Props = {
   params: { slug: string };
 };
 
-export const generateMetadata = async({ params }: Props): Promise<Metadata> => {
-   const title = await dynamicTitle(params.slug);
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const title = await dynamicTitle(params.slug);
   const imageUrl = await dynamicImageUrl(params.slug);
   const dynamicText = await dynamicDescription(params.slug);
 
   return {
-  title: title,
-  description:
-  dynamicText,
-  openGraph: {
     title: title,
-    description:
-    dynamicText,
-    images: [
-      {
-        url: imageUrl,
-        alt: title,
-      },
-    ],
-  }
+    description: dynamicText,
+    openGraph: {
+      title: title,
+      description: dynamicText,
+      images: [
+        {
+          url: imageUrl,
+          alt: title,
+        },
+      ],
+    },
+  };
 };
-};
-
-
 
 async function getPhotos(slug: string, skupina_obrazkov: string) {
   const query = `*[_type == "events" && slug.current == "${slug}"]{
@@ -90,8 +88,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 
   const locale = useLocale();
 
-  
-  const p =  await getTranslations("navbar");
+  const p = await getTranslations("navbar");
 
   const home = p("home");
   const about_project = p("about_project");
@@ -100,24 +97,43 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   const masaryk = p("masaryk");
   const contact = p("contact");
 
-  
-  const navbar_array = [home, about_project, monuments, experience, masaryk, contact];
+  const navbar_array = [
+    home,
+    about_project,
+    monuments,
+    experience,
+    masaryk,
+    contact,
+  ];
 
   return (
     <>
       <div className="titulna_foto padding_content intro_padding">
-        <NavbarSecond navbar_array={navbar_array}/>
-        <img   src={urlFor(data.titulna_foto).url()} alt="" className="bg_image_wrapper" />
+        <NavbarSecond navbar_array={navbar_array} />
+        <Image
+          src={urlFor(data.titulna_foto).url()}
+          alt=""
+          width={1920}
+          height={1080}
+          className="bg_image_wrapper"
+          priority
+        />
       </div>
       <div className="padding_content bg-white">
-        <h1 className="text-black">
-          {data.nazov_podujatia[locale as keyof typeof data.nazov_podujatia]}
-        </h1>
+        {data.nazov_podujatia[locale as keyof typeof data.nazov_podujatia] && (
+          <h1 className="text-black">
+            {data.nazov_podujatia[locale as keyof typeof data.nazov_podujatia]}
+          </h1>
+        )}
+
         <div className="event_page">
-          <p className="max-width-50">
-            <EventPortableText data={data} specify="text_podujatie" />
-          </p>
-          {currentDate <= data.kedy && (
+          {data && (
+            <div className="max-width-50">
+              <EventPortableText data={data} specify="text_podujatie" />
+            </div>
+          )}
+
+          {data.kedy && currentDate <= data.kedy && (
             <>
               <div className="event_data text-black">
                 <span>
@@ -146,28 +162,30 @@ const Page = async ({ params }: { params: { slug: string } }) => {
             </>
           )}
         </div>
-        {currentDate <= data.kedy && (
+        {data.kedy && currentDate <= data.kedy && (
           <>
             <Link href="/">
               {" "}
               <button className="btn btn--primary">{t("back")}</button>
             </Link>
 
-            <Image
-              src={urlFor(data.plagat).url()}
-              alt="Mapa okolia Záhoria"
-              width={0}
-              height={0}
-              sizes="100vw"
-              style={{
-                objectFit: "contain",
-              }}
-              className="event_poster"
-              quality={100}
-            />
+            {data.plagat && (
+              <Image
+                src={urlFor(data.plagat).url()}
+                alt="Mapa okolia Záhoria"
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{
+                  objectFit: "contain",
+                }}
+                className="event_poster"
+                quality={100}
+              />
+            )}
           </>
         )}
-        {currentDate > data.kedy && (
+        {data.kedy && currentDate > data.kedy && (
           <GroupPictures data={data2[0]} parameter="skupina_obrazkov" />
         )}
         <Partners />
