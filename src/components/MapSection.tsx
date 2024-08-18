@@ -160,12 +160,13 @@ const MapSection = ({ translation }: Props) => {
         <Image
           src={urlFor(data.mapa).url()}
           alt="Mapa okolia Záhoria"
-          width={0}
-          height={0}
-          sizes="100vw"
+          width={1920}
+          height={1080}
           className="mapa_img"
           useMap="#cityMap"
           id="mapImage"
+          priority
+          quality={100}
         />
       )}
     </>

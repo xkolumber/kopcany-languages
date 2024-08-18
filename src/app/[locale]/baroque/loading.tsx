@@ -12,12 +12,14 @@ const loading = () => {
             src="/dark.png"
             alt="Dark section"
             fill={true}
+            priority
+            quality={100}
             style={{ objectFit: "cover" }}
             className="bg_image_dark"
           />
         </div>
         <div className="skeleton_navbar">
-        <div className="skeleton_navbar_item">
+          <div className="skeleton_navbar_item">
             <Skeleton count={1} />
           </div>
           <div className="skeleton_navbar_item">

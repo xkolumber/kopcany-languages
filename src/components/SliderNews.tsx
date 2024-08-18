@@ -72,7 +72,7 @@ const SliderNews = ({ news }: Props) => {
             <ArrowRight />
           </span>
         </div>
-        <img src="/event_draw.png" alt="Event picture" className="event_img" />
+        {/* <img src="/event_draw.png" alt="Event picture" className="event_img" /> */}
       </div>
     </>
   );

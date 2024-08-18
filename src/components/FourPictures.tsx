@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 interface Props {
   onActiveDotChange: (dotNumber: number) => void;
@@ -41,7 +42,15 @@ const FourPictures = ({ onActiveDotChange, images }: Props) => {
             transformOrigin: "center center",
           }}
         >
-          <img src={image} alt={`Image ${index + 1}`} className="bgImage" />
+          <Image
+            src={image}
+            alt={`Image ${index + 1}`}
+            className="bgImage"
+            width={1920}
+            height={1080}
+            priority
+            quality={100}
+          />
         </div>
       ))}
     </div>

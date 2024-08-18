@@ -94,9 +94,13 @@ const Page = async () => {
   return (
     <>
       <div className="titulna_foto intro_padding">
-        <img
+        <Image
           src={urlFor(data.titulna_foto).url()}
           alt=""
+          width={1920}
+          height={1080}
+          priority
+          quality={100}
           className="bg_image_wrapper"
         />
         <div className="bg_image_dark_wrapper">
@@ -104,6 +108,7 @@ const Page = async () => {
             src="/dark.png"
             alt="Dark section"
             fill={true}
+            priority
             style={{ objectFit: "cover" }}
             className="bg_image_dark"
           />
@@ -125,6 +130,7 @@ const Page = async () => {
             alt="Mapa okolia Záhoria"
             width={300}
             height={200}
+            priority
             className="theme_product_img"
             style={{
               objectFit: "contain",
@@ -148,6 +154,7 @@ const Page = async () => {
           alt="Mapa okolia Záhoria"
           width={1000}
           height={1000}
+          priority
           className="full_width_image_mapa"
         />
         <div className="padding-2rem">
@@ -174,7 +181,9 @@ const Page = async () => {
         <div className="text-black padding-2rem">
           <BaroquePortableText data={data} specify="popis_sekcie3" />
         </div>
-        <DPhotos url="/3d.jpg" />
+        <div className="mt-40">
+          <DPhotos url="/3d.jpg" />
+        </div>
 
         <GroupPictures data={data4} parameter="skupina_obrazkov3" />
 

@@ -73,9 +73,8 @@ const GroupPictures = ({ data, parameter }: Props) => {
                 key={obrazok.asset._id}
                 src={urlFor(obrazok.asset.url).url()}
                 alt="Additional photo"
-                width={0}
-                height={0}
-                sizes="100vw"
+                width={300}
+                height={300}
                 quality={100}
                 className="theme_img"
                 priority
@@ -101,8 +100,8 @@ const GroupPictures = ({ data, parameter }: Props) => {
                   ).url()}
                   alt={`Photo ${selectedImageIndex}`}
                   className="custom-gallery-image"
-                  width={1000}
-                  height={1000}
+                  width={1900}
+                  height={1080}
                   priority
                 />
               </div>

@@ -13,6 +13,8 @@ const loading = () => {
             alt="Dark section"
             fill={true}
             style={{ objectFit: "cover" }}
+            priority
+            quality={100}
             className="bg_image_dark"
           />
         </div>

@@ -107,9 +107,13 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   return (
     <>
       <div className="titulna_foto intro_padding">
-        <img
+        <Image
           src={urlFor(data.titulna_foto).url()}
           alt=""
+          width={1920}
+          height={1080}
+          priority
+          quality={100}
           className="bg_image_wrapper"
         />
         <div className="bg_image_dark_wrapper">
@@ -170,7 +174,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           <GroupPictures data={data2[0]} parameter="skupina_obrazkov" />
         )}
         {data.komentar_skupina_obrazkov && (
-          <div className="text-black">
+          <div className="text-black  mt-40">
             <ThemePortableText
               data={data}
               specify="komentar_skupina_obrazkov"
@@ -191,7 +195,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           />
         )}
         {data.komentar_fotka2 && (
-          <div className="text-black">
+          <div className="text-black mt-40">
             <ThemePortableText data={data} specify="komentar_fotka2" />
           </div>
         )}
@@ -200,7 +204,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           <GroupPictures data={data3[0]} parameter="skupina_obrazkov2" />
         )}
         {data.komentar_skupina_obrazkov2 && (
-          <div className="text-black">
+          <div className="text-black mt-40">
             {
               <ThemePortableText
                 data={data}
@@ -223,7 +227,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           />
         )}
         {data.komentar_fotka2 && (
-          <div className="text-black">
+          <div className="text-black mt-40">
             <ThemePortableText data={data} specify="komentar_fotka2" />
           </div>
         )}
@@ -232,7 +236,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           <GroupPictures data={data4[0]} parameter="skupina_obrazkov_3" />
         )}
         {data.komentar_skupina_obrazkov3 && (
-          <div className="text-black">
+          <div className="text-black mt-40">
             {
               <ThemePortableText
                 data={data}

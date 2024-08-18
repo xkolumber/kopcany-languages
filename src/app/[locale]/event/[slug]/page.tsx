@@ -115,6 +115,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           alt=""
           width={1920}
           height={1080}
+          quality={100}
           className="bg_image_wrapper"
           priority
         />

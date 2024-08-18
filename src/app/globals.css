@@ -571,15 +571,13 @@ p {
 }
 
 .themes_padding {
-  background-color: var(--secondary-color);
+  background-color: #d5d5d5;
   padding: 1.3rem;
   transition: 0.1s ease-in;
   color: var(--tertiary-color);
   margin-top: -0.5rem;
 }
-.themes_padding:hover {
-  background-color: #d5d5d5;
-}
+
 .theme_img,
 .themee_img {
   width: 100%;
@@ -1006,6 +1004,9 @@ p {
   margin-top: 5rem;
   gap: 5rem;
 }
+.mt-40 {
+  margin-top: 24px;
+}
 
 @media (min-width: 768px) {
   .partners {
@@ -1014,16 +1015,21 @@ p {
     margin-top: 5rem;
     align-items: center;
   }
+  .mt-40 {
+    margin-top: 32px;
+  }
   .partners_title {
     margin-top: 8rem;
   }
   .partner_img_first {
     display: block;
-    width: 600px;
+    height: 100%;
+    /* width: 600px; */
   }
   .partner_img_second {
     display: block;
-    width: 600px;
+    height: 100%;
+    /* width: 600px; */
   }
   .partner_img_third {
     display: block;

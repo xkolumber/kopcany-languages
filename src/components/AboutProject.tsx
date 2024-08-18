@@ -103,9 +103,11 @@ const AboutProject = ({ translate_words }: Props) => {
             </div>
           </Link>
           <Link href={`/${locale}/about_project`}>
-            <img
+            <Image
               src={urlFor(data[0].titulna_foto).url()}
               alt=""
+              width={1920}
+              height={1080}
               className="video_intro"
             />
           </Link>

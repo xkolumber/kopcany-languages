@@ -97,9 +97,13 @@ const Page = async () => {
   return (
     <>
       <div className="titulna_foto intro_padding">
-        <img
+        <Image
           src={urlFor(data.titulna_foto).url()}
-          alt=""
+          alt="Main picture"
+          width={1920}
+          height={1080}
+          priority
+          quality={100}
           className="bg_image_wrapper"
         />
         <div className="bg_image_dark_wrapper">
@@ -107,6 +111,7 @@ const Page = async () => {
             src="/dark.png"
             alt="Dark section"
             fill={true}
+            priority
             style={{ objectFit: "cover" }}
             className="bg_image_dark"
           />
@@ -129,6 +134,8 @@ const Page = async () => {
             width={300}
             height={200}
             className="theme_product_img"
+            priority
+            quality={100}
             style={{
               objectFit: "contain",
             }}
@@ -146,6 +153,8 @@ const Page = async () => {
           alt="Mapa okolia Záhoria"
           width={1000}
           height={1000}
+          priority
+          quality={100}
           className="full_width_image_mapa"
         />
         <div className="about_two_section margin-bottom-10">
@@ -171,7 +180,7 @@ const Page = async () => {
             </p>
           </div>
           <div className="about_width_section">
-            <h4 className="text-black">{t("project_activity_main")}</h4>
+            <h4 className="text-black ">{t("project_activity_main")}</h4>
             <p className="text-black">
               <AboutPortableText
                 data={data}
@@ -186,7 +195,7 @@ const Page = async () => {
 
         <GroupPictures data={data2[0]} parameter="skupina_obrazkov" />
 
-        <h4 className="text-black">{t("project_budget")}</h4>
+        <h4 className="text-black mt-40">{t("project_budget")}</h4>
         <AboutPortableText data={data} specify="rozpocet" />
 
         <Partners />
