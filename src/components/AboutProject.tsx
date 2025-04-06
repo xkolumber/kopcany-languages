@@ -15,7 +15,7 @@ const AboutProject = () => {
 
   const t = translations[language];
 
-  const { data, error, isLoading } = useQuery<About_project[] | null>({
+  const { data, error, isLoading } = useQuery<About_project | null>({
     queryKey: ["home_page_about"],
     queryFn: () => getAboutProject(),
     staleTime: 1000 * 60 * 5,
@@ -31,7 +31,7 @@ const AboutProject = () => {
         <>
           <h2 className="text-black">{t.home_page.about_project}</h2>
           <p className=" text-black">
-            {data[0].uvodny_text[language as keyof LanguageInterface]}{" "}
+            {data.uvodny_text[language as keyof LanguageInterface]}{" "}
           </p>
           <Link href={`/about_project`}>
             <div className="btn btn--primary margin-bottom-button">
@@ -40,7 +40,7 @@ const AboutProject = () => {
           </Link>
           <Link href={`/about_project`}>
             <Image
-              src={urlFor(data[0].titulna_foto).url()}
+              src={urlFor(data.titulna_foto).url()}
               alt=""
               width={1920}
               height={1080}

@@ -1,79 +1,98 @@
-'use client';
+"use client";
 
-import { useLocale } from "next-intl";
+import useLanguageStore from "@/app/cookieStore/store";
+import { translations } from "@/lib/languages";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import NavbarMobile from "./NavbarMobile";
 import Switcher from "./Switcher";
-import { useParams, usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 
 interface Props {
   black?: boolean;
-  navbar_array:string[];
-  
 }
 
-const NavbarSecond = ({ black,navbar_array }: Props) => {
-
+const NavbarSecond = ({ black }: Props) => {
   const [blackColor, setBlackColor] = useState(false);
   useEffect(() => {
-    if(black) {
+    if (black) {
       setBlackColor(true);
     }
-    console.log(blackColor)
-   
+    console.log(blackColor);
   }, [black]);
- 
-  const locale = useLocale();
-
 
   const pathaname = usePathname();
 
-
+  const { language } = useLanguageStore();
+  const t = translations[language];
 
   return (
     <>
-      <div className={`navbar ${blackColor ? "navbar-black" : '' }`}>
-      <Link href={`/`} >
-          <p className={`} ${pathaname === `/` ? 'active_navbar_link' : ''} `}>
-            {navbar_array[0]}
+      <div className={`navbar ${blackColor ? "navbar-black" : ""}`}>
+        <Link href={`/`}>
+          <p className={`} ${pathaname === `/` ? "active_navbar_link" : ""} `}>
+            {t.navbar.home}
           </p>
         </Link>
-        <Link href={`/${locale}/about_project`}>
-          <p className={`${blackColor ? "text-black-imp" : 'text-white-imp'} ${pathaname === `/${locale}/about_project` ? 'active_navbar_link' : ''}`}>
-          {navbar_array[1]}
+        <Link href={`/about_project`}>
+          <p
+            className={`${blackColor ? "text-black-imp" : "text-white-imp"} ${
+              pathaname === `/about_project` ? "active_navbar_link" : ""
+            }`}
+          >
+            {t.navbar.about_project}
           </p>
         </Link>
-        <Link href={`/${locale}/theme/pamiatky-velkej-moravy`}>
-          <p className={`${blackColor ? "text-black-imp" : 'text-white-imp'} ${pathaname === `/${locale}/theme/pamiatky-velkej-moravy` ? 'active_navbar_link' : ''}`}>
-          {navbar_array[2]}
+        <Link href={`/theme/pamiatky-velkej-moravy`}>
+          <p
+            className={`${blackColor ? "text-black-imp" : "text-white-imp"} ${
+              pathaname === `/theme/pamiatky-velkej-moravy`
+                ? "active_navbar_link"
+                : ""
+            }`}
+          >
+            {t.navbar.monuments}
           </p>
         </Link>
-        <Link href={`/${locale}/baroque`}>
-          <p className={`${blackColor ? "text-black-imp" : 'text-white-imp'}  ${pathaname === `/${locale}/baroque` ? 'active_navbar_link' : ''} `}>    
-          {navbar_array[3]}
+        <Link href={`/baroque`}>
+          <p
+            className={`${blackColor ? "text-black-imp" : "text-white-imp"}  ${
+              pathaname === `/baroque` ? "active_navbar_link" : ""
+            } `}
+          >
+            {t.navbar.experience}
           </p>
         </Link>
-        <Link href={`/${locale}/theme/po-stopach-t-g-masaryka`}>
-          <p className={`${blackColor  ? "text-black-imp" : 'text-white-imp'}  ${pathaname === `/${locale}/theme/po-stopach-t-g-masaryka` ? 'active_navbar_link' : ''} `}>
-          {navbar_array[4]}
+        <Link href={`/theme/po-stopach-t-g-masaryka`}>
+          <p
+            className={`${blackColor ? "text-black-imp" : "text-white-imp"}  ${
+              pathaname === `/theme/po-stopach-t-g-masaryka`
+                ? "active_navbar_link"
+                : ""
+            } `}
+          >
+            {t.navbar.masaryk}
           </p>
         </Link>
-        <Link href={`/${locale}/contact`}>
-          <p className={`${black === true  ? "text-black-imp" : 'text-white-imp'}  ${pathaname === `/${locale}/contact` ? 'active_navbar_link' : ''} `}>
-          {navbar_array[5]}
+        <Link href={`/contact`}>
+          <p
+            className={`${
+              black === true ? "text-black-imp" : "text-white-imp"
+            }  ${pathaname === `/contact` ? "active_navbar_link" : ""} `}
+          >
+            {t.navbar.contact}
           </p>
         </Link>
 
         <Switcher />
       </div>
       <NavbarMobile
-        home= {navbar_array[0]}
-        about_project= {navbar_array[1]}
-        monuments= {navbar_array[2]}
-        experience= {navbar_array[3]}
-        masaryk= {navbar_array[4]}
-        contact= {navbar_array[5]}
+        home={t.navbar.home}
+        about_project={t.navbar.about_project}
+        monuments={t.navbar.monuments}
+        experience={t.navbar.experience}
+        masaryk={t.navbar.masaryk}
+        contact={t.navbar.contact}
         black={blackColor}
       />
     </>

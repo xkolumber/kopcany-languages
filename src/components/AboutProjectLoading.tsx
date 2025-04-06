@@ -3,7 +3,7 @@ import Image from "next/image";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-const loading = () => {
+const AboutProjectLoading = () => {
   return (
     <>
       <div className="titulna_foto intro_padding padding_content">
@@ -53,4 +53,4 @@ const loading = () => {
   );
 };
 
-export default loading;
+export default AboutProjectLoading;

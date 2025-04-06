@@ -25,7 +25,7 @@ export default function Home() {
           </div>
 
           <ArchiveSection />
-          <div className="padding_content">
+          <div className="padding_content !pt-0">
             <Partners />
           </div>
         </main>

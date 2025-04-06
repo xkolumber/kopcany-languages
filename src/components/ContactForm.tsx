@@ -1,28 +1,30 @@
 "use client";
 
 import { yupResolver } from "@hookform/resolvers/yup";
-import { ChangeEvent, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { ClipLoader } from "react-spinners";
 import * as yup from "yup";
-import { useRouter } from "next/navigation";
 
-import React from "react";
-import { useLocale } from "next-intl";
+import { sendForm } from "@/lib/functions_server";
+import useLanguageStore from "@/app/cookieStore/store";
+import { translations } from "@/lib/languages";
 
-interface Props{
-    contact_array: String[];
-}
+const ContactForm = () => {
+  const { language } = useLanguageStore();
+  const t = translations[language];
 
-const ContactForm = ({contact_array}:Props) => {
-    const locale = useLocale();
   const schema = yup.object({
     name: yup
       .string()
       .required("Meno a priezvisko je povinné")
       .min(3, "Minimálne 3 znaky")
       .max(45, "Maximálne 45 znakov"),
-    email: yup.string().email("Email je v nesprávnom tvare").required("Email je povinný"),
+    email: yup
+      .string()
+      .email("Email je v nesprávnom tvare")
+      .required("Email je povinný"),
     message: yup.string().notRequired(),
   });
 
@@ -41,25 +43,14 @@ const ContactForm = ({contact_array}:Props) => {
   const onSubmit = async (data: FieldValues) => {
     setIsLoading(true);
 
-
     try {
-      const response = await fetch('/api/send-form', 
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: data.name,
-            email: data.email,
-            message: data.message,
-          }),
-        }
-      );
+      const response = await sendForm(data.name, data.email, data.message);
 
-      if (response.ok) {
+      console.log(response, "response");
+
+      if (response === "success") {
         reset();
-        navigate.push(`/${locale}/thanks`);
+        navigate.push(`/thanks`);
         console.log("Email sent successfully!");
         setIsLoading(false);
       } else {
@@ -72,42 +63,28 @@ const ContactForm = ({contact_array}:Props) => {
     }
   };
 
-
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h2 className="gdpr_title">{t.contact.title}</h2>
       <div className="input_both">
         <div className="input_vertically">
-            <h6>*{contact_array[0]}</h6>
-          <input
-            type="text"
-            id="meno"
-            {...register("name")}
-          />
+          <h6>*{t.contact.name_lastname}</h6>
+          <input type="text" id="meno" {...register("name")} />
           {errors.name && (
             <p className="error_message">{errors.name.message}</p>
           )}
         </div>
         <div className="input_vertically">
-        <h6>*E-mail</h6>
-          <input
-            type="email"
-            id="email"
-            {...register("email")}
-          />
+          <h6>*E-mail</h6>
+          <input type="email" id="email" {...register("email")} />
           {errors.email && (
             <p className="error_message">{errors.email.message}</p>
           )}
         </div>
       </div>
       <div className="message-form">
-      <h6>{contact_array[1]}</h6>
-      <textarea
-        id="message"
-        rows={3}
-
-        {...register("message")}
-      />
+        <h6>{t.contact.message}</h6>
+        <textarea id="message" rows={3} {...register("message")} />
       </div>
       <button
         className="btn btn--primary margin_bottom_5 min_width130"
@@ -117,7 +94,7 @@ const ContactForm = ({contact_array}:Props) => {
         {isLoading ? (
           <ClipLoader size={20} color={"#32a8a0"} loading={isLoading} />
         ) : (
-            contact_array[2]
+          t.contact.send
         )}
       </button>
     </form>

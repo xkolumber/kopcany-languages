@@ -61,28 +61,26 @@ const GroupPictures = ({ data, parameter }: Props) => {
 
   return (
     <>
-      {data.length > 0 && (
-        <div className="skupina_obrazkov">
-          {data[parameter].map((obrazok: ImageAsset, index: number) => (
-            <div
-              className="skupina_obrazok_img"
-              onClick={() => setSelectedImageIndex(index)}
+      <div className="skupina_obrazkov">
+        {data[parameter].map((obrazok: ImageAsset, index: number) => (
+          <div
+            className="skupina_obrazok_img"
+            onClick={() => setSelectedImageIndex(index)}
+            key={obrazok.asset._id}
+          >
+            <Image
               key={obrazok.asset._id}
-            >
-              <Image
-                key={obrazok.asset._id}
-                src={urlFor(obrazok.asset.url).url()}
-                alt="Additional photo"
-                width={300}
-                height={300}
-                quality={100}
-                className="theme_img"
-                priority
-              />
-            </div>
-          ))}
-        </div>
-      )}
+              src={urlFor(obrazok.asset.url).url()}
+              alt="Additional photo"
+              width={300}
+              height={300}
+              quality={100}
+              className="theme_img"
+              priority
+            />
+          </div>
+        ))}
+      </div>
 
       {selectedImageIndex !== null && (
         <>

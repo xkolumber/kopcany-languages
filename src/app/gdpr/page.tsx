@@ -1,17 +1,13 @@
 import Footer from "@/components/Footer";
 import NavbarSecond from "@/components/NavbarSecond";
 import { Metadata } from "next";
-import { useTranslations } from "next-intl";
-import React from "react";
 
 export const metadata: Metadata = {
   title: "Gdpr",
-  description:
-    "Ochrana osobných údajov",
+  description: "Ochrana osobných údajov",
   openGraph: {
     title: "Gdpr",
-  description:
-    "Ochrana osobných údajov",
+    description: "Ochrana osobných údajov",
     images: [
       {
         url: "/home_banner3.jpg",
@@ -22,22 +18,10 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
-  
-  const p =  useTranslations("navbar");
-
-  const home = p("home");
-  const about_project = p("about_project");
-  const monuments = p("monuments");
-  const experience = p("experience");
-  const masaryk = p("masaryk");
-  const contact = p("contact");
-
-  
-  const navbar_array = [home, about_project, monuments, experience, masaryk, contact];
   return (
     <>
       <div className="padding_content gdpr intro_padding">
-        <NavbarSecond black={true}  navbar_array={navbar_array} />
+        <NavbarSecond black={true} />
         <h2 className="gdpr_title">Obec Kopčany</h2>
         <h4>Vyhlásenie o ochrane súkromia</h4>
         <p>
@@ -231,7 +215,6 @@ const Page = () => {
         <p>adresa: Antona Bernoláka 2, 071 01 Michalovce</p>
         <p>e-mail: zodpovednaosoba@ppprotect.sk</p>
       </div>
-      <Footer />
     </>
   );
 };
