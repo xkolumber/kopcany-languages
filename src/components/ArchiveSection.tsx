@@ -1,18 +1,20 @@
-import { useLocale, useTranslations } from "next-intl";
+"use client";
+import useLanguageStore from "@/app/cookieStore/store";
+import { translations } from "@/lib/languages";
 import Link from "next/link";
 
 const ArchiveSection = () => {
-  const t = useTranslations("home_page");
+  const { language } = useLanguageStore();
 
-  const locale = useLocale();
+  const t = translations[language];
   return (
     <div className="events">
       <div className="padding_content">
-        <h2 className="text-black">{t("archive")}</h2>
-        <p className="text-black">{t("archive_text")}</p>
+        <h2 className="text-black">{t.home_page.archive}</h2>
+        <p className="text-black">{t.home_page.archive_text}</p>
 
-        <Link href={`/${locale}/all_events`}>
-          <div className="btn btn--primary">{t("archive_button")}</div>
+        <Link href={`/all_events`}>
+          <div className="btn btn--primary">{t.home_page.archive_button}</div>
         </Link>
         <div className="three_themes"></div>
       </div>

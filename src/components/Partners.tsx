@@ -1,13 +1,18 @@
-import { useTranslations } from "next-intl";
+"use client";
+
+import useLanguageStore from "@/app/cookieStore/store";
+import { translations } from "@/lib/languages";
 import Image from "next/image";
 
 const Partners = () => {
-  const t = useTranslations("partners");
+  const { language } = useLanguageStore();
+
+  const t = translations[language];
 
   return (
     <>
-      <h2 className="text-black partners_title">{t("title")}</h2>
-      <p className="text-black"> {t("description")}:</p>
+      <h2 className="text-black partners_title">{t.partners.title}</h2>
+      <p className="text-black"> {t.partners.description}: </p>
       <div className="partners">
         <Image
           src="/all_partners.jpg"

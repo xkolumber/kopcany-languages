@@ -1,54 +1,51 @@
-'use client';
+"use client";
 
-import { useLocale } from "next-intl";
 import Link from "next/link";
-import NavbarMobile from "./NavbarMobile";
-import Switcher from "./Switcher";
-import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
+import Switcher from "./Switcher";
+import NavbarMobile from "./NavbarMobile";
 
 interface Props {
-  navbar_array: string[];
+  navbar_array: any;
 }
 
 const Navbar = ({ navbar_array }: Props) => {
-  const locale = useLocale();
-
-
   const pathaname = usePathname();
-
 
   return (
     <>
       <div className="navbar">
-        <Link href={`/`} >
-          <p className={`${pathaname === `/${locale}` ? 'active_navbar_link' : ''} `}> {navbar_array[5]}</p>
+        <Link href={`/`}>
+          <p className={`${pathaname === `/` ? "active_navbar_link" : ""} `}>
+            {" "}
+            {navbar_array.home}
+          </p>
         </Link>
-        <Link href={`/${locale}/about_project`}>
-          <p> {navbar_array[0]}</p>
+        <Link href={`/about_project`}>
+          <p> {navbar_array.about_project}</p>
         </Link>
-        <Link href={`/${locale}/theme/pamiatky-velkej-moravy`}>
-          <p> {navbar_array[1]}</p>
+        <Link href={`/theme/pamiatky-velkej-moravy`}>
+          <p> {navbar_array.monuments}</p>
         </Link>
-        <Link href={`/${locale}/baroque`}>
-          <p> {navbar_array[2]}</p>
+        <Link href={`/baroque`}>
+          <p> {navbar_array.experience}</p>
         </Link>
-        <Link href={`/${locale}/theme/po-stopach-t-g-masaryka`}>
-          <p> {navbar_array[3]}</p>
+        <Link href={`/theme/po-stopach-t-g-masaryka`}>
+          <p> {navbar_array.masaryk}</p>
         </Link>
-        <Link href={`/${locale}/contact`}>
-          <p> {navbar_array[4]}</p>
+        <Link href={`/contact`}>
+          <p> {navbar_array.contact}</p>
         </Link>
 
         <Switcher />
       </div>
       <NavbarMobile
-        about_project={navbar_array[0]}
-        monuments={navbar_array[1]}
-        experience={navbar_array[2]}
-        masaryk={navbar_array[3]}
-        contact={navbar_array[4]}
-        home={navbar_array[5]}
+        about_project={navbar_array.about_project}
+        monuments={navbar_array.monuments}
+        experience={navbar_array.experience}
+        masaryk={navbar_array.masaryk}
+        contact={navbar_array.contact}
+        home={navbar_array.home}
       />
     </>
   );

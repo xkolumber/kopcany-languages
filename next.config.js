@@ -1,10 +1,9 @@
-const withNextIntl = require("next-intl/plugin")();
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["cdn.sanity.io"],
+    domains: ["cdn.sanity.io", "firebasestorage.googleapis.com"],
   },
+  reactStrictMode: false,
 };
 
-module.exports = withNextIntl(nextConfig);
+module.exports = nextConfig;

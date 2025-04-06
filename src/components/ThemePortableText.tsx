@@ -1,8 +1,8 @@
 "use client";
-import { PortableText } from "@portabletext/react";
-import React, { useEffect, useState } from "react";
-import { useLocale } from "next-intl";
+import useLanguageStore from "@/app/cookieStore/store";
 import { Theme } from "@/lib/interface_theme";
+import { PortableText } from "@portabletext/react";
+import { useEffect, useState } from "react";
 interface Props {
   data: Theme;
   specify: string;
@@ -15,7 +15,7 @@ interface Block {
 }
 
 const ThemePortableText = ({ data, specify, view }: Props) => {
-  const locale = useLocale();
+  const { language } = useLanguageStore();
   const [noveData, setNoveData] = useState<Block[]>([]);
 
   const specifiedData = data[specify as keyof Theme];
@@ -23,7 +23,7 @@ const ThemePortableText = ({ data, specify, view }: Props) => {
   useEffect(() => {
     if (Array.isArray(specifiedData)) {
       const foundActivity = specifiedData.find(
-        (activity) => activity.language === locale
+        (activity) => activity.language === language
       );
       const content = foundActivity?.content || [];
       {
@@ -33,7 +33,7 @@ const ThemePortableText = ({ data, specify, view }: Props) => {
         !view && setNoveData(content);
       }
     }
-  }, [data, locale, specify]);
+  }, [data, language, specify]);
 
   return <PortableText value={noveData} />;
 };

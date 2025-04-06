@@ -4,26 +4,13 @@ import Image from "next/image";
 import { useState } from "react";
 import FourPictures from "./FourPictures";
 import Navbar from "./Navbar";
+import useLanguageStore from "@/app/cookieStore/store";
+import { translations } from "@/lib/languages";
 
-// async function getPhotos() {
-//   const query = `*[_type == "about_project"]{
-//   skupina_obrazkov[]{
-//          asset->{
-//       _id,
-//       url
-//     }
-//      }
-// }`;
-//   const data = await client.fetch(query);
-//   return data;
-// }
-interface Props {
-  title: string;
-  connect: string;
-  navbar_array: string[];
-}
+const HomeIntro = () => {
+  const { language } = useLanguageStore();
+  const t = translations[language];
 
-const HomeIntro = ({ title, connect, navbar_array }: Props) => {
   const [activeDot, setActiveDot] = useState(0);
 
   const news = [
@@ -54,7 +41,7 @@ const HomeIntro = ({ title, connect, navbar_array }: Props) => {
         />
       </div>
       <div className="padding_content intro_padding justify-between width_100">
-        <Navbar navbar_array={navbar_array} />
+        <Navbar navbar_array={t.navbar} />
         <div>
           <div className="dots">
             {news.map((item: any, index: any) => (
@@ -64,9 +51,9 @@ const HomeIntro = ({ title, connect, navbar_array }: Props) => {
               ></div>
             ))}
           </div>
-          <h4 className="font-weight-regular">{title}</h4>
+          <h4 className="font-weight-regular">{t.home_page.welcome}</h4>
           <h2>Mikulčice - Kopčany - Holíč - Hodonín</h2>
-          <h4 className="font-weight-regular">{connect}</h4>
+          <h4 className="font-weight-regular">{t.home_page.connect}</h4>
         </div>
       </div>
     </div>

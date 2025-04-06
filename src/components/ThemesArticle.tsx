@@ -1,8 +1,8 @@
 import Image from "next/image";
 
+import useLanguageStore from "@/app/cookieStore/store";
 import { Theme } from "@/lib/interface_theme";
 import { urlFor } from "@/lib/sanityImageUrl";
-import { useLocale } from "next-intl";
 import Link from "next/link";
 import ThemePortableText from "./ThemePortableText";
 
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const ThemesArticle = ({ theme }: Props) => {
-  const locale = useLocale();
+  const { language } = useLanguageStore();
   return (
     <div className="theme">
       <Image
@@ -22,10 +22,10 @@ const ThemesArticle = ({ theme }: Props) => {
         quality={100}
         className="themee_img"
       />
-      <Link href={`/${locale}/theme/${theme.slug.current}`}>
+      <Link href={`/theme/${theme.slug.current}`}>
         <div className="themes_padding">
           <h5 className="text_limit_h4">
-            {theme.nazov_temy[locale as keyof typeof theme.nazov_temy]}
+            {theme.nazov_temy[language as keyof typeof theme.nazov_temy]}
           </h5>
 
           <div className="text_limit_p">

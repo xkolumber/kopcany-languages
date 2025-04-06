@@ -1,24 +1,29 @@
 "use client";
-import { useLocale } from "next-intl";
+import useLanguageStore from "@/app/cookieStore/store";
+import { getHomePageData } from "@/lib/functions_server";
+import { Main_page } from "@/lib/interface_main_page";
+import { translations } from "@/lib/languages";
+import { urlFor } from "@/lib/sanityImageUrl";
+import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import YouTubeVideo from "./YoutubeVideo";
-import { Main_page } from "@/lib/interface_main_page";
-import { urlFor } from "@/lib/sanityImageUrl";
+import { useEffect } from "react";
 import { isMobile } from "react-device-detect";
-import { Manifest } from "next/dist/lib/metadata/types/manifest-types";
 import { ClipLoader } from "react-spinners";
+import YouTubeVideo from "./YoutubeVideo";
 
-interface Props {
-  translation: String[];
-  // data:Main_page;
-}
+const MapSection = () => {
+  const { data, error, isLoading } = useQuery<Main_page | null>({
+    queryKey: ["home_page_data"],
+    queryFn: () => getHomePageData(),
+    staleTime: 1000 * 60 * 5,
+    refetchOnWindowFocus: false,
+  });
 
-const MapSection = ({ translation }: Props) => {
-  const [data, setData] = useState<Main_page | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const locale = useLocale();
+  const { language } = useLanguageStore();
+
+  const t = translations[language];
+
   const router = useRouter();
   useEffect(() => {
     const image = document.getElementById("mapImage") as HTMLImageElement;
@@ -41,7 +46,7 @@ const MapSection = ({ translation }: Props) => {
           relativeY >= 4 &&
           relativeY <= 26
         ) {
-          router.push(`/${locale}/theme/po-stopach-t-g-masaryka`);
+          router.push(`/theme/po-stopach-t-g-masaryka`);
         }
         if (
           relativeX >= 5 &&
@@ -49,7 +54,7 @@ const MapSection = ({ translation }: Props) => {
           relativeY >= 41 &&
           relativeY <= 59
         ) {
-          router.push(`/${locale}/theme/pamiatky-velkej-moravy`);
+          router.push(`/theme/pamiatky-velkej-moravy`);
         }
         if (
           relativeX >= 69 &&
@@ -57,7 +62,7 @@ const MapSection = ({ translation }: Props) => {
           relativeY >= 47 &&
           relativeY <= 66
         ) {
-          router.push(`/${locale}/baroque`);
+          router.push(`/baroque`);
         }
         if (
           relativeX >= 44 &&
@@ -65,7 +70,7 @@ const MapSection = ({ translation }: Props) => {
           relativeY >= 69 &&
           relativeY <= 88
         ) {
-          router.push(`/${locale}/about_project`);
+          router.push(`/about_project`);
         }
       }
       if (!isMobile) {
@@ -75,7 +80,7 @@ const MapSection = ({ translation }: Props) => {
           relativeY >= 4 &&
           relativeY <= 26
         ) {
-          router.push(`/${locale}/theme/po-stopach-t-g-masaryka`);
+          router.push(`/theme/po-stopach-t-g-masaryka`);
         }
         if (
           relativeX >= 29 &&
@@ -83,7 +88,7 @@ const MapSection = ({ translation }: Props) => {
           relativeY >= 39 &&
           relativeY <= 57
         ) {
-          router.push(`/${locale}/theme/pamiatky-velkej-moravy`);
+          router.push(`/theme/pamiatky-velkej-moravy`);
         }
 
         /*new*/
@@ -93,7 +98,7 @@ const MapSection = ({ translation }: Props) => {
           relativeY >= 46 &&
           relativeY <= 65
         ) {
-          router.push(`/${locale}/baroque`);
+          router.push(`/baroque`);
         }
         if (
           relativeX >= 45 &&
@@ -101,7 +106,7 @@ const MapSection = ({ translation }: Props) => {
           relativeY >= 68 &&
           relativeY <= 87
         ) {
-          router.push(`/${locale}/about_project`);
+          router.push(`/about_project`);
         }
       }
     }
@@ -114,48 +119,17 @@ const MapSection = ({ translation }: Props) => {
         image.removeEventListener("click", handleImageClick);
       };
     }
-  }, []); // Empty dependency array ensures this runs once after initial render
-
-  useEffect(() => {
-    const fetchHomePageData = async () => {
-      try {
-        setIsLoading(true);
-        const response = await fetch("/api/get-home-page-data", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        const products = await response.json();
-
-        setData(products);
-
-        if (response.ok) {
-          setIsLoading(false);
-        } else {
-          console.error("failed");
-        }
-      } catch (error) {
-        setIsLoading(false);
-      }
-    };
-
-    fetchHomePageData();
   }, []);
 
   return (
     <>
+      <h2 className="text-black">{t.home_page.map}</h2>
+      <p className="max-600px text-black">{t.home_page.map_description}</p>
       {isLoading && (
-        <ClipLoader size={40} color={"#32a8a0"} loading={isLoading} />
+        <ClipLoader size={40} color={"#000000"} loading={isLoading} />
       )}
 
-      <div className="youtube_video">
-        {data && data.youtube_link && <YouTubeVideo url={data.youtube_link} />}
-      </div>
-
-      <h2 className="text-black">{translation[0]}</h2>
-      <p className="max-600px text-black">{translation[1]}</p>
+      {error && <p>Chyba pri načítaní dát.</p>}
       {data && data.mapa && (
         <Image
           src={urlFor(data.mapa).url()}
@@ -169,6 +143,9 @@ const MapSection = ({ translation }: Props) => {
           quality={100}
         />
       )}
+      <div className="youtube_video">
+        {data && data.youtube_link && <YouTubeVideo url={data.youtube_link} />}
+      </div>
     </>
   );
 };

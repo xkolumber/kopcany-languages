@@ -1,20 +1,17 @@
-import { client } from "@/lib/sanity";
-import { useLocale, useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
+"use client";
 
-const Themes = async() => {
-  const t = await getTranslations("home_page");
-  const locale = useLocale();
+import useLanguageStore from "@/app/cookieStore/store";
+import { translations } from "@/lib/languages";
 
-    
-  const query4 =`*[_type == "homepage"][0].text_ku_temam`;
-  const preklad = (await client.fetch(query4)) as { [key: string]: string };
+const Themes = () => {
+  const { language } = useLanguageStore();
+  const t = translations[language];
 
   return (
     <>
-      <h2 className="text-black">{t("themes")}</h2>
+      <h2 className="text-black">{t.home_page.themes}</h2>
       <p className="text-black max-600px p-margin-bottom">
-        {preklad[locale]}
+        {t.home_page.themes_description}
       </p>
     </>
   );

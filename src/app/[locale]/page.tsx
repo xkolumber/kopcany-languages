@@ -36,62 +36,59 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
-  const t = useTranslations("home_page");
-  const homePage_title = t("welcome");
-  const homePage_connect = t("connect");
-  const homePage_map = t("map");
-  const homePage_map_title = t("map_description");
-  const homePage_about = t("about_project");
-  const homePage_get_to_know = t("get_to_know");
+  // const t = useTranslations("home_page");
+  // const homePage_title = t("welcome");
+  // const homePage_connect = t("connect");
+  // const homePage_map = t("map");
+  // const homePage_map_title = t("map_description");
+  // const homePage_about = t("about_project");
+  // const homePage_get_to_know = t("get_to_know");
 
-  const p = useTranslations("navbar");
-  const about_project = p("about_project");
-  const monuments = p("monuments");
-  const experience = p("experience");
-  const masaryk = p("masaryk");
-  const contact = p("contact");
-  const home = p("home");
+  // const p = useTranslations("navbar");
+  // const about_project = p("about_project");
+  // const monuments = p("monuments");
+  // const experience = p("experience");
+  // const masaryk = p("masaryk");
+  // const contact = p("contact");
+  // const home = p("home");
 
-  const navbar_array = [
-    about_project,
-    monuments,
-    experience,
-    masaryk,
-    contact,
-    home,
-  ];
+  // const navbar_array = [
+  //   about_project,
+  //   monuments,
+  //   experience,
+  //   masaryk,
+  //   contact,
+  //   home,
+  // ];
 
-  const map_words = [homePage_map, homePage_map_title];
+  // const map_words = [homePage_map, homePage_map_title];
 
-  const about_project_translate = [homePage_about, homePage_get_to_know];
+  // const about_project_translate = [homePage_about, homePage_get_to_know];
 
   return (
     <>
       <HomeIntro
-        title={homePage_title}
-        connect={homePage_connect}
-        navbar_array={navbar_array}
+      // title={homePage_title}
+      // connect={homePage_connect}
+      // navbar_array={navbar_array}
       />
       <main className="bg-white">
         <div className="padding_content">
-          <MapSection translation={map_words} />
-          <Themes />
-          <ThreeThemesArticle />
+          {/* <MapSection translation={map_words} /> */}
+          {/* <Themes /> */}
+          {/* <ThreeThemesArticle /> */}
         </div>
-        <Events />
+        {/* <Events />
         <div className="padding_content">
           <AboutProject translate_words={about_project_translate} />
         </div>
         <ArchiveSection />
         <div className="padding_content">
           <Partners />
-        </div>
+        </div> */}
       </main>
-      <Footer />
     </>
   );
 };
-
-export const dynamic = "force-dynamic";
 
 export default Page;

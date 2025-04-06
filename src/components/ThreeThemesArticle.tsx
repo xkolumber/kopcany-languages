@@ -6,11 +6,24 @@ import { Theme } from "@/lib/interface_theme";
 import { Baroque } from "@/lib/interface_baroque";
 import BaroqueArticle from "./BaroqueArticle";
 import { ClipLoader } from "react-spinners";
+import { useQuery } from "@tanstack/react-query";
+import { getHomePageBaroque, getHomePageThemes } from "@/lib/functions_server";
 
 const ThreeThemesArticle = () => {
-  const [themes, setThemes] = useState<Theme[] | null>(null);
-  const [baroque, setBaroque] = useState<Baroque | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const { data, error, isLoading } = useQuery<Theme[] | null>({
+    queryKey: ["home_page_themes"],
+    queryFn: () => getHomePageThemes(),
+    staleTime: 1000 * 60 * 5,
+    refetchOnWindowFocus: false,
+  });
+
+  const { data: baroque_data } = useQuery<Baroque | null>({
+    queryKey: ["home_page_baroque"],
+    queryFn: () => getHomePageBaroque(),
+    staleTime: 1000 * 60 * 5,
+    refetchOnWindowFocus: false,
+  });
+
   const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
@@ -34,74 +47,20 @@ const ThreeThemesArticle = () => {
     articlesToShow = 4;
   }
 
-  useEffect(() => {
-    const fetchThemes = async () => {
-      try {
-        setIsLoading(true);
-        const response = await fetch("/api/get-home-page-themes", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        const themes = await response.json();
-
-        setThemes(themes);
-
-        if (response.ok) {
-          setIsLoading(false);
-        } else {
-          console.error("failed");
-        }
-      } catch (error) {
-        setIsLoading(false);
-      }
-    };
-
-    fetchThemes();
-  }, []);
-
-  useEffect(() => {
-    const fetchBaroque = async () => {
-      try {
-        //setIsLoading(true);
-        const response = await fetch("/api/get-home-page-baroque", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        const baroque = await response.json();
-
-        setBaroque(baroque);
-
-        if (response.ok) {
-          //setIsLoading(false);
-        } else {
-          console.error("failed");
-        }
-      } catch (error) {
-        //setIsLoading(false);
-      }
-    };
-
-    fetchBaroque();
-  }, []);
-
   return (
     <>
       <div className="three_themes">
         {isLoading && (
-          <ClipLoader size={40} color={"#32a8a0"} loading={isLoading} />
+          <ClipLoader size={40} color={"#000000"} loading={isLoading} />
         )}
-        {themes &&
-          themes.map((theme) => (
-            <ThemesArticle key={theme._id} theme={theme} />
-          ))}
 
-        {baroque && <BaroqueArticle key={baroque._id} baroque={baroque} />}
+        {error && <p>Chyba pri načítaní dát.</p>}
+        {data &&
+          data.map((theme) => <ThemesArticle key={theme._id} theme={theme} />)}
+
+        {baroque_data && (
+          <BaroqueArticle key={baroque_data._id} baroque={baroque_data} />
+        )}
       </div>
     </>
   );

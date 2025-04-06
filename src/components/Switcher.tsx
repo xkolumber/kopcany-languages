@@ -1,15 +1,13 @@
 "use client";
 
-import { useLocale } from "next-intl";
+import useLanguageStore from "@/app/cookieStore/store";
 import Image from "next/image";
-import { useParams, usePathname, useRouter } from "next/navigation";
 
 const Switcher = () => {
-  const router = useRouter();
-  const pathname = usePathname();
+  const { language, setLanguage } = useLanguageStore();
 
   const switchLang = (lang: string) => {
-    router.replace(`/${lang}/${pathname.substring(4)}`);
+    setLanguage(lang);
   };
 
   return (
@@ -21,7 +19,7 @@ const Switcher = () => {
             alt="Slovensky jazyk"
             width={20}
             height={20}
-            className={`${useLocale() === "sk" ? "active" : ""} languages_img`}
+            className={`${language === "sk" ? "active" : ""} languages_img`}
             priority={true}
           />
         </span>
@@ -31,7 +29,7 @@ const Switcher = () => {
             alt="Cesky jazyk"
             width={20}
             height={20}
-            className={`${useLocale() === "cz" ? "active" : ""} languages_img`}
+            className={`${language === "cz" ? "active" : ""} languages_img`}
             priority={true}
           />
         </span>
@@ -41,7 +39,7 @@ const Switcher = () => {
             alt="Anglicky jazyk"
             width={20}
             height={20}
-            className={`${useLocale() === "en" ? "active" : ""} languages_img`}
+            className={`${language === "en" ? "active" : ""} languages_img`}
             priority={true}
           />
         </span>
