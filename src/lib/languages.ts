@@ -208,3 +208,26 @@ export const translations: any = {
     },
   },
 };
+
+export const hotspots = [
+  {
+    name: "Masarykova trasa",
+    route: "/theme/po-stopach-t-g-masaryka",
+    coords: { left: "40%", top: "4%", width: "25%", height: "22%" },
+  },
+  {
+    name: "Veľká Morava",
+    route: "/theme/pamiatky-velkej-moravy",
+    coords: { left: "23%", top: "41%", width: "18%", height: "18%" },
+  },
+  {
+    name: "Baroko",
+    route: "/baroque",
+    coords: { left: "55%", top: "47%", width: "17%", height: "19%" },
+  },
+  {
+    name: "O projekte",
+    route: "/about_project",
+    coords: { left: "42%", top: "69%", width: "18%", height: "19%" },
+  },
+];
