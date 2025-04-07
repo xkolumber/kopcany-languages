@@ -3,61 +3,32 @@
 import { ImageAsset } from "@/lib/interface_photos";
 import { urlFor } from "@/lib/sanityImageUrl";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import ArrowLeftGallery from "./ArrowLeftGallery";
-import ArrowRightGallery from "./ArrowRightGallery";
+import { useState } from "react";
+
+import Lightbox, { SlideImage } from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
+import NextJsImage from "../components/NextImage";
 
 interface Props {
   data: any;
   parameter: string;
 }
 const GroupPictures = ({ data, parameter }: Props) => {
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
-    null
-  );
+  const [open, setOpen] = useState(false);
 
-  const handleNext = () => {
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex((selectedImageIndex + 1) % data[parameter].length);
-    }
+  const [choosenAlbum, setChoosenAlbum] = useState<SlideImage[]>([]);
+
+  const [initialSlide, setInitialSlide] = useState(0);
+
+  const handleOpenGallery = (index: number) => {
+    const transformedAlbum = data[parameter].map((file: any) => ({
+      src: urlFor(file.asset.url).url(),
+    }));
+    setInitialSlide(index);
+    setChoosenAlbum(transformedAlbum);
+    setOpen(true);
   };
-
-  const handlePrev = () => {
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex(
-        (selectedImageIndex - 1 + data[parameter].length) %
-          data[parameter].length
-      );
-    }
-  };
-
-  const closeButton = () => {
-    setSelectedImageIndex(null);
-  };
-  const closeGallery = () => {
-    setSelectedImageIndex(null);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const galleryContainer = document.querySelector(
-        ".custom-gallery-container"
-      );
-
-      if (
-        galleryContainer &&
-        !galleryContainer.contains(event.target as Node)
-      ) {
-        closeGallery();
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <>
@@ -65,7 +36,7 @@ const GroupPictures = ({ data, parameter }: Props) => {
         {data[parameter].map((obrazok: ImageAsset, index: number) => (
           <div
             className="skupina_obrazok_img"
-            onClick={() => setSelectedImageIndex(index)}
+            onClick={() => handleOpenGallery(index)}
             key={obrazok.asset._id}
           >
             {obrazok.asset.url && (
@@ -73,7 +44,7 @@ const GroupPictures = ({ data, parameter }: Props) => {
                 key={obrazok.asset._id}
                 src={urlFor(obrazok.asset.url).url()}
                 alt="Additional photo"
-                width={300}
+                width={600}
                 height={300}
                 quality={100}
                 className="theme_img"
@@ -84,34 +55,14 @@ const GroupPictures = ({ data, parameter }: Props) => {
         ))}
       </div>
 
-      {selectedImageIndex !== null && (
-        <>
-          <div className="custom-gallery-overlay"> </div>
-          <div className="custom-gallery-container">
-            <div onClick={handlePrev} className="arrow-space">
-              <ArrowLeftGallery />
-            </div>
-            {data[parameter][selectedImageIndex].asset._id && (
-              <div className="custom-gallery">
-                <Image
-                  key={data[parameter][selectedImageIndex].asset._id}
-                  src={urlFor(
-                    data[parameter][selectedImageIndex].asset.url
-                  ).url()}
-                  alt={`Photo ${selectedImageIndex}`}
-                  className="custom-gallery-image"
-                  width={1900}
-                  height={1080}
-                  priority
-                />
-              </div>
-            )}
-
-            <div onClick={handleNext} className="arrow-space">
-              <ArrowRightGallery />
-            </div>
-          </div>
-        </>
+      {open && (
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          slides={choosenAlbum}
+          render={{ slide: NextJsImage }}
+          index={initialSlide}
+        />
       )}
     </>
   );

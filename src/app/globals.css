@@ -58,6 +58,7 @@ p {
   font-size: 1.6rem;
   font-weight: 400;
   margin: 0.67rem 0;
+  line-height: 150%;
 }
 
 /* @media (min-width: 768px) {
@@ -607,10 +608,10 @@ p {
   .theme_img,
   .themee_img {
     height: 220px;
-    transition: 0.1s ease-in;
+    transition: 0.1s ease-in-out;
   }
   .theme_img:hover {
-    scale: 1.02;
+    scale: 1.015;
   }
 }
 @media (min-width: 1660px) {
