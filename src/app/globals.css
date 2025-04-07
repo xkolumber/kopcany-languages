@@ -61,6 +61,11 @@ p {
   line-height: 150%;
 }
 
+p:empty {
+  display: block;
+  min-height: 1em;
+}
+
 /* @media (min-width: 768px) {
   h1 {
     font-size: 4rem;
