@@ -1,4 +1,4 @@
-import AboutProjectPage from "@/components/AboutProjectPage";
+import AboutProjectPage from "@/components/AboutUs/AboutProjectPage";
 import {
   dynamicDescriptionAboutProject,
   dynamicImageUrlAboutProject,

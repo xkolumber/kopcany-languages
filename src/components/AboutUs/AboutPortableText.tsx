@@ -5,9 +5,8 @@ import { PortableText } from "@portabletext/react";
 import { useEffect, useState } from "react";
 
 interface Props {
-  data: About_project;
+  data: any;
   specify: string;
-  view?: boolean;
 }
 
 interface Block {
@@ -15,7 +14,7 @@ interface Block {
   children: { text: string }[];
 }
 
-const AboutPortableText = ({ data, specify, view }: Props) => {
+const AboutPortableText = ({ data, specify }: Props) => {
   const { language } = useLanguageStore();
   const [noveData, setNoveData] = useState<Block[]>([]);
 
@@ -27,12 +26,7 @@ const AboutPortableText = ({ data, specify, view }: Props) => {
         (activity) => activity.language === language
       );
       const content = foundActivity?.content || [];
-      {
-        view && setNoveData(content.slice(0, 1));
-      }
-      {
-        !view && setNoveData(content);
-      }
+      setNoveData(content);
     }
   }, [data, language, specify]);
 

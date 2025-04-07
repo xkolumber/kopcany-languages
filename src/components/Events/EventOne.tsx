@@ -1,20 +1,19 @@
-import React from "react";
-
-import Link from "next/link";
-import Image from "next/image";
+import useLanguageStore from "@/app/cookieStore/store";
 import { My_event } from "@/lib/interface_event";
 import { urlFor } from "@/lib/sanityImageUrl";
-import { useLocale } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
 import EventPortableText from "./EventPortableText";
 
 interface Props {
   event: My_event;
 }
 const EventOne = ({ event }: Props) => {
-  const locale = useLocale();
+  const { language } = useLanguageStore();
+
   return (
     <div className={`event`}>
-      <Link href={`/${locale}/event/${event.slug.current}`}>
+      <Link href={`/event/${event.slug.current}`}>
         <Image
           src={urlFor(event.titulna_foto).url()}
           alt="Titulna foto"
@@ -25,7 +24,11 @@ const EventOne = ({ event }: Props) => {
 
         <div className="themes_padding">
           <h5 className="text_limit_h4 text-black">
-            {event.nazov_podujatia[locale as keyof typeof event.text_podujatie]}
+            {
+              event.nazov_podujatia[
+                language as keyof typeof event.text_podujatie
+              ]
+            }
           </h5>
 
           <p className="text-black">

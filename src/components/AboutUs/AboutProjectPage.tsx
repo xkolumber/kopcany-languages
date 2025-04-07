@@ -1,28 +1,24 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { urlFor } from "@/lib/sanityImageUrl";
-import { About_project } from "@/lib/interface_about_project";
-import { useQuery } from "@tanstack/react-query";
-import { getAboutProject, getPhotosAboutUs } from "@/lib/functions_server";
-import { ClipLoader } from "react-spinners";
-import NavbarSecond from "./NavbarSecond";
 import useLanguageStore from "@/app/cookieStore/store";
+import { getAboutProject, getPhotosAboutUs } from "@/lib/functions_server";
+import { About_project } from "@/lib/interface_about_project";
 import { translations } from "@/lib/languages";
-import YouTubeVideo from "./YoutubeVideo";
-import AboutPortableText from "./EventPortableText";
-import DPhotos from "./DPhotos";
-import GroupPictures from "./GroupPictures";
-import Partners from "./Partners";
+import { urlFor } from "@/lib/sanityImageUrl";
+import { useQuery } from "@tanstack/react-query";
+import Image from "next/image";
+import DPhotos from "../DPhotos";
+import GroupPictures from "../GroupPictures";
+import NavbarSecond from "../NavbarSecond";
+import Partners from "../Partners";
+import YouTubeVideo from "../YoutubeVideo";
+import AboutPortableText from "./AboutPortableText";
 import AboutProjectLoading from "./AboutProjectLoading";
 
 const AboutProjectPage = () => {
   const { language } = useLanguageStore();
   const t = translations[language];
 
-  const [photos, setPhotos] = useState<any>([]);
-
-  const { data, error, isLoading } = useQuery<About_project | null>({
+  const { data, error, isLoading } = useQuery<About_project>({
     queryKey: ["home_page_about"],
     queryFn: () => getAboutProject(),
     staleTime: 1000 * 60 * 5,
@@ -40,7 +36,6 @@ const AboutProjectPage = () => {
     refetchOnWindowFocus: false,
   });
 
-  console.log(data2);
   return (
     <>
       {isLoading && <AboutProjectLoading />}
