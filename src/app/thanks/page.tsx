@@ -1,9 +1,7 @@
-"use client";
 import Footer from "@/components/Footer";
 import NavbarSecond from "@/components/NavbarSecond";
-import { translations } from "@/lib/languages";
+import ThankElement from "@/components/ThankElement";
 import { Metadata } from "next";
-import useLanguageStore from "../cookieStore/store";
 
 export const metadata: Metadata = {
   title: "Poďakovanie",
@@ -14,15 +12,12 @@ export const metadata: Metadata = {
   },
 };
 const Page = () => {
-  const { language } = useLanguageStore();
-  const t = translations[language];
-
   return (
     <>
       <div className="padding_content gdpr intro_padding">
         <NavbarSecond black={true} />
         <div className="thanks_center">
-          <h4 className="gdpr_title">{t.thanks.message}</h4>
+          <ThankElement />
         </div>
       </div>
       <Footer />
