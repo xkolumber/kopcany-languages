@@ -1,5 +1,4 @@
 import ContactForm from "@/components/ContactForm";
-import Footer from "@/components/Footer";
 import NavbarSecond from "@/components/NavbarSecond";
 import { Metadata } from "next";
 
@@ -26,7 +25,6 @@ const Page = () => {
 
         <ContactForm />
       </div>
-      <Footer />
     </>
   );
 };

@@ -28,13 +28,23 @@ const ThemesArticle = ({ theme }: Props) => {
             {theme.nazov_temy[language as keyof typeof theme.nazov_temy]}
           </h5>
 
-          <div className="text_limit_p">
-            <ThemePortableText
-              data={theme}
-              specify="pokracovanie_text"
-              view={true}
-            />
-          </div>
+          {theme._id === "6abc49f8-db3c-466d-ac29-adde673f69df" ? (
+            <div className="text_limit_p">
+              <ThemePortableText
+                data={theme}
+                specify="pokracovanie_text"
+                view={true}
+              />
+            </div>
+          ) : (
+            <div className="text_limit_p">
+              <ThemePortableText
+                data={theme}
+                specify="uvodny_text"
+                view={true}
+              />
+            </div>
+          )}
         </div>
       </Link>
     </div>

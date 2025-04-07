@@ -234,7 +234,7 @@ export async function getThemeData(slug: string) {
         url
       }
     },
-    skupina_obrazkov3[]{
+    skupina_obrazkov_3[]{
       asset->{
         _id,
         url

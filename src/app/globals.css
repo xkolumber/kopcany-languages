@@ -583,9 +583,12 @@ p:empty {
 .themes_padding {
   background-color: #d5d5d5;
   padding: 1.3rem;
-  transition: 0.1s ease-in;
+  transition: 0.1s ease-in-out;
   color: var(--tertiary-color);
   margin-top: -0.5rem;
+}
+.themes_padding:hover {
+  background-color: #c7c3c3;
 }
 
 .theme_img,
@@ -625,8 +628,8 @@ p:empty {
     height: 260px;
   }
   .text_limit_p {
-    -webkit-line-clamp: 5;
-    line-clamp: 5;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
   }
 }
 
