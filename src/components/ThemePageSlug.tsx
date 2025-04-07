@@ -99,7 +99,7 @@ const ThemePageSlug = ({ slug }: Props) => {
               <DPhotos url="/3d_pamiatky.jpg" />
             )}
 
-            {data.skupina_obrazkov.length > 0 && (
+            {data.skupina_obrazkov && (
               <GroupPictures data={data} parameter="skupina_obrazkov" />
             )}
 
@@ -130,7 +130,7 @@ const ThemePageSlug = ({ slug }: Props) => {
               </div>
             )}
 
-            {data.skupina_obrazkov2.length > 0 && (
+            {data.skupina_obrazkov2 && (
               <GroupPictures data={data} parameter="skupina_obrazkov2" />
             )}
 
@@ -163,7 +163,7 @@ const ThemePageSlug = ({ slug }: Props) => {
               </div>
             )}
 
-            {data.skupina_obrazkov_3.length > 0 && (
+            {data.skupina_obrazkov_3 && (
               <GroupPictures data={data} parameter="skupina_obrazkov_3" />
             )}
 
